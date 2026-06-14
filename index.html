@@ -2,6 +2,11 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<script>
+/* Vynucení HTTPS — dokud GitHub Pages "Enforce HTTPS" není dostupné, přesměrujeme z http na https */
+(function(){if(location.protocol==='http:'&&location.hostname.indexOf('localhost')===-1&&location.hostname!=='127.0.0.1'){location.replace('https://'+location.host+location.pathname+location.search+location.hash);}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jazzové trio živě na svatbu, ples a firemní večírek | David Kleňha</title>
 <meta name="description" content="Jazzové trio živě — zpěv, klavír a kontrabas na svatby, plesy a firemní večírky. Vlastní ozvučení, repertoár pro všechny generace, dojezd po celé ČR i do zahraničí.">
@@ -167,10 +172,14 @@ img{max-width:100%;display:block}
 .mcard{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;max-width:150px;margin:0 auto;
   animation:popIn .45s cubic-bezier(.2,.8,.2,1) both}
 @keyframes popIn{from{opacity:0;transform:translateY(18px) scale(.92)}to{opacity:1;transform:none}}
-.mfig{width:100%;aspect-ratio:3/4;border-radius:999px 999px 20px 20px;position:relative;overflow:hidden;animation:breathe 3.6s ease-in-out infinite}
-.mfig.r2{border-radius:24px}
-.mfig .h{width:28%;aspect-ratio:1;border-radius:50%;background:rgba(20,48,47,.55);position:absolute;top:15%;left:50%;transform:translateX(-50%)}
-.mfig .b{width:62%;height:40%;border-radius:999px 999px 0 0;background:rgba(20,48,47,.55);position:absolute;bottom:0;left:50%;transform:translateX(-50%)}
+.mfig{width:100%;aspect-ratio:3/4;position:relative;overflow:hidden;border-radius:12px}
+.mfig .blob{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center}
+.mfig .blob svg{width:96%;height:96%;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));transform-origin:center;animation:mblobwob 7s ease-in-out infinite}
+.mfig img{position:absolute;left:50%;bottom:0;z-index:2;width:auto;object-fit:contain;object-position:bottom center;
+  transform:translateX(-50%) translateX(var(--mx,0%));filter:drop-shadow(0 6px 8px rgba(0,0,0,.25));animation:mfloat 5s ease-in-out infinite}
+@keyframes mfloat{0%,100%{transform:translateX(-50%) translateX(var(--mx,0%)) translateY(0)}50%{transform:translateX(-50%) translateX(var(--mx,0%)) translateY(-7px)}}
+@keyframes mblobwob{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.02) rotate(1.4deg)}}
+@media (prefers-reduced-motion:reduce){.mfig img,.mfig .blob svg{animation:none}}
 @keyframes breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .mlabel{text-align:center;font-size:14px;font-weight:600;color:var(--cream)}
 /* add/remove control slot (combined) */
@@ -649,7 +658,7 @@ main{position:relative;z-index:2}
       <div class="ceq-wrap">
         <div class="ceq-host" id="ceqHost"></div>
         <div class="blob">
-          <div class="ph"><span class="ico">🎤</span>[ foto Davida<br>bez pozadí ]</div>
+          <img src="https://jazztrio.cz/uvodni_foto.png" alt="David Kleňha — zpěvák a bandleader" loading="eager">
         </div>
         <div class="name-badge">David&nbsp;Kleňha<span>zpěvák &amp; bandleader</span></div>
       </div>
@@ -1274,9 +1283,40 @@ main{position:relative;z-index:2}
   }
 
   /* ---- band builder ---- */
-  var lineup=['Zpěv','Klavír','Kontrabas','Bicí','Trumpeta','Saxofon','Pozoun'];
+  var BASE='https://jazztrio.cz/hudebnici/';
+  // 10 tvarů blobu (stejné jako v ladicím nástroji)
+  var MBLOBS=[
+   "M40,-58C54,-49,68,-40,74,-26C80,-12,78,8,70,24C62,40,48,52,31,62C14,72,-6,80,-26,76C-46,72,-66,56,-74,36C-82,16,-78,-8,-66,-27C-54,-46,-34,-60,-13,-67C8,-74,26,-67,40,-58Z",
+   "M55,-42C68,-28,72,-6,68,14C64,34,52,52,34,64C16,76,-8,82,-30,75C-52,68,-72,48,-78,25C-84,2,-76,-24,-60,-42C-44,-60,-20,-70,3,-72C26,-74,42,-56,55,-42Z",
+   "M48,-50C60,-38,64,-18,66,3C68,24,68,46,55,60C42,74,16,80,-8,78C-32,76,-54,66,-68,47C-82,28,-88,0,-80,-22C-72,-44,-50,-60,-27,-67C-4,-74,18,-72,48,-50Z",
+   "M62,-35C77,-18,84,7,77,28C70,49,49,66,25,72C1,78,-25,73,-50,60C-75,47,-99,26,-99,2C-99,-22,-75,-46,-51,-60C-27,-74,-3,-78,16,-72C35,-66,47,-52,62,-35Z",
+   "M38,-56C52,-48,67,-42,75,-29C83,-16,84,4,76,21C68,38,51,52,33,63C15,74,-7,82,-29,77C-51,72,-73,54,-80,32C-87,10,-79,-17,-65,-37C-51,-57,-31,-70,-9,-72C13,-74,24,-64,38,-56Z",
+   "M58,-46C73,-32,81,-9,76,12C71,33,53,52,32,64C11,76,-14,81,-39,72C-64,63,-89,40,-91,15C-93,-10,-72,-37,-50,-54C-28,-71,-4,-78,17,-73C38,-68,43,-60,58,-46Z",
+   "M44,-54C56,-44,62,-25,66,-4C70,17,72,40,60,56C48,72,22,81,-3,80C-28,79,-53,68,-69,49C-85,30,-92,3,-84,-19C-76,-41,-54,-58,-31,-66C-8,-74,16,-72,44,-54Z",
+   "M52,-48C69,-36,82,-15,80,6C78,27,61,48,40,61C19,74,-6,79,-31,71C-56,63,-81,42,-86,18C-91,-6,-76,-33,-56,-50C-36,-67,-10,-74,12,-71C34,-68,35,-60,52,-48Z",
+   "M36,-58C50,-50,64,-43,73,-30C82,-17,86,3,78,20C70,37,50,51,31,62C12,73,-8,81,-31,77C-54,73,-80,57,-86,35C-92,13,-78,-15,-62,-35C-46,-55,-28,-67,-7,-70C14,-73,22,-66,36,-58Z",
+   "M60,-40C76,-23,86,2,79,23C72,44,49,61,26,69C3,77,-22,76,-46,63C-70,50,-93,25,-92,1C-91,-23,-66,-46,-44,-61C-22,-76,-1,-83,18,-77C37,-71,44,-57,60,-40Z"
+  ];
+  // pořadí + soubor + naladěné hodnoty (postava %, blob ×, posun dolů %, posun strany %, tvar 1-10)
+  var MUS=[
+   {role:'Zpěv',     file:'vocal.png',     fh:63, bs:1.20, mb:16, mx:-13, shp:7},
+   {role:'Klavír',   file:'piano.png',     fh:57, bs:1.15, mb:22, mx:-7,  shp:6},
+   {role:'Kontrabas',file:'bass.png',      fh:70, bs:1.30, mb:15, mx:-4,  shp:2},
+   {role:'Bicí',     file:'drums.png',     fh:55, bs:1.35, mb:23, mx:-3,  shp:1},
+   {role:'Trumpeta', file:'trumpet.png',   fh:66, bs:1.20, mb:13, mx:0,   shp:7},
+   {role:'Saxofon',  file:'saxophone.png', fh:64, bs:1.20, mb:16, mx:-21, shp:9},
+   {role:'Pozoun',   file:'trombone.png',  fh:63, bs:1.15, mb:15, mx:1,   shp:6}
+  ];
+  var lineup=MUS.map(function(m){return m.role;});
   var names={2:'Jazz Duo',3:'Jazz Trio',4:'Jazz Kvartet',5:'Jazz Kvintet',6:'Jazz Sextet',7:'Jazz Septet'};
-  var palette=['#7fb5a8','#e8e0c8','#9dc2b6','#d9cfae','#7fb5a8','#e8e0c8','#9dc2b6'];
+  function musFigureHTML(m){
+    var d=MBLOBS[(m.shp-1)%MBLOBS.length];
+    var sc=(m.bs*0.95).toFixed(3);
+    return '<div class="blob" aria-hidden="true"><svg viewBox="-105 -105 210 210" preserveAspectRatio="xMidYMid meet">'
+      +'<path fill="#f4f0e4" d="'+d+'" transform="scale('+sc+')"/></svg></div>'
+      +'<img src="'+BASE+m.file+'" alt="'+m.role+'" loading="lazy" '
+      +'style="height:'+m.fh+'%;margin-bottom:'+m.mb+'%;--mx:'+m.mx+'%">';
+  }
   var count=3,MIN=2,MAX=7;
   // balanced columns incl. the control slot (count+1 items) on desktop
   function colsFor(total){
@@ -1296,8 +1336,8 @@ main{position:relative;z-index:2}
     box.style.setProperty('--cols',colsFor(total));
     for(var i=0;i<count;i++){
       var card=el('div','animation-delay:'+(i*0.05)+'s');card.className='mcard';
-      var fig=el('div');fig.className='mfig'+(i%2?' r2':'');fig.style.background=palette[i];
-      fig.innerHTML='<div class="h"></div><div class="b"></div>';
+      var fig=el('div');fig.className='mfig';
+      fig.innerHTML=musFigureHTML(MUS[i]);
       var lab=el('div',null,lineup[i]);lab.className='mlabel';
       card.appendChild(fig);card.appendChild(lab);box.appendChild(card);
     }
