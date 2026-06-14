@@ -1352,7 +1352,14 @@ main{position:relative;z-index:2}
   }
   function setCount(n){count=Math.max(MIN,Math.min(MAX,n));renderHead();renderMusicians();renderSteps();}
   setCount(3);
-  var bResize;window.addEventListener('resize',function(){clearTimeout(bResize);bResize=setTimeout(renderMusicians,180);});
+  // Překreslit jen když se změní ŠÍŘKA okna. Na mobilu scroll mění výšku (lišta prohlížeče
+  // se skrývá/ukazuje) a spouští 'resize' — to ignorujeme, jinak by sestava problikávala.
+  var lastW=window.innerWidth,bResize;
+  window.addEventListener('resize',function(){
+    if(window.innerWidth===lastW)return;
+    lastW=window.innerWidth;
+    clearTimeout(bResize);bResize=setTimeout(renderMusicians,180);
+  });
 
   /* ---- repertoire ---- */
   var catDefs=[{k:'all',l:'Vše'},{k:'standards',l:'Jazzové standardy'},{k:'pop',l:'Pop v jazzovém kabátě'},{k:'ballads',l:'Ploužáky'},{k:'czech',l:'České klasiky'}];
