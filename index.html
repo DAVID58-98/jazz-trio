@@ -130,8 +130,8 @@ img{max-width:100%;display:block}
 .ceq-host{position:absolute;inset:0;z-index:1;pointer-events:none}
 .ceq-host .bar{position:absolute;top:50%;left:50%;width:2px;margin-left:-1px;transform-origin:50% 0}
 .ceq-host .bar i{position:absolute;top:31%;left:0;width:2.4px;border-radius:2px;background:var(--emerald)}
-.hero-blob-svg{position:relative;z-index:2;width:88%;aspect-ratio:200/240}
-.hero-blob-svg svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(6px 8px 0 rgba(15,82,87,.14))}
+.hero-blob-svg{position:relative;z-index:2;width:84%;aspect-ratio:200/250;display:flex;align-items:center;justify-content:center}
+.hero-blob-svg svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(6px 8px 0 rgba(15,82,87,.16))}
 .name-badge{position:absolute;bottom:6%;left:-2%;z-index:4;background:var(--cream);border:1.5px solid var(--petrol);
   border-radius:16px;padding:11px 18px;font-family:var(--font-hero);font-weight:700;font-size:16px;color:var(--petrol);
   box-shadow:5px 5px 0 rgba(15,82,87,.18);line-height:1.15}
@@ -161,15 +161,11 @@ img{max-width:100%;display:block}
 .mcard{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;max-width:150px;margin:0 auto;
   animation:popIn .45s cubic-bezier(.2,.8,.2,1) both}
 @keyframes popIn{from{opacity:0;transform:translateY(18px) scale(.92)}to{opacity:1;transform:none}}
-.mfig{width:100%;aspect-ratio:3/4;position:relative;overflow:hidden;border-radius:12px}
+.mfig{width:100%;aspect-ratio:1;position:relative;border-radius:12px}
 .mfig .mblob{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center}
-.mfig .mblob svg{width:96%;height:96%;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));transform-origin:center;animation:mblobwob 7s ease-in-out infinite}
-.mfig img{position:absolute;left:50%;bottom:0;z-index:2;width:auto;object-fit:contain;object-position:bottom center;
-  transform:translateX(-50%) translateX(var(--mx,0%));filter:drop-shadow(0 6px 8px rgba(0,0,0,.25));animation:mfloat 5s ease-in-out infinite}
-@keyframes mfloat{0%,100%{transform:translateX(-50%) translateX(var(--mx,0%)) translateY(0)}50%{transform:translateX(-50%) translateX(var(--mx,0%)) translateY(-7px)}}
-@keyframes mblobwob{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.02) rotate(1.4deg)}}
-@media (prefers-reduced-motion:reduce){.mfig img,.mfig .mblob svg{animation:none}}
-@keyframes breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.mfig .mblob svg{width:100%;height:100%;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
+.mfig img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+  width:62%;height:62%;object-fit:contain;object-position:center}
 .mlabel{text-align:center;font-size:14px;font-weight:600;color:var(--cream)}
 /* add/remove control slot (combined) */
 .ctrlslot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;width:100%;max-width:150px;margin:0 auto;
@@ -647,10 +643,15 @@ main{position:relative;z-index:2}
       <div class="ceq-wrap">
         <div class="ceq-host" id="ceqHost"></div>
         <div class="hero-blob-svg">
-          <svg viewBox="0 0 200 240" preserveAspectRatio="xMidYMid meet" aria-label="David Kleňha — zpěvák a bandleader">
-            <defs><clipPath id="heroBlobClip"><path d="M44,-67C58,-59,70,-46,75,-31C80,-16,77,1,71,16C66,31,58,44,46,54C34,63,17,69,-1,71C-19,72,-38,69,-52,59C-65,49,-72,32,-74,15C-77,-3,-74,-21,-65,-35C-57,-49,-43,-59,-29,-67C-15,-74,0,-79,15,-78C30,-77,30,-75,44,-67Z" transform="translate(100 150) scale(1.28)"/></clipPath></defs>
-            <path class="hero-blob-shape" fill="#0f5257" d="M44,-67C58,-59,70,-46,75,-31C80,-16,77,1,71,16C66,31,58,44,46,54C34,63,17,69,-1,71C-19,72,-38,69,-52,59C-65,49,-72,32,-74,15C-77,-3,-74,-21,-65,-35C-57,-49,-43,-59,-29,-67C-15,-74,0,-79,15,-78C30,-77,30,-75,44,-67Z" transform="translate(100 150) scale(1.28)"/>
-            <image href="https://jazztrio.cz/uvodni_foto.png" clip-path="url(#heroBlobClip)" preserveAspectRatio="xMidYMid slice" x="36" y="14" width="128" height="226"/>
+          <svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid meet" aria-label="David Kleňha — zpěvák a bandleader">
+            <defs>
+              <clipPath id="heroClip">
+                <path d="M44,-67C58,-59,70,-46,75,-31C80,-16,77,1,71,16C66,31,58,44,46,54C34,63,17,69,-1,71C-19,72,-38,69,-52,59C-65,49,-72,32,-74,15C-77,-3,-74,-21,-65,-35C-57,-49,-43,-59,-29,-67C-15,-74,0,-79,15,-78C30,-77,30,-75,44,-67Z" transform="translate(100 165) scale(1.32)"/>
+                <rect x="58" y="0" width="84" height="170"/>
+              </clipPath>
+            </defs>
+            <path class="hero-blob-shape" fill="#0f5257" d="M44,-67C58,-59,70,-46,75,-31C80,-16,77,1,71,16C66,31,58,44,46,54C34,63,17,69,-1,71C-19,72,-38,69,-52,59C-65,49,-72,32,-74,15C-77,-3,-74,-21,-65,-35C-57,-49,-43,-59,-29,-67C-15,-74,0,-79,15,-78C30,-77,30,-75,44,-67Z" transform="translate(100 165) scale(1.32)"/>
+            <image href="https://jazztrio.cz/uvodni_foto.png" clip-path="url(#heroClip)" preserveAspectRatio="xMidYMax meet" x="34" y="20" width="132" height="230"/>
           </svg>
         </div>
         <div class="name-badge">David&nbsp;Kleňha<span>zpěvák &amp; bandleader</span></div>
@@ -1304,11 +1305,9 @@ main{position:relative;z-index:2}
   var names={2:'Jazz Duo',3:'Jazz Trio',4:'Jazz Kvartet',5:'Jazz Kvintet',6:'Jazz Sextet',7:'Jazz Septet'};
   function musFigureHTML(m){
     var d=MBLOBS[(m.shp-1)%MBLOBS.length];
-    var sc=(m.bs*0.95).toFixed(3);
     return '<div class="mblob" aria-hidden="true"><svg viewBox="-105 -105 210 210" preserveAspectRatio="xMidYMid meet">'
-      +'<path fill="#f4f0e4" d="'+d+'" transform="scale('+sc+')"/></svg></div>'
-      +'<img src="'+BASE+m.file+'" alt="'+m.role+'" loading="lazy" '
-      +'style="height:'+m.fh+'%;margin-bottom:'+m.mb+'%;--mx:'+m.mx+'%">';
+      +'<path fill="#f4f0e4" d="'+d+'" transform="scale(1.18)"/></svg></div>'
+      +'<img src="'+BASE+m.file+'" alt="'+m.role+'" loading="lazy">';
   }
   var count=3,MIN=2,MAX=7;
   // balanced columns incl. the control slot (count+1 items) on desktop
