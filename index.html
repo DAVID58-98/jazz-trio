@@ -147,9 +147,11 @@ img{max-width:100%;display:block}
 
 /* ---------- builder: inset dark tile (cream shows around) ---------- */
 .tile-dark{background:var(--petrol);border-radius:var(--radius-lg);position:relative;overflow:hidden;color:var(--cream);
-  padding:clamp(32px,5vw,64px) clamp(20px,4vw,52px)}
+  padding:clamp(32px,5vw,64px) clamp(20px,4vw,52px);transform:translateZ(0);contain:layout paint}
 .tile-dark .vinyl{position:absolute;bottom:-200px;left:-160px;width:480px;aspect-ratio:1;border-radius:50%;
-  background:repeating-radial-gradient(circle at center,rgba(127,181,168,.28) 0,rgba(127,181,168,.28) 1.5px,transparent 1.5px,transparent 12px);pointer-events:none}
+  background:repeating-radial-gradient(circle at center,rgba(127,181,168,.28) 0,rgba(127,181,168,.28) 1.5px,transparent 1.5px,transparent 12px);pointer-events:none;
+  transform:translateZ(0);backface-visibility:hidden;contain:paint}
+@media (max-width:860px){.tile-dark .vinyl{display:none}}
 .builder-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:clamp(22px,3.5vw,34px)}
 .builder-top{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
 .builder-eyebrow{font-family:var(--font-body);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mint)}
@@ -355,6 +357,15 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:22px clamp(18px,4
 .jt-cookie-btn-primary:hover{background:var(--petrol);border-color:var(--petrol)}
 .jt-cookie-btn-secondary{background:var(--white);color:var(--petrol);border-color:var(--line)}
 .jt-cookie-btn-secondary:hover{border-color:var(--emerald);color:var(--emerald)}
+@media (max-width:560px){
+  .jt-cookie-overlay{left:0;right:0;bottom:14px;display:none;padding:0 14px}
+  .jt-cookie-overlay.jt-active{display:flex;justify-content:center}
+  .jt-cookie-card{width:100%;max-width:340px;padding:18px;padding-top:46px;margin-top:36px;border-radius:16px}
+  .jt-cookie-badge{width:66px;height:66px;font-size:30px;top:-36px}
+  .jt-cookie-title{font-size:16px}
+  .jt-cookie-text{font-size:12.5px;margin-bottom:14px}
+  .jt-cookie-btn{padding:10px 14px;font-size:13px}
+}
 .jt-cookie-btn-text{background:transparent;color:var(--ink-soft);border-color:transparent;font-size:13px}
 .jt-cookie-btn-text:hover{color:var(--emerald)}
 .jt-cookie-settings{position:fixed;inset:0;z-index:9001;background:rgba(12,31,30,.62);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px}
@@ -964,7 +975,7 @@ main{position:relative;z-index:2}
   <div class="jt-cookie-card">
     <div class="jt-cookie-badge">🍪</div>
     <button class="jt-cookie-close" onclick="jtCookieAcceptNecessary()" aria-label="Zavřít">&times;</button>
-    <h3 class="jt-cookie-title" id="jtCookieTitle">Než spustíme hudbu …</h3>
+    <h3 class="jt-cookie-title" id="jtCookieTitle">Než začneme hrát …</h3>
     <p class="jt-cookie-text">
       Používáme cookies, abychom věděli, kolik lidí si nás našlo. Můžete je odmítnout, web bude fungovat dál.
       Detaily v <a href="gdpr.html" target="_blank" rel="noopener">Zásadách ochrany osobních údajů</a>.
