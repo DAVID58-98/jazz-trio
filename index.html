@@ -6,14 +6,29 @@
 <title>Jazzové trio živě na svatbu, ples a firemní večírek | David Kleňha</title>
 <meta name="description" content="Jazzové trio živě — zpěv, klavír a kontrabas na svatby, plesy a firemní večírky. Vlastní ozvučení, repertoár pro všechny generace, dojezd po celé ČR i do zahraničí.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.jazztrio.cz/">
+<link rel="canonical" href="https://jazztrio.cz/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Jazzové trio — David Kleňha">
 <meta property="og:title" content="Jazzové trio živě na svatbu, ples a firemní večírek | David Kleňha">
-<meta property="og:description" content="Jazzové trio živě – zpěv, klavír a kontrabas. Vlastní ozvučení, repertoár pro všechny generace.">
+<meta property="og:description" content="Jazzové trio živě — zpěv, klavír a kontrabas. Vlastní ozvučení, repertoár pro všechny generace.">
 <meta property="og:locale" content="cs_CZ">
-<meta property="og:url" content="https://www.jazztrio.cz/">
-<meta property="og:image" content="https://www.jazztrio.cz/assets/og.jpg">
+<meta property="og:url" content="https://jazztrio.cz/">
+<meta property="og:image" content="https://jazztrio.cz/SEO/og-image.png">
+<meta property="og:image:secure_url" content="https://jazztrio.cz/SEO/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jazzové trio David Kleňha — živá hudba na svatby a firemní akce">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jazzové trio živě na svatbu, ples a firemní večírek | David Kleňha">
+<meta name="twitter:description" content="Jazzové trio živě — zpěv, klavír a kontrabas. Vlastní ozvučení, repertoár pro všechny generace.">
+<meta name="twitter:image" content="https://jazztrio.cz/SEO/twitter-card.png">
+
+<!-- Favicony -->
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0f5257">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -111,10 +126,13 @@ img{max-width:100%;display:block}
 
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:96px;padding-bottom:40px}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;width:100%;position:relative;z-index:3}
-.hero h1{font-family:var(--font-hero);font-weight:800;font-size:clamp(30px,4.4vw,54px);letter-spacing:-.02em;line-height:1.12}
+.hero h1,.hero-h1{font-family:var(--font-hero);font-weight:800;font-size:clamp(30px,4.4vw,54px);letter-spacing:-.02em;line-height:1.12}
 .hero h1 .accent{color:var(--emerald)}
-.hero-slogans{display:grid;overflow:hidden}
-.slogan{grid-area:1/1;opacity:1;transform:translateY(0);
+.slogan .accent{color:var(--emerald)}
+.hero-h1{color:var(--ink)}
+.hero-slogans{display:grid;overflow:hidden;margin-top:14px;min-height:2.6em}
+.slogan{grid-area:1/1;opacity:1;transform:translateY(0);font-family:var(--font-head);font-weight:600;
+  font-size:clamp(17px,2.1vw,24px);line-height:1.2;color:var(--ink-soft);
   transition:opacity .55s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
 /* odchozí: sjede dolů a zmizí */
 .slogan.out{opacity:0;transform:translateY(40px);pointer-events:none}
@@ -225,6 +243,7 @@ img{max-width:100%;display:block}
 @keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .gal-item{position:relative;width:clamp(240px,30vw,320px);aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;background:var(--cream-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .gal-item.tall{aspect-ratio:3/4;width:clamp(200px,24vw,260px)}
+.gal-item img{width:100%;height:100%;object-fit:cover}
 .gal-ph{color:var(--ink-soft);font-size:13px;text-align:center;padding:20px;display:flex;flex-direction:column;gap:8px;align-items:center}
 .gal-ph .ico{font-size:26px}
 .gal-item.video::after{content:"\25B6";position:absolute;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--emerald);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:var(--shadow)}
@@ -577,6 +596,47 @@ main{position:relative;z-index:2}
 .drawer-cta:hover{background:var(--mint);color:var(--petrol)}
 .drawer-sign{opacity:.7;font-size:13px;color:var(--mint-soft);text-align:center}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "Jazzové trio — David Kleňha",
+  "url": "https://jazztrio.cz/",
+  "logo": "https://jazztrio.cz/favicon/favicon-512.png",
+  "image": "https://jazztrio.cz/SEO/og-image.png",
+  "description": "Jazzové trio živě — zpěv, klavír a kontrabas na svatby, plesy a firemní večírky. Vlastní ozvučení, repertoár pro všechny generace, dojezd po celé ČR.",
+  "genre": ["Jazz", "Swing", "Šanson"],
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "Praha, Česká republika"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Česká republika"
+  },
+  "email": "info@davidklenha.cz",
+  "telephone": "+420607828970",
+  "member": {
+    "@type": "Person",
+    "name": "David Kleňha",
+    "roleName": "zpěvák a bandleader",
+    "url": "https://www.davidklenha.cz/"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "35",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "sameAs": [
+    "https://www.youtube.com/@davidklenha9168",
+    "https://www.instagram.com/david_klenha/",
+    "https://www.facebook.com/david.klenha.7",
+    "https://www.davidklenha.cz/"
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -635,7 +695,8 @@ main{position:relative;z-index:2}
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="eyebrow">Jazzové trio živě</span>
-      <h1 class="hero-slogans" id="heroSlogans"></h1>
+      <h1 class="hero-h1">Jazzové trio živě — na svatbu, ples a firemní večírek</h1>
+      <div class="hero-slogans" id="heroSlogans" aria-hidden="true"></div>
       <p class="hero-sub">Zpěv, klavír a kontrabas naživo. Žádné playbacky — jen tři muzikanti, kteří umí naladit jakýkoliv sál i zahradu.</p>
       <div class="hero-cta">
         <a href="#builder" class="btn btn-primary">Sestavte si kapelu</a>
@@ -816,7 +877,7 @@ main{position:relative;z-index:2}
   <div class="wrap">
     <span class="eyebrow">Galerie</span>
     <h2 class="section-title">Jak to u nás vypadá &amp; zní</h2>
-    <p class="section-lead">Autentické fotky a videa z akcí — žádné aranžované studio. Sem doplníme vaše skutečné záběry.</p>
+    <p class="section-lead">Autentické fotky z našich vystoupení — svatby, plesy i firemní večírky. Žádné aranžované studio, jen živá jazzová kapela v akci.</p>
   </div>
   <div class="gal-viewport">
     <div class="gal-track" id="galTrack"></div>
@@ -1415,13 +1476,14 @@ main{position:relative;z-index:2}
   $('repPrev').addEventListener('click',function(){pageSongs(-1);});
   renderSongs();
 
-  /* ---- gallery (duplicate set, slow) ---- */
+  /* ---- gallery (reálné fotky z /foto/, plynulá smyčka) ---- */
   (function(){
-    var items=[{t:'photo'},{t:'video'},{t:'photo',tall:true},{t:'photo'},{t:'video'},{t:'photo',tall:true}];
-    var track=$('galTrack');
-    function build(){items.forEach(function(it){
-      var d=el('div');d.className='gal-item'+(it.tall?' tall':'')+(it.t==='video'?' video':'');
-      d.innerHTML='<div class="gal-ph"><span class="ico">'+(it.t==='video'?'🎬':'📷')+'</span>'+(it.t==='video'?'Video — YouTube':'Foto z akce')+'</div>';
+    var GBASE='https://jazztrio.cz/foto/';
+    var files=['foto_1.jpeg','foto_2.JPG','foto_3.jpg','foto_4.JPG','foto_5.jpg','foto_6.jpg','foto_7.jpg','foto_8.jpg','foto_9.jpg'];
+    var track=$('galTrack');if(!track)return;
+    function build(){files.forEach(function(f,i){
+      var d=el('div');d.className='gal-item tall';
+      d.innerHTML='<img src="'+GBASE+f+'" alt="Jazzové trio David Kleňha živě — fotka z vystoupení '+(i+1)+'" loading="lazy">';
       track.appendChild(d);});}
     build();build();
   })();
