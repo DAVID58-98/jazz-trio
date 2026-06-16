@@ -1,0 +1,26 @@
+{
+  "name": "Jazz Trio — David Kleňha",
+  "short_name": "Jazz Trio",
+  "theme_color": "#0f5257",
+  "background_color": "#f4f0e4",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
