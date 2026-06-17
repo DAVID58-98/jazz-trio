@@ -232,13 +232,15 @@ img{max-width:100%;display:block}
 .song-tile .a{font-size:12px;color:var(--mint-soft)}
 .rep-hint{text-align:center;font-size:12.5px;color:var(--mint-soft);margin-top:16px}
 @media (max-width:560px){
-  .songs{grid-template-columns:1fr}
-  .songs-viewport{height:360px}
-  .rep-arrow{width:42px;height:42px;font-size:21px}
+  .songs{grid-template-columns:1fr;position:static;transform:none!important;animation:none!important}
+  .songs-viewport{height:auto;max-height:420px;overflow-y:auto;-webkit-overflow-scrolling:touch;
+    -webkit-mask:none;mask:none;padding-right:2px}
+  .rep-arrow{display:none}
+  .rep-player{display:block}
 }
 
 /* ---------- gallery (slider — šipky, tečky, swipe; jako video) ---------- */
-.gal-slider{display:flex;align-items:center;gap:12px;margin-top:40px}
+.gal-slider{display:flex;align-items:center;gap:12px;margin-top:40px;max-width:880px;margin-left:auto;margin-right:auto}
 .gal-arrow{flex-shrink:0;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);
   color:var(--emerald);font-size:26px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;line-height:1}
 .gal-arrow:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
@@ -347,7 +349,9 @@ img{max-width:100%;display:block}
 @media (max-width:680px){.calc-grid{grid-template-columns:1fr}}
 .field{display:flex;flex-direction:column;gap:8px}.field.full{grid-column:1/-1}
 .field label{font-size:14px;font-weight:500;color:var(--cream)}
-.field input,.field textarea{font-family:var(--font-body);font-size:15px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(157,194,182,.24);color:#fff;width:100%;transition:.25s}
+.field input,.field textarea{font-family:var(--font-body);font-size:15px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(157,194,182,.24);color:#fff;width:100%;box-sizing:border-box;transition:.25s}
+.field input[type=date]{-webkit-appearance:none;appearance:none;min-height:52px;line-height:1.2}
+.field input[type=date]::-webkit-date-and-time-value{text-align:left}
 .field textarea{resize:vertical;min-height:84px}
 .field input::placeholder,.field textarea::placeholder{color:rgba(238,243,239,.45)}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--mint);background:rgba(255,255,255,.11)}
@@ -935,7 +939,7 @@ main{position:relative;z-index:2}
 <section class="section reveal" id="gallery">
   <div class="wrap">
     <span class="eyebrow">Galerie</span>
-    <h2 class="section-title">Jak to u nás vypadá &amp; zní</h2>
+    <h2 class="section-title">Jak to u nás vypadá</h2>
     <p class="section-lead">Autentické fotky z našich vystoupení — svatby, plesy i firemní večírky. Žádné aranžované studio, jen živá jazzová kapela v akci.</p>
   </div>
   <div class="gal-slider">
@@ -954,8 +958,8 @@ main{position:relative;z-index:2}
       <div class="map-wrap">
         <div>
           <span class="eyebrow">Kde hrajeme</span>
-          <h2 class="section-title">Rádi za vámi přijedeme kamkoliv</h2>
-          <p class="section-lead">Domov máme v Praze a Středočeském kraji, ale vyrazíme za vámi po celé republice i do zahraničí. Cílíme i na akce v Německu a Rakousku.</p>
+          <h2 class="section-title">Rádi za vámi přijedeme</h2>
+          <p class="section-lead">Domov máme v Praze, ale vyrazíme za vámi po celé republice i do zahraničí.</p>
           <div class="legend">
             <div class="legend-row"><span class="legend-dot" style="background:var(--mint)"></span> Praha &amp; Středočeský kraj — náš domov</div>
             <div class="legend-row"><span class="legend-dot" style="background:#3a564f"></span> Zbytek ČR — rádi přijedeme</div>
@@ -974,7 +978,7 @@ main{position:relative;z-index:2}
     <div class="center">
       <span class="eyebrow">Reference</span>
       <h2 class="section-title">Co říkají pořadatelé</h2>
-      <p class="section-lead">Pár ohlasů od lidí, pro které jsme hráli.</p>
+      <p class="section-lead">Ohlasy od lidí, pro které jsme hráli.</p>
     </div>
     <div class="rev-slider">
       <button class="rev-arrow prev" id="revPrev" aria-label="Předchozí recenze">‹</button>
@@ -1600,9 +1604,21 @@ main{position:relative;z-index:2}
     });
   }
   var repPaused=false,repHalf=0;
+  var repMobile=window.matchMedia('(max-width:560px)');
   function renderSongs(){
     var box=$('songs');box.innerHTML='';
     var list=flatList(curCat);
+    if(repMobile.matches){
+      // mobil: jednoduchý svisle scrollovatelný seznam, listování prstem
+      box.classList.remove('auto');box.style.transform='';box.style.removeProperty('--dur');
+      for(var j=0;j<list.length;j++){
+        var sm=list[j];var tm=el('div');tm.className='song-tile';
+        tm.innerHTML='<span class="t">'+sm.t+'</span><span class="a">'+sm.a+'</span>';box.appendChild(tm);
+      }
+      var vpm=document.querySelector('.songs-viewport');if(vpm)vpm.scrollTop=0;
+      renderCats();
+      return;
+    }
     // duplicate list once for a seamless -50% loop
     for(var pass=0;pass<2;pass++){for(var i=0;i<list.length;i++){
       var s=list[i];var t=el('div');t.className='song-tile';
@@ -1620,6 +1636,8 @@ main{position:relative;z-index:2}
       box.classList.add('auto');box.style.transform='';repPaused=false;repOffset=0;
     });
   }
+  // překreslit při změně orientace/velikosti (přechod mobil <-> desktop)
+  repMobile.addEventListener('change',renderSongs);
   // arrow paging: switch to manual, step by ~viewport height
   var repOffset=0;
   function pageSongs(dir){
