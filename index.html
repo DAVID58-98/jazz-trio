@@ -244,6 +244,28 @@ img{max-width:100%;display:block}
 .gal-item{position:relative;width:clamp(240px,30vw,320px);aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;background:var(--cream-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .gal-item.tall{aspect-ratio:3/4;width:clamp(200px,24vw,260px)}
 .gal-item img{width:100%;height:100%;object-fit:cover}
+.gal-item{cursor:pointer}
+.gal-item::after{content:"";position:absolute;inset:0;background:rgba(15,82,87,0);transition:background .2s}
+.gal-item:hover::after{background:rgba(15,82,87,.12)}
+
+/* lightbox galerie */
+.lb{position:fixed;inset:0;z-index:130;background:rgba(15,28,28,.9);display:flex;align-items:center;justify-content:center;
+  padding:20px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.lb.show{opacity:1;visibility:visible}
+.lb-stage{position:relative;max-width:min(1100px,92vw);max-height:86vh;display:flex;align-items:center;justify-content:center}
+.lb-stage img{max-width:100%;max-height:86vh;border-radius:12px;display:block;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);
+  transform:scale(.96);transition:transform .25s;touch-action:pan-y}
+.lb.show .lb-stage img{transform:scale(1)}
+.lb-close{position:fixed;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:none;background:var(--cream);
+  color:var(--petrol);font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);transition:transform .2s;z-index:2}
+.lb-close:hover{transform:scale(1.08)}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:none;
+  background:rgba(244,240,228,.92);color:var(--petrol);font-size:30px;cursor:pointer;display:flex;align-items:center;
+  justify-content:center;line-height:1;z-index:2;transition:transform .2s,background .2s}
+.lb-nav:hover{background:var(--cream);transform:translateY(-50%) scale(1.08)}
+.lb-prev{left:18px}.lb-next{right:18px}
+@media (max-width:560px){.lb-nav{width:44px;height:44px;font-size:26px}.lb-prev{left:8px}.lb-next{right:8px}.lb-close{top:8px;right:8px}}
 .gal-ph{color:var(--ink-soft);font-size:13px;text-align:center;padding:20px;display:flex;flex-direction:column;gap:8px;align-items:center}
 .gal-ph .ico{font-size:26px}
 .gal-item.video::after{content:"\25B6";position:absolute;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--emerald);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:var(--shadow)}
@@ -506,18 +528,50 @@ main{position:relative;z-index:2}
   padding:clamp(26px,4vw,44px) clamp(22px,4vw,46px);position:relative;overflow:hidden}
 .player-tile .eyebrow{color:var(--emerald)}.player-tile .eyebrow::before{background:var(--emerald)}
 .player-tile .section-title{color:var(--petrol)}
-.player-list{display:flex;flex-direction:column;gap:12px;margin-top:24px;width:100%}
-.track{display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid var(--line);
-  border-radius:16px;padding:14px 20px;transition:transform .2s,box-shadow .2s;width:100%}
-.track.active,.track:hover{transform:translateY(-2px);box-shadow:var(--shadow-soft)}
-.track-play{flex-shrink:0;width:46px;height:46px;border-radius:50%;border:none;background:var(--emerald);color:#fff;
-  font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s}
-.track-play:hover{transform:scale(1.08);background:var(--petrol)}
-.track-meta{flex:1;min-width:0}
-.track-meta .tt{font-size:15px;font-weight:600;color:var(--petrol)}
-.track-meta .ta{font-size:12.5px;color:var(--ink-soft)}
-.track-eq{flex-shrink:0;display:flex;align-items:flex-end;gap:3px;height:26px;width:42px;justify-content:flex-end}
-.track-eq i{width:4px;border-radius:2px;background:var(--emerald);height:5px;transition:height .1s}
+/* video slider (bloby s fotkou + rotující ekvalizér v pozadí + YouTube modal) */
+.vid-slider{display:flex;align-items:center;gap:12px;margin-top:30px}
+.vid-arrow{flex-shrink:0;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);
+  color:var(--emerald);font-size:26px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;line-height:1}
+.vid-arrow:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
+.vid-arrow:disabled{opacity:.35;cursor:default;background:var(--white);color:var(--emerald);border-color:var(--line)}
+.vid-viewport{flex:1;min-width:0;overflow:hidden}
+.vid-track{display:flex;gap:10px;will-change:transform;transition:transform .45s cubic-bezier(.4,.0,.2,1);touch-action:pan-y}
+.vid-item{flex:0 0 calc((100% - 20px)/3);display:flex;flex-direction:column;align-items:center;box-sizing:border-box}
+.vid-blob{position:relative;width:100%;max-width:240px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;background:none;border:none;padding:0}
+.vid-eq{position:absolute;inset:0;z-index:1;pointer-events:none}
+.vid-eq .bar{position:absolute;top:50%;left:50%;width:2px;margin-left:-1px;transform-origin:50% 0}
+.vid-eq .bar i{position:absolute;top:31%;left:0;width:2.2px;border-radius:2px;background:var(--emerald-2)}
+.vid-photo{position:absolute;z-index:2;width:96%;height:96%}
+.vid-photo svg{width:100%;height:100%;display:block}
+.vid-play{position:absolute;z-index:3;width:54px;height:54px;border-radius:50%;background:rgba(15,82,87,.85);
+  display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .22s,transform .22s;pointer-events:none}
+.vid-play svg{width:20px;height:20px;margin-left:3px;fill:#fff}
+.vid-blob:hover .vid-play,.vid-blob:focus-visible .vid-play{opacity:1}
+.vid-blob:hover .vid-photo{transform:scale(1.02);transition:transform .22s}
+.vid-name{font-family:var(--font-head);font-weight:600;color:var(--emerald);margin-top:10px;font-size:16px;text-align:center}
+.vid-dots{display:flex;justify-content:center;gap:9px;margin-top:24px}
+.vid-dots button{width:9px;height:9px;border-radius:50%;border:none;padding:0;background:var(--cream-3);cursor:pointer;transition:background .2s}
+.vid-dots button.on{background:var(--gold)}
+@media (max-width:860px){
+  .vid-item{flex:0 0 100%}
+  .vid-blob{max-width:300px}
+  .vid-arrow{width:42px;height:42px;font-size:23px}
+  .vid-play{opacity:1}
+}
+/* YouTube modal */
+.vid-modal{position:fixed;inset:0;z-index:120;background:rgba(15,28,28,.86);display:flex;align-items:center;justify-content:center;
+  padding:20px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.vid-modal.show{opacity:1;visibility:visible}
+.vid-modal-box{position:relative;width:min(960px,100%);aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.7);transform:scale(.96);transition:transform .25s}
+.vid-modal.show .vid-modal-box{transform:scale(1)}
+.vid-modal-box iframe{width:100%;height:100%;border:0;display:block}
+.vid-modal-close{position:absolute;top:-14px;right:-14px;z-index:2;width:42px;height:42px;border-radius:50%;border:none;
+  background:var(--cream);color:var(--petrol);font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);transition:transform .2s}
+.vid-modal-close:hover{transform:scale(1.08)}
+@media (max-width:560px){.vid-modal-close{top:6px;right:6px;width:38px;height:38px}}
 
 /* ---- 7. Statistiky ---- */
 .stats-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:760px;margin:0 auto}
@@ -765,31 +819,24 @@ main{position:relative;z-index:2}
   </div>
 </section>
 
-<!-- UPGRADE: samostatná sekce s přehrávačem a ekvalizérem -->
+<!-- UPGRADE: samostatná sekce s videoukázkami (bloby + ekvalizér + YouTube modal) -->
 <section class="section reveal" id="poslech">
   <div class="wrap">
     <div class="player-tile">
-      <div>
-        <span class="eyebrow">Poslechněte si nás</span>
-        <h2 class="section-title">Tři ukázky naživo</h2>
-        <div class="player-list" id="playerList">
-          <div class="track" data-title="Fly Me to the Moon" data-artist="Jazz Trio · standard">
-            <button class="track-play" aria-label="Přehrát skladbu">▶</button>
-            <div class="track-meta"><div class="tt">Fly Me to the Moon</div><div class="ta">Jazz Trio · standard</div></div>
-            <div class="track-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-          </div>
-          <div class="track" data-title="La Vie en Rose" data-artist="Jazz Trio · šanson">
-            <button class="track-play" aria-label="Přehrát skladbu">▶</button>
-            <div class="track-meta"><div class="tt">La Vie en Rose</div><div class="ta">Jazz Trio · šanson</div></div>
-            <div class="track-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-          </div>
-          <div class="track" data-title="What a Wonderful World" data-artist="Jazz Trio · ballad">
-            <button class="track-play" aria-label="Přehrát skladbu">▶</button>
-            <div class="track-meta"><div class="tt">What a Wonderful World</div><div class="ta">Jazz Trio · ballad</div></div>
-            <div class="track-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-          </div>
-        </div>
+      <div class="center" style="margin-bottom:8px">
+        <span class="eyebrow" style="justify-content:center">Podívejte se na nás</span>
+        <h2 class="section-title" style="margin-bottom:6px">Videoukázky naživo</h2>
+        <p class="section-lead">Pět skladeb z našich vystoupení. Klikněte na ukázku a pusťte si ji.</p>
       </div>
+
+      <div class="vid-slider" id="vidSlider">
+        <button class="vid-arrow prev" id="vidPrev" type="button" aria-label="Předchozí video">‹</button>
+        <div class="vid-viewport">
+          <div class="vid-track" id="vidTrack"></div>
+        </div>
+        <button class="vid-arrow next" id="vidNext" type="button" aria-label="Další video">›</button>
+      </div>
+      <div class="vid-dots" id="vidDots" aria-hidden="true"></div>
     </div>
   </div>
 </section>
@@ -1120,6 +1167,21 @@ main{position:relative;z-index:2}
   </div>
 </div>
 
+<!-- UPGRADE: modal s YouTube videoukázkou -->
+<div class="vid-modal" id="vidModal" aria-hidden="true">
+  <div class="vid-modal-box" id="vidModalBox" role="dialog" aria-modal="true" aria-label="Videoukázka"></div>
+</div>
+
+<!-- UPGRADE: lightbox galerie fotek -->
+<div class="lb" id="galLightbox" aria-hidden="true">
+  <button class="lb-close" id="galLbClose" type="button" aria-label="Zavřít">✕</button>
+  <button class="lb-nav lb-prev" id="galLbPrev" type="button" aria-label="Předchozí fotka">‹</button>
+  <div class="lb-stage" role="dialog" aria-modal="true" aria-label="Zvětšená fotka">
+    <img id="galLbImg" src="" alt="">
+  </div>
+  <button class="lb-nav lb-next" id="galLbNext" type="button" aria-label="Další fotka">›</button>
+</div>
+
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 <script>
 (function(){
@@ -1183,53 +1245,137 @@ main{position:relative;z-index:2}
     } else {nums.forEach(run);}
   })();
 
-  /* ---- 6. Přehrávač ukázek s ekvalizérem (demo tón přes WebAudio;
-            na ostro nahraď za <audio src> se skutečnou nahrávkou) ---- */
+  /* ---- 6. Videoukázky: bloby s fotkou + rotující ekvalizér + YouTube modal ---- */
   (function(){
-    var list=$('playerList');if(!list)return;
-    var tracks=Array.prototype.slice.call(list.querySelectorAll('.track'));
-    var current=null,raf=null,audioCtx=null,osc=null,gain=null,t=0;
-    var seqs=[[220,277,330,294,247],[262,330,392,349,294],[196,247,294,330,262]];
+    var track=$('vidTrack');if(!track)return;
 
-    function animateEq(){
-      if(!current){return;}
-      t+=.12;
-      var bars=current.querySelectorAll('.track-eq i');
-      bars.forEach(function(b,i){b.style.height=(5+Math.abs(Math.sin(t+i*.7))*20)+'px';});
-      raf=requestAnimationFrame(animateEq);
-    }
-    function resetEq(tr){tr.querySelectorAll('.track-eq i').forEach(function(b){b.style.height='5px';});}
+    // pořadí videí: náhledová fotka (video/1..5), název skladby, YouTube ID
+    var VIDEOS=[
+      {img:'1', name:'Cheek to Cheek',                 yt:'0OWzK3Rk-cw'},
+      {img:'2', name:'Sunny',                          yt:'P6iJJ6s5KaI'},
+      {img:'3', name:'Sway',                           yt:'rfCD0AcGA-A'},
+      {img:'4', name:'Don\u2019t Get Around Much Anymore', yt:'hAwyRm_FjOc'},
+      {img:'5', name:'\u017Divot je jen n\u00e1hoda',   yt:'iF4ShjZouG0'}
+    ];
+    var IMGBASE='https://jazztrio.cz/video/';
+    var IMGEXT={ '1':'.jpg','2':'.jpg','3':'.jpg','4':'.PNG','5':'.jpg' };
 
-    function startTone(idx){
-      try{
-        audioCtx=new (window.AudioContext||window.webkitAudioContext)();
-        osc=audioCtx.createOscillator();gain=audioCtx.createGain();
-        osc.type='sine';osc.frequency.value=seqs[idx][0];gain.gain.value=0.0001;
-        osc.connect(gain);gain.connect(audioCtx.destination);osc.start();
-        gain.gain.exponentialRampToValueAtTime(0.05,audioCtx.currentTime+0.25);
-        var seq=seqs[idx],k=0;
-        osc._iv=setInterval(function(){k=(k+1)%seq.length;osc.frequency.setValueAtTime(seq[k],audioCtx.currentTime);},440);
-      }catch(e){}
-    }
-    function stopTone(){
-      if(osc){try{clearInterval(osc._iv);gain.gain.exponentialRampToValueAtTime(0.0001,audioCtx.currentTime+0.18);
-        var o=osc,a=audioCtx;setTimeout(function(){try{o.stop();a.close();}catch(e){}},220);}catch(e){}osc=null;}
-    }
-    function stop(){
-      if(current){current.classList.remove('active');current.querySelector('.track-play').textContent='▶';resetEq(current);}
-      if(raf){cancelAnimationFrame(raf);raf=null;}
-      stopTone();current=null;
-    }
-    tracks.forEach(function(tr,idx){
-      var btn=tr.querySelector('.track-play');
-      btn.addEventListener('click',function(){
-        if(current===tr){stop();return;}
-        stop();
-        current=tr;tr.classList.add('active');btn.textContent='❚❚';
-        if(!reduce){startTone(idx);animateEq();}
+    // 5 odlišných tvarů blobů (z ladiče hudebníků)
+    var BLOBS=[
+      'M40,-58C54,-49,68,-40,74,-26C80,-12,78,8,70,24C62,40,48,52,31,62C14,72,-6,80,-26,76C-46,72,-66,56,-74,36C-82,16,-78,-8,-66,-27C-54,-46,-34,-60,-13,-67C8,-74,26,-67,40,-58Z',
+      'M62,-35C77,-18,84,7,77,28C70,49,49,66,25,72C1,78,-25,73,-50,60C-75,47,-99,26,-99,2C-99,-22,-75,-46,-51,-60C-27,-74,-3,-78,16,-72C35,-66,47,-52,62,-35Z',
+      'M58,-46C73,-32,81,-9,76,12C71,33,53,52,32,64C11,76,-14,81,-39,72C-64,63,-89,40,-91,15C-93,-10,-72,-37,-50,-54C-28,-71,-4,-78,17,-73C38,-68,43,-60,58,-46Z',
+      'M48,-50C60,-38,64,-18,66,3C68,24,68,46,55,60C42,74,16,80,-8,78C-32,76,-54,66,-68,47C-82,28,-88,0,-80,-22C-72,-44,-50,-60,-27,-67C-4,-74,18,-72,48,-50Z',
+      'M44,-54C56,-44,62,-25,66,-4C70,17,72,40,60,56C48,72,22,81,-3,80C-28,79,-53,68,-69,49C-85,30,-92,3,-84,-19C-76,-41,-54,-58,-31,-66C-8,-74,16,-72,44,-54Z'
+    ];
+
+    function buildItems(){
+      VIDEOS.forEach(function(v,i){
+        var item=el('div');item.className='vid-item';
+        var btn=el('button');btn.className='vid-blob';btn.type='button';
+        btn.setAttribute('aria-label','Přehrát video: '+v.name);
+        var src=IMGBASE+v.img+(IMGEXT[v.img]||'.jpg');
+        var cid='vidclip'+i;
+        btn.innerHTML=
+          '<svg class="vid-eq" viewBox="0 0 200 200" aria-hidden="true"></svg>'+
+          '<span class="vid-photo">'+
+            '<svg viewBox="-105 -105 210 210" preserveAspectRatio="xMidYMid meet">'+
+              '<defs><clipPath id="'+cid+'"><path d="'+BLOBS[i]+'"/></clipPath></defs>'+
+              '<image href="'+src+'" x="-105" y="-105" width="210" height="210" '+
+              'preserveAspectRatio="xMidYMid slice" clip-path="url(#'+cid+')"/>'+
+            '</svg>'+
+          '</span>'+
+          '<span class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';
+        btn.addEventListener('click',function(){openModal(v);});
+        item.appendChild(btn);
+        var nm=el('div');nm.className='vid-name';nm.textContent=v.name;
+        item.appendChild(nm);
+        track.appendChild(item);
       });
-    });
-    document.addEventListener('visibilitychange',function(){if(document.hidden)stop();});
+    }
+
+    // rotující ekvalizér (stejný jako hero), každý blob jinak natočený
+    function buildEqs(){
+      var N=110,R=31;
+      track.querySelectorAll('.vid-eq').forEach(function(host,idx){
+        var wrap=el('div');wrap.style.cssText='position:absolute;inset:0;pointer-events:none;z-index:1';
+        host.parentNode.insertBefore(wrap,host);host.parentNode.removeChild(host);
+        var bars=[];
+        for(var i=0;i<N;i++){
+          var bar=el('div');bar.className='bar';
+          bar.style.cssText='position:absolute;top:50%;left:50%;width:2px;margin-left:-1px;transform-origin:50% 0;height:'+R+'%;transform:rotate('+(i*360/N)+'deg)';
+          var seg=el('i');
+          bar.appendChild(seg);wrap.appendChild(bar);bars.push(seg);
+        }
+        function wave(a,t){return 0.5+0.5*(0.55*Math.sin(a*2-t)+0.30*Math.sin(a*3-t*0.7)+0.15*Math.sin(a*5-t*1.3));}
+        var base=14,amp=120;
+        if(reduce){for(var j=0;j<N;j++){var a0=(j/N)*Math.PI*2;bars[j].style.height=(base+amp*wave(a0,idx*1.9))+'%';}return;}
+        var phase=idx*1.9,speed=0.009*(1+idx*0.1),dir=(idx%2===0?1:-1),t=phase;
+        (function f(){t+=speed*dir;for(var i=0;i<N;i++){var a=(i/N)*Math.PI*2;bars[i].style.height=(base+amp*wave(a,t))+'%';}requestAnimationFrame(f);})();
+      });
+    }
+
+    buildItems();buildEqs();
+
+    /* ---- slider (šipky + tečky + swipe) ---- */
+    var prevBtn=$('vidPrev'),nextBtn=$('vidNext'),dotsHost=$('vidDots');
+    function perView(){return window.innerWidth<=860?1:3;}
+    var pos=0;
+    function maxPos(){return Math.max(0,VIDEOS.length-perView());}
+    function buildDots(){
+      dotsHost.innerHTML='';var n=maxPos()+1;
+      for(var i=0;i<n;i++){(function(i){
+        var b=el('button');b.type='button';b.setAttribute('aria-label','Zobrazit ukázku '+(i+1));
+        if(i===pos)b.className='on';
+        b.addEventListener('click',function(){pos=i;update();});
+        dotsHost.appendChild(b);
+      })(i);}
+    }
+    function update(){
+      pos=Math.max(0,Math.min(maxPos(),pos));
+      var first=track.querySelector('.vid-item');
+      var gap=parseFloat(getComputedStyle(track).gap)||10;
+      var itemW=first?first.getBoundingClientRect().width:0;
+      track.style.transform='translateX(-'+(pos*(itemW+gap))+'px)';
+      if(prevBtn)prevBtn.disabled=(pos<=0);
+      if(nextBtn)nextBtn.disabled=(pos>=maxPos());
+      var ds=dotsHost.querySelectorAll('button');
+      ds.forEach(function(d,i){d.className=(i===pos?'on':'');});
+    }
+    if(prevBtn)prevBtn.addEventListener('click',function(){pos--;update();});
+    if(nextBtn)nextBtn.addEventListener('click',function(){pos++;update();});
+
+    // swipe na dotyku
+    var startX=0,startY=0,touching=false;
+    track.addEventListener('touchstart',function(e){var t=e.touches[0];startX=t.clientX;startY=t.clientY;touching=true;},{passive:true});
+    track.addEventListener('touchend',function(e){
+      if(!touching)return;touching=false;
+      var t=e.changedTouches[0];var dx=t.clientX-startX,dy=t.clientY-startY;
+      if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){if(dx<0)pos++;else pos--;update();}
+    },{passive:true});
+
+    var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){buildDots();update();},150);});
+    buildDots();update();
+
+    /* ---- YouTube modal ---- */
+    var modal=$('vidModal'),box=$('vidModalBox');
+    function openModal(v){
+      if(!modal||!box)return;
+      box.innerHTML='<button class="vid-modal-close" id="vidModalClose" type="button" aria-label="Zavřít">✕</button>'+
+        '<iframe src="https://www.youtube-nocookie.com/embed/'+v.yt+'?autoplay=1&rel=0" '+
+        'title="'+v.name+'" allow="accelerator;autoplay;encrypted-media;picture-in-picture" allowfullscreen></iframe>';
+      modal.classList.add('show');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+      var c=$('vidModalClose');if(c)c.addEventListener('click',closeModal);
+    }
+    function closeModal(){
+      if(!modal)return;
+      modal.classList.remove('show');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';
+      setTimeout(function(){box.innerHTML='';},260);
+    }
+    if(modal){
+      modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('show'))closeModal();});
+    }
   })();
 
   /* ---- 7. 3D tilt na dlaždici "Naživo" (desktop, motion-safe) ---- */
@@ -1478,16 +1624,59 @@ main{position:relative;z-index:2}
   $('repPrev').addEventListener('click',function(){pageSongs(-1);});
   renderSongs();
 
-  /* ---- gallery (reálné fotky z /foto/, plynulá smyčka) ---- */
+  /* ---- gallery (reálné fotky z /foto/, plynulá smyčka + klikací lightbox) ---- */
   (function(){
     var GBASE='https://jazztrio.cz/foto/';
     var files=['foto_1.jpeg','foto_2.JPG','foto_3.jpg','foto_4.JPG','foto_5.jpg','foto_6.jpg','foto_7.jpg','foto_8.jpg','foto_9.jpg'];
     var track=$('galTrack');if(!track)return;
     function build(){files.forEach(function(f,i){
       var d=el('div');d.className='gal-item tall';
+      d.setAttribute('data-idx',i);
       d.innerHTML='<img src="'+GBASE+f+'" alt="Jazzové trio David Kleňha živě — fotka z vystoupení '+(i+1)+'" loading="lazy">';
+      d.addEventListener('click',function(){openLB(i);});
       track.appendChild(d);});}
     build();build();
+
+    /* ---- lightbox ---- */
+    var lb=$('galLightbox'),lbImg=$('galLbImg');
+    var cur=0;
+    function show(i){
+      cur=(i+files.length)%files.length;
+      lbImg.src=GBASE+files[cur];
+      lbImg.alt='Jazzové trio David Kleňha živě — fotka '+(cur+1);
+    }
+    function openLB(i){
+      if(!lb)return;
+      show(i);
+      lb.classList.add('show');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+    }
+    function closeLB(){
+      if(!lb)return;
+      lb.classList.remove('show');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';
+      setTimeout(function(){lbImg.src='';},260);
+    }
+    function next(){show(cur+1);}
+    function prev(){show(cur-1);}
+    if(lb){
+      $('galLbClose').addEventListener('click',closeLB);
+      $('galLbNext').addEventListener('click',function(e){e.stopPropagation();next();});
+      $('galLbPrev').addEventListener('click',function(e){e.stopPropagation();prev();});
+      lb.addEventListener('click',function(e){if(e.target===lb)closeLB();});
+      document.addEventListener('keydown',function(e){
+        if(!lb.classList.contains('show'))return;
+        if(e.key==='Escape')closeLB();
+        else if(e.key==='ArrowRight')next();
+        else if(e.key==='ArrowLeft')prev();
+      });
+      // swipe na dotyku
+      var sx=0,sy=0,tch=false;
+      lbImg.addEventListener('touchstart',function(e){var t=e.touches[0];sx=t.clientX;sy=t.clientY;tch=true;},{passive:true});
+      lbImg.addEventListener('touchend',function(e){
+        if(!tch)return;tch=false;
+        var t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;
+        if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){if(dx<0)next();else prev();}
+      },{passive:true});
+    }
   })();
 
   /* ---- reviews slider (2 up / 1 mobile) ---- */
