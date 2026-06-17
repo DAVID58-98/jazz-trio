@@ -237,17 +237,25 @@ img{max-width:100%;display:block}
   .rep-arrow{width:42px;height:42px;font-size:21px}
 }
 
-/* ---------- gallery (slow auto-scroll) ---------- */
-.gal-viewport{margin-top:40px;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.gal-track{display:flex;gap:16px;width:max-content;animation:scrollX 90s linear infinite}
-.gal-viewport:hover .gal-track{animation-play-state:paused}
-@keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.gal-item{position:relative;width:clamp(240px,30vw,320px);aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;background:var(--cream-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.gal-item.tall{aspect-ratio:3/4;width:clamp(200px,24vw,260px)}
+/* ---------- gallery (slider — šipky, tečky, swipe; jako video) ---------- */
+.gal-slider{display:flex;align-items:center;gap:12px;margin-top:40px}
+.gal-arrow{flex-shrink:0;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);
+  color:var(--emerald);font-size:26px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;line-height:1}
+.gal-arrow:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
+.gal-arrow:disabled{opacity:.35;cursor:default;background:var(--white);color:var(--emerald);border-color:var(--line)}
+.gal-viewport{flex:1;min-width:0;overflow:hidden}
+.gal-track{display:flex;gap:16px;will-change:transform;transition:transform .45s cubic-bezier(.4,.0,.2,1);touch-action:pan-y}
+.gal-item{position:relative;flex:0 0 calc((100% - 32px)/3);aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;background:var(--cream-3);display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box}
 .gal-item img{width:100%;height:100%;object-fit:cover}
-.gal-item{cursor:pointer}
 .gal-item::after{content:"";position:absolute;inset:0;background:rgba(15,82,87,0);transition:background .2s}
 .gal-item:hover::after{background:rgba(15,82,87,.12)}
+.gal-dots{display:flex;justify-content:center;gap:9px;margin-top:24px}
+.gal-dots button{width:9px;height:9px;border-radius:50%;border:none;padding:0;background:var(--cream-3);cursor:pointer;transition:background .2s}
+.gal-dots button.on{background:var(--gold)}
+@media (max-width:860px){
+  .gal-item{flex:0 0 100%}
+  .gal-arrow{width:42px;height:42px;font-size:23px}
+}
 
 /* lightbox galerie */
 .lb{position:fixed;inset:0;z-index:130;background:rgba(15,28,28,.9);display:flex;align-items:center;justify-content:center;
@@ -934,9 +942,14 @@ main{position:relative;z-index:2}
     <h2 class="section-title">Jak to u nás vypadá &amp; zní</h2>
     <p class="section-lead">Autentické fotky z našich vystoupení — svatby, plesy i firemní večírky. Žádné aranžované studio, jen živá jazzová kapela v akci.</p>
   </div>
-  <div class="gal-viewport">
-    <div class="gal-track" id="galTrack"></div>
+  <div class="gal-slider">
+    <button class="gal-arrow prev" id="galPrev" type="button" aria-label="Předchozí fotka">‹</button>
+    <div class="gal-viewport">
+      <div class="gal-track" id="galTrack"></div>
+    </div>
+    <button class="gal-arrow next" id="galNext" type="button" aria-label="Další fotka">›</button>
   </div>
+  <div class="gal-dots" id="galDots"></div>
 </section>
 
 <section class="section reveal" id="map">
@@ -1636,15 +1649,55 @@ main{position:relative;z-index:2}
   /* ---- gallery (reálné fotky z /foto/, plynulá smyčka + klikací lightbox) ---- */
   (function(){
     var GBASE='https://jazztrio.cz/foto/';
-    var files=['foto_1.jpeg','foto_2.JPG','foto_3.jpg','foto_4.JPG','foto_5.jpg','foto_6.jpg','foto_7.jpg','foto_8.jpg','foto_9.jpg'];
+    var files=['foto_1.webp','foto_2.webp','foto_3.webp','foto_4.webp','foto_5.webp','foto_6.webp','foto_7.webp','foto_8.webp','foto_9.webp'];
     var track=$('galTrack');if(!track)return;
     function build(){files.forEach(function(f,i){
-      var d=el('div');d.className='gal-item tall';
+      var d=el('div');d.className='gal-item';
       d.setAttribute('data-idx',i);
       d.innerHTML='<img src="'+GBASE+f+'" alt="Jazzové trio David Kleňha živě — fotka z vystoupení '+(i+1)+'" loading="lazy">';
       d.addEventListener('click',function(){openLB(i);});
       track.appendChild(d);});}
-    build();build();
+    build();
+
+    /* ---- slider (šipky + tečky + swipe; stejné chování jako video) ---- */
+    var galPrev=$('galPrev'),galNext=$('galNext'),galDots=$('galDots');
+    function perView(){return window.innerWidth<=860?1:3;}
+    var gpos=0;
+    function gMaxPos(){return Math.max(0,files.length-perView());}
+    function gBuildDots(){
+      if(!galDots)return;
+      galDots.innerHTML='';var n=gMaxPos()+1;
+      for(var i=0;i<n;i++){(function(i){
+        var b=el('button');b.type='button';b.setAttribute('aria-label','Zobrazit fotku '+(i+1));
+        if(i===gpos){b.className='on';b.setAttribute('aria-current','true');}
+        b.addEventListener('click',function(){gpos=i;gUpdate();});
+        galDots.appendChild(b);
+      })(i);}
+    }
+    function gUpdate(){
+      gpos=Math.max(0,Math.min(gMaxPos(),gpos));
+      var first=track.querySelector('.gal-item');
+      var gap=parseFloat(getComputedStyle(track).gap)||16;
+      var itemW=first?first.getBoundingClientRect().width:0;
+      track.style.transform='translateX(-'+(gpos*(itemW+gap))+'px)';
+      if(galPrev)galPrev.disabled=(gpos<=0);
+      if(galNext)galNext.disabled=(gpos>=gMaxPos());
+      if(galDots)galDots.querySelectorAll('button').forEach(function(d,i){
+        if(i===gpos){d.className='on';d.setAttribute('aria-current','true');}
+        else{d.className='';d.removeAttribute('aria-current');}});
+    }
+    if(galPrev)galPrev.addEventListener('click',function(){gpos--;gUpdate();});
+    if(galNext)galNext.addEventListener('click',function(){gpos++;gUpdate();});
+    // swipe na dotyku
+    var gsX=0,gsY=0,gTouch=false;
+    track.addEventListener('touchstart',function(e){var t=e.touches[0];gsX=t.clientX;gsY=t.clientY;gTouch=true;},{passive:true});
+    track.addEventListener('touchend',function(e){
+      if(!gTouch)return;gTouch=false;
+      var t=e.changedTouches[0];var dx=t.clientX-gsX,dy=t.clientY-gsY;
+      if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){if(dx<0)gpos++;else gpos--;gUpdate();}
+    },{passive:true});
+    var gRt;window.addEventListener('resize',function(){clearTimeout(gRt);gRt=setTimeout(function(){gBuildDots();gUpdate();},150);});
+    gBuildDots();gUpdate();
 
     /* ---- lightbox ---- */
     var lb=$('galLightbox'),lbImg=$('galLbImg');
