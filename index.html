@@ -36,7 +36,8 @@
 <meta name="theme-color" content="#0f5257">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap"></noscript>
 
 <!-- Měření návštěvnosti (GA4 / Google Ads) zatím nenasazeno.
      Připraveno pro budoucí doplnění: stačí přidat gtag.js skript a config s reálným ID. -->
@@ -318,9 +319,10 @@ img{max-width:100%;display:block}
 .review .who{margin-top:auto;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
 .review .who b{font-size:14px;font-weight:700;color:#fff}
 .review .who span{font-family:var(--font-body);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mint-soft)}
-.rev-dots{display:flex;gap:8px;justify-content:center;margin-top:22px}
-.rev-dots button{width:9px;height:9px;border-radius:50%;border:none;background:var(--line);cursor:pointer;transition:.2s;padding:0}
-.rev-dots button.on{background:var(--emerald);transform:scale(1.25)}
+.rev-dots{display:flex;gap:2px;justify-content:center;margin-top:14px}
+.rev-dots button{width:24px;height:24px;border-radius:50%;border:none;background:transparent;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.rev-dots button::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--line);transition:.2s}
+.rev-dots button.on::before{background:var(--emerald);transform:scale(1.25)}
 @media (max-width:680px){.review{flex:0 0 100%}.rev-arrow{width:42px;height:42px;font-size:21px}}
 .rev-verify{text-align:center;margin-top:24px;font-size:14px;color:var(--ink-soft)}
 .rev-verify a{color:var(--emerald);font-weight:600;text-decoration:underline;text-underline-offset:3px}
@@ -1185,7 +1187,7 @@ main{position:relative;z-index:2}
   <button class="lb-nav lb-next" id="galLbNext" type="button" aria-label="Další fotka">›</button>
 </div>
 
-<script src="https://web3forms.com/client/script.js" async defer></script>
+<!-- Web3Forms skript se načítá líně až při první interakci s formulářem (viz níže) -->
 <script>
 (function(){
   "use strict";
@@ -1261,7 +1263,7 @@ main{position:relative;z-index:2}
       {img:'5', name:'\u017Divot je jen n\u00e1hoda',   yt:'iF4ShjZouG0'}
     ];
     var IMGBASE='https://jazztrio.cz/video/';
-    var IMGEXT={ '1':'.jpg','2':'.jpg','3':'.jpg','4':'.PNG','5':'.jpg' };
+    var IMGEXT={ '1':'.webp','2':'.webp','3':'.webp','4':'.webp','5':'.webp' };
 
     // 5 odlišných tvarů blobů (z ladiče hudebníků)
     var BLOBS=[
@@ -1277,7 +1279,7 @@ main{position:relative;z-index:2}
         var item=el('div');item.className='vid-item';
         var btn=el('button');btn.className='vid-blob';btn.type='button';
         btn.setAttribute('aria-label','Přehrát video: '+v.name);
-        var src=IMGBASE+v.img+(IMGEXT[v.img]||'.jpg');
+        var src=IMGBASE+v.img+(IMGEXT[v.img]||'.webp');
         var cid='vidclip'+i;
         btn.innerHTML=
           '<svg class="vid-eq" viewBox="0 0 200 200" aria-hidden="true"></svg>'+
@@ -1494,18 +1496,18 @@ main{position:relative;z-index:2}
   var BASE='https://jazztrio.cz/hudebnici/';
   // pořadí + soubor (fotky už mají blob v sobě)
   var MUS=[
-   {role:'Zpěv',     file:'vocal.png'},
-   {role:'Klavír',   file:'piano.png'},
-   {role:'Kontrabas',file:'bass.png'},
-   {role:'Bicí',     file:'drums.png'},
-   {role:'Trumpeta', file:'trumpet.png'},
-   {role:'Saxofon',  file:'saxophone.png'},
-   {role:'Pozoun',   file:'trombone.png'}
+   {role:'Zpěv',     file:'vocal.webp'},
+   {role:'Klavír',   file:'piano.webp'},
+   {role:'Kontrabas',file:'bass.webp'},
+   {role:'Bicí',     file:'drums.webp'},
+   {role:'Trumpeta', file:'trumpet.webp'},
+   {role:'Saxofon',  file:'saxophone.webp'},
+   {role:'Pozoun',   file:'trombone.webp'}
   ];
   var lineup=MUS.map(function(m){return m.role;});
   var names={2:'Jazz Duo',3:'Jazz Trio',4:'Jazz Kvartet',5:'Jazz Kvintet',6:'Jazz Sextet',7:'Jazz Septet'};
   function musFigureHTML(m){
-    return '<img src="'+BASE+m.file+'" alt="'+m.role+'" loading="lazy">';
+    return '<img src="'+BASE+m.file+'" alt="'+m.role+'" width="263" height="263" loading="lazy" decoding="async">';
   }
   var count=3,MIN=2,MAX=7;
   // balanced columns incl. the control slot (count+1 items) on desktop
@@ -1706,7 +1708,7 @@ main{position:relative;z-index:2}
     var dots=$('revDots');
     function buildDots(){
       dots.innerHTML='';var n=maxPos()+1;
-      for(var i=0;i<n;i++){(function(i){var b=el('button');if(i===pos)b.className='on';b.onclick=function(){pos=i;update();};dots.appendChild(b);})(i);}
+      for(var i=0;i<n;i++){(function(i){var b=el('button');b.type='button';b.setAttribute('aria-label','Přejít na recenzi '+(i+1));if(i===pos){b.className='on';b.setAttribute('aria-current','true');}b.onclick=function(){pos=i;update();};dots.appendChild(b);})(i);}
     }
     function update(){
       pos=Math.max(0,Math.min(maxPos(),pos));
@@ -1714,7 +1716,7 @@ main{position:relative;z-index:2}
       var gap=parseFloat(getComputedStyle(track).gap)||18;
       var cardW=first?first.getBoundingClientRect().width:0;
       track.style.transform='translateX(-'+(pos*(cardW+gap))+'px)';
-      Array.prototype.forEach.call(dots.children,function(d,i){d.className=i===pos?'on':'';});
+      Array.prototype.forEach.call(dots.children,function(d,i){if(i===pos){d.className='on';d.setAttribute('aria-current','true');}else{d.className='';d.removeAttribute('aria-current');}});
     }
     $('revPrev').onclick=function(){pos--;update();};
     $('revNext').onclick=function(){pos++;update();};
@@ -1745,10 +1747,29 @@ main{position:relative;z-index:2}
   /* ---- cookie settings link in footer opens the manager (functions defined globally below) ---- */
   $('cookieSettings').addEventListener('click',function(e){e.preventDefault();if(window.jtCookieOpenSettings)jtCookieOpenSettings();});
 
-  /* ---- hCaptcha ---- */
-  /* hCaptcha vykresluje a konfiguruje skript web3forms.com/client/script.js
-     automaticky z <div class="h-captcha" data-captcha="true">. Ruční render
-     ani sitekey zde není potřeba. Validace odpovědi probíhá při odeslání níže. */
+  /* ---- hCaptcha / Web3Forms — líné načtení ---- */
+  /* Skript web3forms.com/client/script.js (který natáhne i hCaptcha) se
+     nenačítá při startu stránky, ale až když uživatel poprvé interaguje
+     s formulářem. To výrazně zlepšuje výkon (mobilní LCP/TBT), protože
+     hCaptcha jinak blokuje hlavní vlákno hned po načtení. */
+  var w3fLoaded=false;
+  function loadWeb3Forms(){
+    if(w3fLoaded)return;w3fLoaded=true;
+    var s=document.createElement('script');
+    s.src='https://web3forms.com/client/script.js';
+    s.async=true;s.defer=true;
+    document.body.appendChild(s);
+  }
+  (function(){
+    var f=$('calcForm');
+    if(!f)return;
+    /* spustí načtení při prvním focusu, kliknutí nebo dotyku ve formuláři */
+    var fire=function(){loadWeb3Forms();
+      f.removeEventListener('focusin',fire);
+      f.removeEventListener('pointerdown',fire);};
+    f.addEventListener('focusin',fire);
+    f.addEventListener('pointerdown',fire);
+  })();
 
   /* ---- toast ---- */
   function showToast(){$('formToast').classList.add('show');document.body.style.overflow='hidden';}
@@ -1761,9 +1782,10 @@ main{position:relative;z-index:2}
   var form=$('calcForm'),status=$('formStatus'),btn=$('submitBtn');
   form.addEventListener('submit',function(e){
     e.preventDefault();status.className='form-status';status.textContent='';
+    loadWeb3Forms(); /* pojistka: kdyby uživatel odeslal bez předchozí interakce */
     if(!$('consent').checked){status.className='form-status err';status.textContent='Potvrďte prosím souhlas se zpracováním osobních údajů.';return;}
     var hc=form.querySelector('textarea[name=h-captcha-response],input[name=h-captcha-response]');
-    if(!hc||!hc.value){status.className='form-status err';status.textContent='Potvrďte prosím, že nejste robot.';return;}
+    if(!hc||!hc.value){status.className='form-status err';status.textContent='Potvrďte prosím, že nejste robot (ověření se může chvíli načítat).';return;}
     btn.disabled=true;btn.textContent='Odesílám…';
     fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)})
       .then(function(r){return r.json();})
