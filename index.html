@@ -751,7 +751,7 @@ main{position:relative;z-index:2}
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="eyebrow">Jazzové trio živě</span>
-      <h1 class="hero-slogans" id="heroSlogans"></h1>
+      <h1 class="hero-slogans" id="heroSlogans"><span class="sr-only">Jazzové trio na svatbu, ples a firemní akce — David Kleňha</span></h1>
       <p class="sr-only">Jazzové trio živě na svatbu, ples a firemní večírek — David Kleňha. Zpěv, klavír a kontrabas, vlastní ozvučení, dojezd po celé ČR.</p>
       <p class="hero-sub">Zpěv, klavír a kontrabas naživo. Žádné playbacky — jen tři muzikanti, kteří umí naladit jakýkoliv sál i zahradu.</p>
       <div class="hero-cta">
@@ -768,7 +768,10 @@ main{position:relative;z-index:2}
       <div class="ceq-wrap">
         <div class="ceq-host" id="ceqHost"></div>
         <div class="hero-photo">
-          <img src="https://jazztrio.cz/uvodni_foto.png" alt="David Kleňha — zpěvák a bandleader" loading="eager">
+          <picture>
+            <source srcset="https://jazztrio.cz/uvodni_foto.webp" type="image/webp">
+            <img src="https://jazztrio.cz/uvodni_foto.png" alt="David Kleňha — zpěvák a bandleader" width="539" height="752" loading="eager" fetchpriority="high" decoding="async">
+          </picture>
         </div>
         <div class="name-badge">David&nbsp;Kleňha<span>zpěvák &amp; bandleader</span></div>
       </div>
@@ -1182,7 +1185,7 @@ main{position:relative;z-index:2}
   <button class="lb-nav lb-next" id="galLbNext" type="button" aria-label="Další fotka">›</button>
 </div>
 
-<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
 <script>
 (function(){
   "use strict";
@@ -1432,6 +1435,7 @@ main{position:relative;z-index:2}
       ['Hudba, která','dělá atmosféru.']
     ];
     var host=$('heroSlogans');if(!host)return;
+    host.innerHTML='';
     slogans.forEach(function(s,i){
       var sp=el('span',null,s[0]+'<br><span class="accent">'+s[1]+'</span>');
       sp.className='slogan'+(i===0?'':' in-wait');host.appendChild(sp);
@@ -1742,8 +1746,9 @@ main{position:relative;z-index:2}
   $('cookieSettings').addEventListener('click',function(e){e.preventDefault();if(window.jtCookieOpenSettings)jtCookieOpenSettings();});
 
   /* ---- hCaptcha ---- */
-  function renderCaptcha(){if(window.hcaptcha){try{hcaptcha.render(document.querySelector('.h-captcha'),{sitekey:'50b2fe65-b00b-4b9e-ad62-3ba471098be2'});}catch(_){}}else setTimeout(renderCaptcha,400);}
-  renderCaptcha();
+  /* hCaptcha vykresluje a konfiguruje skript web3forms.com/client/script.js
+     automaticky z <div class="h-captcha" data-captcha="true">. Ruční render
+     ani sitekey zde není potřeba. Validace odpovědi probíhá při odeslání níže. */
 
   /* ---- toast ---- */
   function showToast(){$('formToast').classList.add('show');document.body.style.overflow='hidden';}
