@@ -730,7 +730,7 @@ main{position:relative;z-index:2}
 <!-- UPGRADE: vstupní efekt -->
 <div id="jtIntro">
   <div class="intro-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-  <div class="intro-brand">jazz<b>trio</b>.cz</div>
+  <div class="intro-brand">jazz<b>trio</b>.cz<span style="font-size:.5em;opacity:.7;letter-spacing:.05em"> · EN</span></div>
 </div>
 
 <!-- UPGRADE: bold abstraktní tvary po stranách (světlé bloby, 2 vlevo + 2 vpravo na PC) -->
@@ -950,7 +950,7 @@ main{position:relative;z-index:2}
           <span class="eyebrow">Live</span>
           <h2 class="section-title">Come and hear us live</h2>
           <p class="section-lead">The best way to choose us is to hear us live. We keep our public concert dates up to date — see when we play near you.</p>
-          <a href="https://www.davidklenha.cz/#koncerty" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:22px">View concert dates</a>
+          <a href="https://www.davidklenha.cz/en/#concerts" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:22px">View concert dates</a>
         </div>
         <div class="concerts-art" aria-hidden="true">
           <div class="ticket">
@@ -1006,7 +1006,7 @@ main{position:relative;z-index:2}
     <div class="center">
       <span class="eyebrow">Reviews</span>
       <h2 class="section-title">What organisers say</h2>
-      <p class="section-lead">Ohlasy od lidí, pro které jsme hráli.</p>
+      <p class="section-lead">What the people we played for have to say.</p>
     </div>
     <div class="rev-slider">
       <button class="rev-arrow prev" id="revPrev" aria-label="Předchozí recenze">‹</button>
@@ -1014,7 +1014,7 @@ main{position:relative;z-index:2}
       <button class="rev-arrow next" id="revNext" aria-label="Další recenze">›</button>
     </div>
     <div class="rev-dots" id="revDots"></div>
-    <p class="rev-verify"><a href="https://www.budemesvoji.cz/listing/david-klenha-quartet/#recenze" target="_blank" rel="noopener">Recenze si ověřte na budemesvoji.cz</a></p>
+    <p class="rev-verify"><a href="https://www.budemesvoji.cz/listing/david-klenha-quartet/#recenze" target="_blank" rel="noopener">Verify the reviews on budemesvoji.cz</a></p>
   </div>
 </section>
 
@@ -1472,7 +1472,7 @@ main{position:relative;z-index:2}
   /* ---- rotating hero slogan (5 slogans, slow + smooth) ---- */
   (function(){
     var slogans=[
-      ['Večer, který si','budete pamatovat.'],
+      ['An evening you','will remember.'],
       ['Build your band','to fit your event.'],
       ['Live jazz that','fills the dance floor.'],
       ['From a chamber duo','to a full band.'],
@@ -1540,11 +1540,11 @@ main{position:relative;z-index:2}
   var MUS=[
    {role:'Vocals',     file:'vocal.webp'},
    {role:'Piano',   file:'piano.webp'},
-   {role:'Kontrabas',file:'bass.webp'},
+   {role:'Double bass',file:'bass.webp'},
    {role:'Drums',     file:'drums.webp'},
-   {role:'Trumpeta', file:'trumpet.webp'},
-   {role:'Saxofon',  file:'saxophone.webp'},
-   {role:'Pozoun',   file:'trombone.webp'}
+   {role:'Trumpet', file:'trumpet.webp'},
+   {role:'Saxophone',  file:'saxophone.webp'},
+   {role:'Trombone',   file:'trombone.webp'}
   ];
   var lineup=MUS.map(function(m){return m.role;});
   var names={2:'Jazz Duo',3:'Jazz Trio',4:'Jazz Kvartet',5:'Jazz Kvintet',6:'Jazz Sextet',7:'Jazz Septet'};
