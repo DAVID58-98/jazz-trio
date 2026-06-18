@@ -7,6 +7,10 @@
 <meta name="description" content="Jazzové trio živě — zpěv, klavír a kontrabas na svatby, plesy a firemní akce. Vlastní ozvučení, repertoár pro všechny generace, dojezd po ČR.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://jazztrio.cz/">
+<link rel="alternate" hreflang="cs" href="https://jazztrio.cz/">
+<link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/">
+<link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/">
+<link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Jazzové trio — David Kleňha">
 <meta property="og:title" content="Jazzové trio na svatbu a firemní akce | David Kleňha">
@@ -100,6 +104,10 @@ img{max-width:100%;display:block}
 .topnav a:hover{color:var(--emerald)}
 .topnav .cta{color:#fff;background:var(--emerald);padding:11px 20px;border-radius:100px}
 .topnav .cta:hover{background:var(--petrol);color:#fff}
+.lang-switch{display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);border-radius:100px;background:rgba(255,255,255,.4)}
+.lang-switch a{font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--ink-soft);padding:5px 9px;border-radius:100px;line-height:1;transition:background .2s,color .2s}
+.lang-switch a:hover{color:var(--emerald)}
+.lang-switch a.active{background:var(--emerald);color:#fff}
 .menu-btn{display:none;align-items:center;gap:10px;background:none;border:none;cursor:pointer;font-family:var(--font-body);font-weight:600;font-size:15px;color:var(--petrol);padding:6px}
 .burger{width:26px;height:14px;position:relative;display:inline-block}
 .burger span{position:absolute;left:0;height:2px;width:100%;background:var(--petrol);border-radius:2px;transition:.3s}
@@ -728,14 +736,15 @@ main{position:relative;z-index:2}
 <header class="topbar" id="topbar">
   <a href="#hero" class="brand">jazz<b>trio</b>.cz</a>
   <nav class="topnav">
-    <a href="#builder">Sestavte kapelu</a>
-    <a href="#poslech">Poslech</a>
+    <a href="#poslech">Ukázky</a>
     <a href="#repertoire">Repertoár</a>
     <a href="#koncerty">Koncerty</a>
-    <a href="#gallery">Galerie</a>
-    <a href="#map">Kde hrajeme</a>
     <a href="#reviews">Reference</a>
-    <a href="/blog/">Blog</a>
+    <span class="lang-switch" aria-label="Jazyk / Language / Sprache">
+      <a href="/" class="active" hreflang="cs" title="Čeština" aria-current="true">CS</a>
+      <a href="/en/" hreflang="en" title="English">EN</a>
+      <a href="/de/" hreflang="de" title="Deutsch">DE</a>
+    </span>
     <a href="#poptavka" class="cta pulse-cta">Ověřit termín</a>
   </nav>
   <button class="menu-btn" id="menuBtn" aria-label="Otevřít menu">Menu
@@ -759,6 +768,11 @@ main{position:relative;z-index:2}
   </nav>
   <div class="drawer-foot">
     <a href="#poptavka" class="btn btn-light drawer-cta" data-close>Nezávazná poptávka</a>
+    <span class="lang-switch" style="align-self:center;margin-bottom:6px">
+      <a href="/" class="active" hreflang="cs">CS</a>
+      <a href="/en/" hreflang="en">EN</a>
+      <a href="/de/" hreflang="de">DE</a>
+    </span>
     <span class="drawer-sign">David Kleňha · živá jazzová hudba</span>
   </div>
 </aside>
