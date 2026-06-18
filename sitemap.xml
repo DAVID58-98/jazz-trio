@@ -1,63 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
     <loc>https://jazztrio.cz/</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jazztrio.cz/blog/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://jazztrio.cz/en/</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html</loc>
+    <loc>https://jazztrio.cz/de/</loc>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/"/>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/svatebni-pochod-a-pisne-k-oltari.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/svatebni-pisne-repertoar.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/prvni-tanec-novomanzelu.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/ziva-hudba-na-ples.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/jazz-na-firemni-vecirek.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/vanocni-jazz-na-firemni-party.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/jaka-sestava-na-jakou-akci.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+
+  <url><loc>https://jazztrio.cz/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jazztrio.cz/blog/svatebni-pochod-a-pisne-k-oltari.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jazztrio.cz/blog/svatebni-pisne-repertoar.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jazztrio.cz/blog/prvni-tanec-novomanzelu.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://jazztrio.cz/blog/ziva-hudba-na-ples.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jazztrio.cz/blog/jazz-na-firemni-vecirek.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jazztrio.cz/blog/vanocni-jazz-na-firemni-party.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://jazztrio.cz/blog/jaka-sestava-na-jakou-akci.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

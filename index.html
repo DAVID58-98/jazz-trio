@@ -123,7 +123,12 @@ img{max-width:100%;display:block}
 .drawer .brand{color:#fff}
 .drawer-close{background:none;border:none;color:var(--mint);font-size:30px;cursor:pointer;line-height:1;width:40px;height:40px}
 .drawer nav{display:flex;flex-direction:column;gap:4px}
-.drawer nav a{font-family:var(--font-head);font-weight:600;font-size:23px;color:var(--cream);padding:10px 0;opacity:0;transform:translateX(28px);transition:color .25s;border-bottom:1px solid rgba(157,194,182,.13)}
+.drawer nav a{font-family:var(--font-head);font-weight:600;font-size:19px;color:var(--cream);padding:9px 0;opacity:0;transform:translateX(28px);transition:color .25s;border-bottom:1px solid rgba(157,194,182,.13)}
+.drawer-lang{display:flex;gap:6px;margin-bottom:26px}
+.drawer-lang a{font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--mint-soft);
+  padding:7px 14px;border-radius:100px;border:1px solid rgba(157,194,182,.3);line-height:1;transition:background .2s,color .2s,border-color .2s}
+.drawer-lang a:hover{color:var(--mint);border-color:var(--mint)}
+.drawer-lang a.active{background:var(--mint);color:var(--petrol);border-color:var(--mint)}
 .drawer.open nav a{animation:slideIn .55s cubic-bezier(.2,.7,.2,1) forwards}
 .drawer.open nav a:nth-child(1){animation-delay:.1s}.drawer.open nav a:nth-child(2){animation-delay:.16s}
 .drawer.open nav a:nth-child(3){animation-delay:.22s}.drawer.open nav a:nth-child(4){animation-delay:.28s}
@@ -758,6 +763,11 @@ main{position:relative;z-index:2}
     <span class="brand">jazz<b>trio</b>.cz</span>
     <button class="drawer-close" id="drawerClose" aria-label="Zavřít menu">&times;</button>
   </div>
+  <div class="drawer-lang">
+    <a href="/" class="active" hreflang="cs">CS</a>
+    <a href="/en/" hreflang="en">EN</a>
+    <a href="/de/" hreflang="de">DE</a>
+  </div>
   <nav>
     <a href="#poslech" data-close>Poslechněte si nás</a>
     <a href="#repertoire" data-close>Repertoár</a>
@@ -768,11 +778,6 @@ main{position:relative;z-index:2}
   </nav>
   <div class="drawer-foot">
     <a href="#poptavka" class="btn btn-light drawer-cta" data-close>Nezávazná poptávka</a>
-    <span class="lang-switch" style="align-self:center;margin-bottom:6px">
-      <a href="/" class="active" hreflang="cs">CS</a>
-      <a href="/en/" hreflang="en">EN</a>
-      <a href="/de/" hreflang="de">DE</a>
-    </span>
     <span class="drawer-sign">David Kleňha · živá jazzová hudba</span>
   </div>
 </aside>
