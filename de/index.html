@@ -1052,7 +1052,7 @@ main{position:relative;z-index:2}
           <input type="hidden" name="subject" value="Neue Anfrage von jazztrio.cz (DE)">
           <input type="hidden" name="from_name" value="jazztrio.cz">
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="Sestava" id="hidSestava" value="Jazz Trio (3 muzikanti)">
+          <input type="hidden" name="Sestava" id="hidSestava" value="Jazz Trio (3 Musiker)">
           <input type="hidden" name="Hudební bloky" id="hidBlocks" value="3 × 45 minut + pauzy">
           <input type="hidden" name="Typ akce" id="hidType" value="Svatba">
 
@@ -1568,7 +1568,7 @@ main{position:relative;z-index:2}
    {role:'Posaune',   file:'trombone.webp'}
   ];
   var lineup=MUS.map(function(m){return m.role;});
-  var names={2:'Jazz Duo',3:'Jazz Trio',4:'Jazz Kvartet',5:'Jazz Kvintet',6:'Jazz Sextet',7:'Jazz Septet'};
+  var names={2:'Jazz Duo',3:'Jazz Trio',4:'Jazz Quartett',5:'Jazz Quintett',6:'Jazz Sextett',7:'Jazz Septett'};
   function musFigureHTML(m){
     return '<img src="'+BASE+m.file+'" alt="'+m.role+'" width="263" height="263" loading="lazy" decoding="async">';
   }
@@ -1615,16 +1615,16 @@ main{position:relative;z-index:2}
   }
   function renderHead(){
     $('ensembleName').textContent=names[count];
-    $('hidSestava').value=names[count]+' ('+count+' muzikanti)';
+    $('hidSestava').value=names[count]+' ('+count+' Musiker)';
     syncMsgLineup();
   }
   // keep a single auto-line about the lineup at the top of the message; user can edit/delete it
   function syncMsgLineup(){
     var ta=$('zprava');if(!ta)return;
     var roles=lineup.slice(0,count).join(', ');
-    var auto='Ich interessiere mich für eine Besetzung mit: '+names[count]+' ('+count+' Mitgliedern — '+roles+').';
+    var auto='Ich interessiere mich für eine Besetzung mit: '+names[count]+' ('+count+' Musikern — '+roles+').';
     var lines=ta.value.split('\n');
-    if(lines.length && lines[0].indexOf('Ich interessiere mich für eine Besetzung:')===0){
+    if(lines.length && lines[0].indexOf('Ich interessiere mich für eine Besetzung mit:')===0){
       lines[0]=auto;ta.value=lines.join('\n');
     } else {
       ta.value=auto+(ta.value?'\n'+ta.value:'\n');
