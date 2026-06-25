@@ -42,8 +42,7 @@
 <meta name="theme-color" content="#0f5257">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap">
 
 <!-- Měření návštěvnosti (GA4 / Google Ads) zatím nenasazeno.
      Připraveno pro budoucí doplnění: stačí přidat gtag.js skript a config s reálným ID. -->
@@ -147,6 +146,9 @@ img{max-width:100%;display:block}
 .hero h1 .accent{color:var(--emerald)}
 .slogan .accent{color:var(--emerald)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:-9999px;top:0;z-index:10000;background:var(--emerald);color:#fff;padding:12px 18px;border-radius:0 0 10px 0;font-family:var(--font-body);font-weight:600;font-size:14px;text-decoration:none}
+.skip-link:focus{left:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
 .hero-slogans{display:grid;overflow:hidden}
 .slogan{grid-area:1/1;opacity:1;transform:translateY(0);
   transition:opacity .55s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
@@ -729,13 +731,6 @@ main{position:relative;z-index:2}
     "description": "David Kleňha ist Jazzsänger und Bandleader des Jazz Trios.",
     "url": "https://www.davidklenha.cz/"
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "35",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "sameAs": [
     "https://www.youtube.com/@davidklenha9168",
     "https://www.instagram.com/david_klenha/",
@@ -747,6 +742,8 @@ main{position:relative;z-index:2}
 </head>
 <body>
 
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
 <!-- UPGRADE: vstupní efekt -->
 <div id="jtIntro">
   <div class="intro-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -806,7 +803,7 @@ main{position:relative;z-index:2}
   </div>
 </aside>
 
-<main>
+<main id="main" tabindex="-1">
 <section class="hero" id="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -1276,8 +1273,11 @@ main{position:relative;z-index:2}
       setTimeout(function(){if(intro.parentNode)intro.parentNode.removeChild(intro);},900);
     }
     if(reduce){finish();return;}
-    window.addEventListener('load',function(){setTimeout(finish,1300);});
-    setTimeout(finish,2600);
+    // FOUT fix: intro odhalíme až po načtení fontů (Unbounded), aby nedošlo k přebliku.
+    var fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    var loaded = new Promise(function(res){ if(document.readyState==='complete'){res();} else {window.addEventListener('load',res,{once:true});} });
+    Promise.all([fontsReady, loaded]).then(function(){ setTimeout(finish, 500); });
+    setTimeout(finish, 3000); // tvrdá pojistka, kdyby se fonty nedotáhly
   })();
 
   /* ---- 3. Parallax bočních tvarů (desktop, motion-safe) ---- */
