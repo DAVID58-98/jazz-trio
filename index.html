@@ -40,8 +40,7 @@
 <meta name="theme-color" content="#0f5257">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap">
 
 <!-- Měření návštěvnosti (GA4 / Google Ads) zatím nenasazeno.
      Připraveno pro budoucí doplnění: stačí přidat gtag.js skript a config s reálným ID. -->
@@ -145,6 +144,9 @@ img{max-width:100%;display:block}
 .hero h1 .accent{color:var(--emerald)}
 .slogan .accent{color:var(--emerald)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:-9999px;top:0;z-index:10000;background:var(--emerald);color:#fff;padding:12px 18px;border-radius:0 0 10px 0;font-family:var(--font-body);font-weight:600;font-size:14px;text-decoration:none}
+.skip-link:focus{left:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
 .hero-slogans{display:grid;overflow:hidden}
 .slogan{grid-area:1/1;opacity:1;transform:translateY(0);
   transition:opacity .55s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
@@ -726,13 +728,6 @@ main{position:relative;z-index:2}
     "description": "David Kleňha je jazzový zpěvák a bandleader jazzového tria.",
     "url": "https://www.davidklenha.cz/"
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "35",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "sameAs": [
     "https://www.youtube.com/@davidklenha9168",
     "https://www.instagram.com/david_klenha/",
@@ -744,6 +739,8 @@ main{position:relative;z-index:2}
 </head>
 <body>
 
+
+<a class="skip-link" href="#main">Přeskočit na obsah</a>
 <!-- UPGRADE: vstupní efekt -->
 <div id="jtIntro">
   <div class="intro-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -803,14 +800,14 @@ main{position:relative;z-index:2}
   </div>
 </aside>
 
-<main>
+<main id="main" tabindex="-1">
 <section class="hero" id="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="eyebrow">Jazzové trio živě</span>
       <h1 class="hero-slogans" id="heroSlogans"><span class="sr-only">Jazzové trio na svatbu, ples a firemní akce — David Kleňha</span></h1>
       <p class="sr-only">Jazzové trio živě na svatbu, ples a firemní večírek — David Kleňha. Zpěv, klavír a kontrabas, vlastní ozvučení, dojezd po celé ČR.</p>
-      <p class="hero-sub">Zpěv, klavír a kontrabas naživo. Žádné playbacky — jen tři muzikanti, kteří umí naladit jakýkoliv sál i zahradu.</p>
+      <p class="hero-sub">Zpěv, klavír a kontrabas naživo — vyladěná tříčlenná sestava, která zní bohatě, ale nepřehluší konverzaci. Naše nejžádanější obsazení na <strong>svatby</strong>, <strong>firemní večírky</strong> i komorní jazzové večery.</p>
       <div class="hero-cta">
         <a href="#builder" class="btn btn-primary">Sestavte si kapelu</a>
         <a href="#poptavka" class="btn btn-ghost">Nezávazná poptávka</a>
@@ -844,14 +841,19 @@ main{position:relative;z-index:2}
       <p class="about-lead">
         <strong>Jsme jazzové trio</strong> v čele se zpěvákem
         <a href="https://www.davidklenha.cz/" target="_blank" rel="noopener">Davidem Kleňhou</a>.
-        Profesionální muzikanti s osobním přístupem. <strong>Kapela na svatbu</strong>, firemní večírek
-        či ples, která hraje 100&nbsp;% živě s opravdovým citem pro atmosféru.
-        Chceme hosty bavit, ne se předvádět.
+        Trio je naše vlajkové obsazení — dost plné na to, aby zaplnilo prostor,
+        a přitom natolik komorní, že si u něj hosté pohodlně povídají.
+        Hrajeme 100&nbsp;% živě, s citem pro atmosféru, ne pro efekt.
       </p>
       <button class="btn btn-ghost" id="aboutMoreBtn" type="button">Více o Davidu Kleňhovi</button>
       <p class="about-lead">
-        Na menší akce přijedeme jako <a href="https://www.jazzduo.cz/" target="_blank" rel="noopener"><strong>komorní duo</strong></a>,
-        na větší vás rozproudíme v plné sestavě. Kolik nás dorazí, si můžete naklikat hned&nbsp;níže.
+        Potřebujete jen nenápadnou kulisu k&nbsp;večeři? Vsaďte na
+        <a href="https://www.jazzduo.cz/" target="_blank" rel="noopener"><strong>jazzové duo</strong></a>.
+        Chcete naopak víc energie a taneční parket? Přidáme bicí jako
+        <a href="https://www.jazzquartet.cz/" target="_blank" rel="noopener"><strong>jazzový kvartet</strong></a>,
+        případně dech navrch jako
+        <a href="https://www.jazzquintet.cz/" target="_blank" rel="noopener"><strong>kvintet</strong></a>.
+        Kolik nás dorazí, si naklikáte hned&nbsp;níže.
       </p>
       <a href="#builder" class="roll-arrow-link" aria-label="Přejít na sestavení kapely">
         <span class="roll-arrow-big" aria-hidden="true">
@@ -914,15 +916,15 @@ main{position:relative;z-index:2}
       </div>
       <div class="benefit benefit-reveal">
         <svg class="bshape" viewBox="0 0 52 52"><path d="M26 4 L48 26 L26 48 L4 26 Z" fill="none" stroke="#0f5257" stroke-width="3"/><path d="M26 16 L36 26 L26 36 L16 26 Z" fill="#0f5257"/></svg>
-        <h3>Vlastní ozvučení</h3><p>Na komorní akce vozíme profesionální aparaturu — nemusíte řešit zvukaře.</p>
+        <h3>Zvuk vyladíme sami</h3><p>Na komornější prostory vozíme vlastní aparaturu a postaráme se o&nbsp;ozvučení. Vy neřešíte techniku ani zvukaře.</p>
       </div>
       <div class="benefit benefit-reveal">
         <svg class="bshape" viewBox="0 0 52 52"><rect x="6" y="6" width="40" height="40" rx="14" fill="none" stroke="#0f5257" stroke-width="3"/><circle cx="26" cy="26" r="9" fill="#0f5257"/></svg>
-        <h3>Sestava podle typu akce</h3><p>Komorní duo k večeři, trio na svatbu, septet na ples. Vy určujete velikost, my zvuk.</p>
+        <h3>Trio jako základ</h3><p>Trojice zní plně, ale zůstává komorní. Když je potřeba, ubereme na duo nebo přidáme bicí a dech. Vy řeknete akci, my doladíme velikost.</p>
       </div>
       <div class="benefit benefit-reveal">
         <svg class="bshape" viewBox="0 0 52 52"><path d="M8 32 Q26 2 44 32" fill="none" stroke="#0f5257" stroke-width="3"/><circle cx="8" cy="36" r="6" fill="#0f5257"/><circle cx="44" cy="36" r="6" fill="#0f5257"/></svg>
-        <h3>Skladby na přání</h3><p>Repertoár pro všechny generace a rádi nacvičíme vaši srdcovku.</p>
+        <h3>Jazzové standardy i&nbsp;srdcovky</h3><p>Od swingových evergreenů po decentně pojaté moderní písně. Vaši oblíbenou skladbu rádi nacvičíme na&nbsp;míru.</p>
       </div>
     </div>
   </div>
@@ -986,7 +988,7 @@ main{position:relative;z-index:2}
   <div class="wrap center">
     <span class="eyebrow">Galerie</span>
     <h2 class="section-title">Jak to u nás vypadá</h2>
-    <p class="section-lead">Autentické fotky z našich vystoupení — svatby, plesy i firemní večírky. Žádné aranžované studio, jen živá jazzová kapela v akci.</p>
+    <p class="section-lead">Skutečné momentky z&nbsp;vystoupení tria — svatební obřady, firemní večírky i&nbsp;jazzové večery v&nbsp;hotelech. Nic naaranžovaného, jen kapela při práci.</p>
   </div>
   <div class="gal-slider">
     <button class="gal-arrow prev" id="galPrev" type="button" aria-label="Předchozí fotka">‹</button>
@@ -1043,7 +1045,7 @@ main{position:relative;z-index:2}
       <div class="inner">
         <span class="eyebrow">Nezávazná poptávka</span>
         <h2 class="section-title">Jaká je naše cena?</h2>
-        <p class="price-intro">Paušální částku vám dopředu neřekneme. Cena se liší podle délky hraní, složení sestavy, místa a typu akce. Vyplňte pár údajů a my vám pošleme nezávaznou orientační nabídku přesně pro vaši akci.</p>
+        <p class="price-intro">Pevný ceník nemáme — záleží na&nbsp;délce hraní, místě a&nbsp;tom, jak velkou sestavu zvolíte. Napište pár detailů a&nbsp;pošleme vám nezávaznou orientační nabídku na&nbsp;trio (nebo jiné obsazení) přesně pro vaši akci.</p>
 
         <form class="calc" id="calcForm">
           <input type="hidden" name="access_key" value="56d249da-5d3a-4099-a406-4e51cd45daf1">
@@ -1121,8 +1123,8 @@ main{position:relative;z-index:2}
     <div class="cta-tile">
       <div class="dots"></div>
       <div class="inner">
-        <h2>Máte datum?<br>My máme kapelu.</h2>
-        <p>Napište nám termín, místo a typ akce. Do 24 hodin odpovíme s dostupností a nabídkou pro vaši sestavu.</p>
+        <h2>Plánujete svatbu<br>nebo večírek?</h2>
+        <p>Pošlete nám datum, místo a&nbsp;představu o&nbsp;akci. Do&nbsp;24&nbsp;hodin se ozveme s&nbsp;dostupností tria a&nbsp;orientační nabídkou.</p>
         <div class="cta-methods">
           <a href="mailto:info@davidklenha.cz" class="btn btn-primary"><svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> info@davidklenha.cz</a>
           <a href="tel:+420607828970" class="cta-phone"><svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +420 607 828 970</a>
@@ -1273,8 +1275,11 @@ main{position:relative;z-index:2}
       setTimeout(function(){if(intro.parentNode)intro.parentNode.removeChild(intro);},900);
     }
     if(reduce){finish();return;}
-    window.addEventListener('load',function(){setTimeout(finish,1300);});
-    setTimeout(finish,2600);
+    // FOUT fix: intro odhalíme až po načtení fontů (Unbounded), aby nedošlo k přebliku.
+    var fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    var loaded = new Promise(function(res){ if(document.readyState==='complete'){res();} else {window.addEventListener('load',res,{once:true});} });
+    Promise.all([fontsReady, loaded]).then(function(){ setTimeout(finish, 500); });
+    setTimeout(finish, 3000); // tvrdá pojistka, kdyby se fonty nedotáhly
   })();
 
   /* ---- 3. Parallax bočních tvarů (desktop, motion-safe) ---- */
@@ -1491,11 +1496,11 @@ main{position:relative;z-index:2}
   /* ---- rotating hero slogan (5 slogans, slow + smooth) ---- */
   (function(){
     var slogans=[
-      ['Večer, který si','budete pamatovat.'],
-      ['Sestavte si kapelu','na míru své akci.'],
-      ['Živý jazz, který','rozproudí parket.'],
-      ['Od komorního dua','po velký band.'],
-      ['Hudba, která','dělá atmosféru.']
+      ['Jazzové trio','pro váš večer.'],
+      ['Dost plné, a přitom','komorní.'],
+      ['Zpěv, klavír','a kontrabas naživo.'],
+      ['Svatba, večírek,','jazzový večer.'],
+      ['Naše nejžádanější','obsazení.']
     ];
     var host=$('heroSlogans');if(!host)return;
     host.innerHTML='';
