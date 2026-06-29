@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="cs" class="fonts-loading">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +26,7 @@
 <meta name="theme-color" content="#0f5257">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap">
 <script type="application/ld+json">
 {
@@ -114,6 +115,8 @@
   ]
 }
 </script>
+<script>(function(){var d=document.documentElement;function ok(){d.classList.remove('fonts-loading');d.classList.add('fonts-loaded');}if(document.fonts&&document.fonts.ready){document.fonts.ready.then(ok);setTimeout(ok,1500);}else{ok();}})();</script>
+<noscript><style>html.fonts-loading *{font-family:Georgia,serif!important}</style></noscript>
 <style>
 :root{
   --emerald:#0f5257;--emerald-2:#157a7f;--petrol:#14302f;
