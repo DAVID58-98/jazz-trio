@@ -3,26 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog über Live-Musik für Hochzeiten, Bälle und Firmenfeiern | David Kleňha</title>
+<title>Blog über Live-Musik für Hochzeiten und Feiern</title>
 <meta name="description" content="Artikel vom Jazzsänger David Kleňha über Live-Musik für Hochzeiten, Bälle und Firmenfeiern — Tipps zur Auswahl der Band, Repertoire, Preise und Organisation.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://jazztrio.cz/de/blog/">
+<link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/">
+<link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/">
+<link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/">
+<link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Jazz Trio — David Kleňha">
 <meta property="og:title" content="Blog über Live-Musik für Hochzeiten, Bälle und Firmenfeiern | David Kleňha">
 <meta property="og:description" content="Tipps vom Jazzsänger David Kleňha: Wie wählt man Live-Musik für Hochzeit, Ball oder Firmenfeier.">
 <meta property="og:locale" content="de_DE">
 <meta property="og:url" content="https://jazztrio.cz/de/blog/">
-<meta property="og:image" content="https://jazztrio.cz/SEO/og-image.png">
+<meta property="og:image" content="https://jazztrio.cz/SEO/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:alt" content="David Kleňha — Jazzsänger und Bandleader">
+<meta name="twitter:title" content="Blog über Live-Musik für Hochzeiten, Bälle und Firmenfeiern | David Kleňha">
+<meta name="twitter:description" content="Tipps vom Jazzsänger David Kleňha: Wie wählt man Live-Musik für Hochzeit, Ball oder Firmenfeier.">
+<meta name="twitter:image" content="https://jazztrio.cz/SEO/og-image.jpg">
 <link rel="icon" href="/favicon/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
 <meta name="theme-color" content="#0f5257">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Sora:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap">
 
 <script type="application/ld+json">
 {
@@ -42,9 +46,27 @@
 }
 </script>
 
-<script>(function(){var d=document.documentElement;function ok(){d.classList.remove('fonts-loading');d.classList.add('fonts-loaded');}if(document.fonts&&document.fonts.ready){document.fonts.ready.then(ok);setTimeout(ok,1500);}else{ok();}})();</script>
 <noscript><style>html.fonts-loading *{font-family:Georgia,serif!important}</style></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="gfonts" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&amp;family=Sora:wght@400;600;700&amp;family=Poppins:wght@400;500;600&amp;display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&amp;family=Sora:wght@400;600;700&amp;family=Poppins:wght@400;500;600&amp;display=swap"></noscript>
+<script>(function(){
+  var d=document.documentElement,l=document.getElementById('gfonts'),done=false;
+  function ok(){if(done)return;done=true;d.classList.remove('fonts-loading');d.classList.add('fonts-loaded');}
+  function afterCss(){
+    if(!document.fonts||!document.fonts.load){ok();return;}
+    Promise.all([document.fonts.load('800 1em Unbounded'),
+                 document.fonts.load('700 1em Sora'),
+                 document.fonts.load('400 1em Poppins')]).then(ok)['catch'](ok);
+  }
+  if(l){l.addEventListener('load',function(){this.rel='stylesheet';afterCss();});
+        l.addEventListener('error',ok);}
+  else {afterCss();}
+  setTimeout(ok,1500);
+})();</script>
 <style>
+
 :root{
   --emerald:#0f5257;--emerald-2:#157a7f;--petrol:#14302f;
   --cream:#f4f0e4;--cream-2:#ece6d6;--cream-3:#e3dcc6;
@@ -150,6 +172,7 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
   <button class="menu-btn" onclick="location.href='/de/#poptavka'">Anfrage</button>
 </header>
 
+<main id="obsah">
 <section class="blog-hero">
   <div class="wrap">
     <span class="eyebrow">Blog &amp; Tipps</span>
@@ -319,6 +342,7 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
   </div>
 </section>
 
+</main>
 <footer>
   <div class="foot-row">
     <span class="fb">jazz<b>trio</b>.cz</span>

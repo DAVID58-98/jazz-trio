@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stránka nenalezena (404) | jazztrio.cz</title>
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="gfonts" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&amp;family=Sora:wght@400;600&amp;family=Poppins:wght@400;500&amp;display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&amp;family=Sora:wght@400;600&amp;family=Poppins:wght@400;500&amp;display=swap"></noscript>
+<script>(function(){
+  var d=document.documentElement,l=document.getElementById('gfonts'),done=false;
+  function ok(){if(done)return;done=true;d.classList.remove('fonts-loading');d.classList.add('fonts-loaded');}
+  function afterCss(){
+    if(!document.fonts||!document.fonts.load){ok();return;}
+    Promise.all([document.fonts.load('800 1em Unbounded'),
+                 document.fonts.load('700 1em Sora'),
+                 document.fonts.load('400 1em Poppins')]).then(ok)['catch'](ok);
+  }
+  if(l){l.addEventListener('load',function(){this.rel='stylesheet';afterCss();});
+        l.addEventListener('error',ok);}
+  else {afterCss();}
+  setTimeout(ok,1500);
+})();</script>
+<style>
+
+:root{--cream:#f4f0e4;--petrol:#14302f;--emerald:#0f5257;--mint:#7fb5a8;--ink:#14302f;--ink-soft:#4a5e58;
+--font-hero:'Unbounded',sans-serif;--font-head:'Sora',sans-serif;--font-body:'Poppins',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);line-height:1.7;
+min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
+.box{max-width:620px;text-align:center}
+.code{font-family:var(--font-hero);font-weight:800;font-size:clamp(64px,14vw,120px);
+color:var(--emerald);line-height:1;letter-spacing:-.03em}
+h1{font-family:var(--font-head);font-weight:700;font-size:clamp(22px,3.4vw,30px);
+letter-spacing:-.02em;margin:14px 0 12px;color:var(--petrol)}
+p{color:var(--ink-soft);font-size:16px;margin-bottom:28px}
+.links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+a.btn{font-family:var(--font-head);font-weight:600;font-size:15px;text-decoration:none;
+padding:13px 24px;border-radius:100px;transition:.2s;display:inline-block}
+.primary{background:var(--emerald);color:#fff}
+.primary:hover{background:var(--petrol)}
+.ghost{border:1.5px solid var(--emerald);color:var(--emerald)}
+.ghost:hover{background:var(--emerald);color:#fff}
+a:focus-visible,.btn:focus-visible{outline:3px solid #e0a93c;outline-offset:2px}
+.sister{margin-top:30px;font-size:14px;color:var(--ink-soft)}
+.sister a{color:var(--emerald);font-weight:600}
+</style>
+</head>
+<body>
+<main class="box">
+  <div class="code">404</div>
+  <h1>Tuhle stránku jsme nenašli</h1>
+  <p>Možná se přesunula nebo jste zadali adresu s překlepem. Zkuste to prosím z úvodní stránky —
+  nebo mi rovnou napište, s čím potřebujete pomoct.</p>
+  <div class="links">
+    <a class="btn primary" href="/">Zpět na úvod</a>
+    <a class="btn ghost" href="/#poptavka">Nezávazná poptávka</a>
+  </div>
+  <p class="sister">Hledáte jinou sestavu? <a href="https://jazzduo.cz">duo</a> ·
+  <a href="https://jazztrio.cz">trio</a> · <a href="https://jazzquartet.cz">kvartet</a> ·
+  <a href="https://jazzquintet.cz">kvintet</a></p>
+</main>
+</body>
+</html>
