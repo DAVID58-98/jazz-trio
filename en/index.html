@@ -166,7 +166,7 @@ img{max-width:100%;display:block}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip-link{position:absolute;left:-9999px;top:0;z-index:10000;background:var(--emerald);color:#fff;padding:12px 18px;border-radius:0 0 10px 0;font-family:var(--font-body);font-weight:600;font-size:14px;text-decoration:none}
 .skip-link:focus{left:0}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+:focus-visible{outline:3px solid var(--petrol);outline-offset:2px;box-shadow:0 0 0 6px var(--gold);border-radius:4px}
 .hero-slogans{display:grid;overflow:hidden}
 .slogan{grid-area:1/1;opacity:1;transform:translateY(0);
   transition:opacity .55s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
@@ -736,6 +736,11 @@ main{position:relative;z-index:2}
     "@type": "Place",
     "name": "Prague, Czech Republic"
   },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Prague",
+    "addressCountry": "CZ"
+  },
   "areaServed": [
     {"@type": "Country", "name": "Czech Republic"},
     {"@type": "Country", "name": "Germany"},
@@ -867,8 +872,11 @@ main{position:relative;z-index:2}
       </p>
       <button class="btn btn-ghost" id="aboutMoreBtn" type="button">More about David Kleňha</button>
       <p class="about-lead">
-        For smaller events we come as a <a href="https://jazzduo.cz/" target="_blank" rel="noopener"><strong>chamber duo</strong></a>,
-        for bigger ones we get the party going in full line-up. You can pick how many of us arrive right&nbsp;below.
+        For smaller events we come as a <a href="https://jazzduo.cz/" target="_blank" rel="noopener"><strong>chamber duo</strong></a>.
+        Want more energy and a dance floor? With drums we become a
+        <a href="https://jazzquartet.cz/" target="_blank" rel="noopener"><strong>jazz quartet</strong></a>,
+        with horns on top a <a href="https://jazzquintet.cz/" target="_blank" rel="noopener"><strong>quintet</strong></a>.
+        You can pick how many of us arrive right&nbsp;below.
       </p>
       <a href="#builder" class="roll-arrow-link" aria-label="Go to band builder">
         <span class="roll-arrow-big" aria-hidden="true">
@@ -1843,14 +1851,16 @@ main{position:relative;z-index:2}
       lbImg.src=GBASE+files[cur];
       lbImg.alt='Jazz Trio David Kleňha live — photo '+(cur+1);
     }
-    function openLB(i){jtTrap(lb);
+    function openLB(i){
       if(!lb)return;
       show(i);
       lb.classList.add('show');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+      requestAnimationFrame(function(){jtTrap(lb);});
     }
-    function closeLB(){jtRelease(lb);
+    function closeLB(){
       if(!lb)return;
       lb.classList.remove('show');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';
+      jtRelease(lb);
       setTimeout(function(){lbImg.src='';},260);
     }
     function next(){show(cur+1);}
