@@ -139,7 +139,7 @@ img{max-width:100%;display:block}
   transform:translateX(100%);transition:transform .5s cubic-bezier(.7,0,.2,1);padding:32px 30px;display:flex;flex-direction:column;
   overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .drawer.open{transform:translateX(0)}
-.drawer:focus,.drawer:focus-visible{outline:none}
+.drawer:focus,.drawer:focus-visible{outline:none;box-shadow:none;border-radius:0}
 .drawer-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
 .drawer .brand{color:#fff}
 .drawer-close{background:none;border:none;color:var(--mint);font-size:30px;cursor:pointer;line-height:1;width:40px;height:40px}
@@ -244,10 +244,20 @@ img{max-width:100%;display:block}
 
 /* ---------- repertoire (designed tiles, not plain white) ---------- */
 .rep-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
-.cats{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:24px}
+.cats{margin-bottom:24px}
+.cats-bar{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
 .catbtn{font-family:var(--font-body);font-weight:500;font-size:14px;padding:9px 18px;border-radius:100px;border:1.5px solid rgba(244,240,228,.3);background:transparent;color:var(--mint-soft);cursor:pointer;transition:.25s}
 .catbtn:hover{border-color:var(--mint);color:var(--cream)}
 .catbtn.active{background:var(--cream);color:var(--petrol);border-color:var(--cream)}
+/* rozbalovaci filtr — bubliny kategorii se ukazou az na vyzadani */
+.catbtn.filter-toggle{display:inline-flex;align-items:center;gap:9px}
+.catbtn.filter-toggle .chev{width:9px;height:9px;border-right:1.7px solid currentColor;border-bottom:1.7px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .25s}
+.catbtn.filter-toggle[aria-expanded="true"] .chev{transform:rotate(-135deg) translate(-2px,-2px)}
+.cats-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s cubic-bezier(.4,0,.2,1),opacity .25s;opacity:0;overflow:hidden}
+.cats-panel.open{grid-template-rows:1fr;opacity:1}
+.cats-panel > div{min-height:0;overflow:hidden}
+.cats-list{display:flex;gap:9px;flex-wrap:wrap;padding-top:12px}
+@media (prefers-reduced-motion:reduce){.cats-panel{transition:none}}
 /* repertoire = auto-scrolling playlist on ALL screens, fixed height, arrows to page */
 .rep-player{position:relative;display:flex;align-items:center;gap:12px}
 .rep-arrow{flex-shrink:0;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(244,240,228,.4);background:transparent;color:var(--cream);font-size:24px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;line-height:1}
@@ -411,7 +421,7 @@ img{max-width:100%;display:block}
 .field input[type=date]::-webkit-date-and-time-value{text-align:left}
 .field textarea{resize:vertical;min-height:84px}
 .field input::placeholder,.field textarea::placeholder{color:rgba(238,243,239,.45)}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--mint);background:rgba(255,255,255,.11)}
+.field input:focus,.field input:focus-visible,.field textarea:focus,.field textarea:focus-visible{outline:none;box-shadow:none;border-radius:14px;border-color:var(--mint);background:rgba(255,255,255,.11)}
 /* tile-style choice grids */
 .choice{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .choice .opt{font:inherit;width:100%;display:block;text-align:center;padding:16px 12px;border-radius:14px;border:1.5px solid rgba(157,194,182,.24);
@@ -684,9 +694,10 @@ main{position:relative;z-index:2}
 .about-lead strong{font-weight:700;color:var(--emerald)}
 .about-lead a strong{color:var(--emerald)}
 /* galerie vlozena primo do sekce "Kdo jsme" */
-#kdo-jsme .gal-head{margin-top:clamp(112px,13vw,184px);scroll-margin-top:96px}
-#kdo-jsme .gal-head .section-title{margin-bottom:10px}
-#kdo-jsme .intro-after{margin-top:clamp(106px,12.5vw,176px)}
+/* galerie navazuje rovnou na uvodni odstavec — stejna mezera nad i pod sliderem */
+#kdo-jsme{--gal-gap:clamp(110px,15vw,180px)}
+#kdo-jsme .gal-slider{margin-top:var(--gal-gap);scroll-margin-top:96px}
+#kdo-jsme .intro-after{margin-top:var(--gal-gap)}
 .gal-item{aspect-ratio:3/4}
 .gal-item img{width:100%;height:100%;object-fit:cover;display:block}
 .roll-arrow-link{display:inline-flex;margin-top:22px;color:var(--emerald);transition:color .2s}
@@ -898,11 +909,7 @@ main{position:relative;z-index:2}
   </div>
 
   <!-- galerie: 9 fotek, slider + lightbox -->
-  <div class="wrap center gal-head" id="gallery">
-    <h2 class="section-title">So sieht es bei uns aus</h2>
-    <p class="section-lead">Momentaufnahmen von unseren Auftritten.</p>
-  </div>
-  <div class="gal-slider">
+  <div class="gal-slider" id="gallery">
     <button class="gal-arrow prev" id="galPrev" type="button" aria-label="Vorheriges Foto">‹</button>
     <div class="gal-viewport">
       <div class="gal-track" id="galTrack"></div>
@@ -985,19 +992,19 @@ main{position:relative;z-index:2}
     <div class="benefits-grid">
       <div class="benefit benefit-reveal">
         <svg class="bshape" viewBox="0 0 52 52"><circle cx="26" cy="26" r="22" fill="none" stroke="#0f5257" stroke-width="3"/><circle cx="26" cy="26" r="8" fill="#0f5257"/></svg>
-        <h3>100% Live-Musik</h3><p>Kein Playback, keine Konserve. Jeder Ton entsteht vor Ort, vor Ihren Gästen.</p>
+        <h3>100% Live-Musik</h3><p>Kein Playback, keine Konserve. Jeder Ton entsteht live vor Ort, vor Ihren Gästen.</p>
       </div>
       <div class="benefit benefit-reveal">
         <svg class="bshape" viewBox="0 0 52 52"><path d="M26 4 L48 26 L26 48 L4 26 Z" fill="none" stroke="#0f5257" stroke-width="3"/><path d="M26 16 L36 26 L26 36 L16 26 Z" fill="#0f5257"/></svg>
-        <h3>Eigene Tontechnik</h3><p>Für kleinere Anlässe bringen wir professionelle Technik mit — Sie brauchen keinen Tontechniker.</p>
+        <h3>Eigene Tontechnik</h3><p>Für kleinere Anlässe bringen wir eigene Technik mit — ganz ohne externen Tontechniker.</p>
       </div>
       <div class="benefit benefit-reveal">
         <svg class="bshape" viewBox="0 0 52 52"><rect x="6" y="6" width="40" height="40" rx="14" fill="none" stroke="#0f5257" stroke-width="3"/><circle cx="26" cy="26" r="9" fill="#0f5257"/></svg>
-        <h3>Besetzung nach Anlass</h3><p>Kammer-Duo zum Dinner, Trio zur Hochzeit, Septett zum Ball. Sie bestimmen die Größe, wir den Klang.</p>
+        <h3>Besetzung nach Anlass</h3><p>Kammer-Duo zum Dinner, Trio zur Hochzeit, Septett zum Ball — Sie bestimmen die Größe.</p>
       </div>
       <div class="benefit benefit-reveal">
         <svg class="bshape" viewBox="0 0 52 52"><path d="M8 32 Q26 2 44 32" fill="none" stroke="#0f5257" stroke-width="3"/><circle cx="8" cy="36" r="6" fill="#0f5257"/><circle cx="44" cy="36" r="6" fill="#0f5257"/></svg>
-        <h3>Songs auf Wunsch</h3><p>Ein Repertoire für alle Generationen — und Ihren Lieblingssong lernen wir gern ein.</p>
+        <h3>Songs auf Wunsch</h3><p>Ein Repertoire für alle Generationen — Ihren Lieblingssong lernen wir gern ein.</p>
       </div>
     </div>
   </div>
@@ -1362,8 +1369,12 @@ main{position:relative;z-index:2}
     // FOUT fix: intro odhalíme až po načtení fontů (Unbounded), aby nedošlo k přebliku.
     var fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
     var loaded = new Promise(function(res){ if(document.readyState==='complete'){res();} else {window.addEventListener('load',res,{once:true});} });
-    Promise.all([fontsReady, loaded]).then(function(){ setTimeout(finish, 500); });
-    setTimeout(finish, 3000); // tvrdá pojistka, kdyby se fonty nedotáhly
+    // Minimalni doba, po kterou intro zustane videt — i kdyz se web nacte bleskove,
+    // divak stihne zaregistrovat animaci ekvalizeru. Nacitani bezi mezitim na pozadi.
+    var MIN_SHOW=1200, HARD_STOP=4200;
+    var minTime = new Promise(function(res){ setTimeout(res, MIN_SHOW); });
+    Promise.all([fontsReady, loaded, minTime]).then(function(){ setTimeout(finish, 260); });
+    setTimeout(finish, HARD_STOP); // tvrda pojistka, kdyby se fonty nedotahly
   })();
 
   /* ---- 3. Parallax bočních tvarů (desktop, motion-safe) ---- */
@@ -1630,10 +1641,19 @@ main{position:relative;z-index:2}
 
   /* ---- topbar + back-to-top ---- */
   var topbar=$('topbar'),btt=$('backToTop');
+  // sipka "nahoru" se ukaze az u konce stranky (cca poslednich 15 %), jinak rusi pri cteni
+  var BTT_AT=0.85;
+  function bttSync(){
+    var docH=document.documentElement.scrollHeight-window.innerHeight;
+    var pct=docH>40?(window.scrollY/docH):0;
+    btt.classList.toggle('visible',pct>=BTT_AT);
+  }
   window.addEventListener('scroll',function(){
     topbar.classList.toggle('scrolled',window.scrollY>30);
-    btt.classList.toggle('visible',window.scrollY>600);
+    bttSync();
   },{passive:true});
+  window.addEventListener('resize',bttSync,{passive:true});
+  bttSync();
   btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 
   /* ---- reveal (desktop only) ---- */
@@ -1734,12 +1754,43 @@ main{position:relative;z-index:2}
   var catDefs=[{k:'all',l:'Alle'},{k:'standards',l:'Jazz-Standards'},{k:'pop',l:'Pop im Jazz-Gewand'},{k:'ballads',l:'Schmusesongs'},{k:'czech',l:'Tschechische Klassiker'}];
   var curCat='all';
   function flatList(cat){var arr=[];Object.keys(SONGS).forEach(function(k){if(cat==='all'||cat===k)SONGS[k].forEach(function(s){arr.push(s);});});return arr;}
+  var catsOpen=false;
   function renderCats(){
     var box=$('cats');box.innerHTML='';
-    catDefs.forEach(function(c){
-      var b=el('button',null,c.l);b.className='catbtn'+(c.k===curCat?' active':'');b.type='button';
-      b.onclick=function(){curCat=c.k;renderSongs();};box.appendChild(b);
+    var all=catDefs[0], rest=catDefs.slice(1);
+    var active=rest.filter(function(c){return c.k===curCat;})[0];
+
+    var bar=el('div');bar.className='cats-bar';
+
+    var bAll=el('button',null,all.l);bAll.type='button';
+    bAll.className='catbtn'+(curCat==='all'?' active':'');
+    bAll.onclick=function(){curCat='all';catsOpen=false;renderSongs();};
+    bar.appendChild(bAll);
+
+    var bFilter=el('button');bFilter.type='button';
+    bFilter.className='catbtn filter-toggle'+(active?' active':'');
+    bFilter.setAttribute('aria-expanded',catsOpen?'true':'false');
+    bFilter.setAttribute('aria-controls','catsPanel');
+    bFilter.innerHTML='<span>'+(active?active.l:'Filter')+'</span><span class="chev" aria-hidden="true"></span>';
+    bFilter.onclick=function(){catsOpen=!catsOpen;syncPanel();};
+    bar.appendChild(bFilter);
+    box.appendChild(bar);
+
+    var panel=el('div');panel.className='cats-panel';panel.id='catsPanel';
+    var innerWrap=el('div');var list=el('div');list.className='cats-list';
+    rest.forEach(function(c){
+      var b=el('button',null,c.l);b.type='button';
+      b.className='catbtn'+(c.k===curCat?' active':'');
+      b.onclick=function(){curCat=c.k;catsOpen=false;renderSongs();};
+      list.appendChild(b);
     });
+    innerWrap.appendChild(list);panel.appendChild(innerWrap);box.appendChild(panel);
+
+    function syncPanel(){
+      panel.classList.toggle('open',catsOpen);
+      bFilter.setAttribute('aria-expanded',catsOpen?'true':'false');
+    }
+    syncPanel();
   }
   var repPaused=false,repHalf=0;
   var repMobile=window.matchMedia('(max-width:1024px)');
@@ -1805,53 +1856,91 @@ main{position:relative;z-index:2}
     var GBASE='https://jazztrio.cz/foto/';
     var files=['foto_1.webp','foto_2.webp','foto_3.webp','foto_4.webp','foto_5.webp','foto_6.webp','foto_7.webp','foto_8.webp','foto_9.webp'];
     var track=$('galTrack');if(!track)return;
-    function build(){files.forEach(function(f,i){
-      var d=el('button');d.className='gal-item';d.type='button';d.setAttribute('aria-label',GAL_OPEN.replace('{n}',i+1).replace('{total}',files.length));
+    var N=files.length;
+    var CLONES=4;               // = max. pocet fotek ve vyrezu (desktop), staci pro plynule pretoceni
+    var GAL_DUR=450;            // musi sedet s transition v .gal-track
+
+    function makeItem(i,isClone){
+      var d=el('button');d.className='gal-item';d.type='button';
       d.setAttribute('data-idx',i);
-      d.innerHTML='<img src="'+GBASE+f+'" alt="'+(GAL_ALTS[i]||'')+'" loading="lazy" decoding="async">';
+      d.innerHTML='<img src="'+GBASE+files[i]+'" alt="'+(isClone?'':(GAL_ALTS[i]||''))+'" loading="lazy" decoding="async">';
+      if(isClone){d.setAttribute('aria-hidden','true');d.tabIndex=-1;}
+      else{d.setAttribute('aria-label',GAL_OPEN.replace('{n}',i+1).replace('{total}',N));}
       d.addEventListener('click',function(){openLB(i);});
-      track.appendChild(d);});}
+      return d;
+    }
+    // poradi v DOM: [klony poslednich N] + [realne 0..N-1] + [klony prvnich N]
+    function build(){
+      var i;
+      for(i=CLONES;i>0;i--)track.appendChild(makeItem((N-i%N)%N,true));
+      for(i=0;i<N;i++)track.appendChild(makeItem(i,false));
+      for(i=0;i<CLONES;i++)track.appendChild(makeItem(i%N,true));
+    }
     build();
 
-    /* ---- slider (šipky + tečky + swipe; stejné chování jako video) ---- */
+    /* ---- slider (sipky + tecky + swipe; nekonecna smycka obema smery) ---- */
     var galPrev=$('galPrev'),galNext=$('galNext'),galDots=$('galDots');
-    function perView(){var w=window.innerWidth;if(w<=560)return 1;if(w<=1024)return 2;if(w<=1100)return 2;return 4;}
-    var gpos=0;
-    function gMaxPos(){return Math.max(0,files.length-perView());}
-    function gBuildDots(){
-      if(!galDots)return;
-      galDots.innerHTML='';var n=gMaxPos()+1;
-      for(var i=0;i<n;i++){(function(i){
-        var b=el('button');b.type='button';b.setAttribute('aria-label','Zobrazit fotku '+(i+1));
-        if(i===gpos){b.className='on';b.setAttribute('aria-current','true');}
-        b.addEventListener('click',function(){gpos=i;gUpdate();});
-        galDots.appendChild(b);
-      })(i);}
-    }
-    function gUpdate(){
-      gpos=Math.max(0,Math.min(gMaxPos(),gpos));
+    var gpos=0;        // logicka pozice 0..N-1
+    var gLock=false;   // brani prekliknuti uprostred pretoceni
+
+    function gStep(){
       var first=track.querySelector('.gal-item');
       var gap=parseFloat(getComputedStyle(track).gap)||16;
-      var itemW=first?first.getBoundingClientRect().width:0;
-      track.style.transform='translateX(-'+(gpos*(itemW+gap))+'px)';
-      if(galPrev)galPrev.disabled=(gpos<=0);
-      if(galNext)galNext.disabled=(gpos>=gMaxPos());
-      if(galDots)galDots.querySelectorAll('button').forEach(function(d,i){
+      return (first?first.getBoundingClientRect().width:0)+gap;
+    }
+    function gShift(slot,animate){
+      track.style.transition=animate?'':'none';
+      track.style.transform='translateX(-'+((CLONES+slot)*gStep())+'px)';
+      if(!animate){track.getBoundingClientRect();track.style.transition='';}
+    }
+    function gDotsSync(){
+      if(!galDots)return;
+      galDots.querySelectorAll('button').forEach(function(d,i){
         if(i===gpos){d.className='on';d.setAttribute('aria-current','true');}
         else{d.className='';d.removeAttribute('aria-current');}});
     }
-    if(galPrev)galPrev.addEventListener('click',function(){gpos--;gUpdate();});
-    if(galNext)galNext.addEventListener('click',function(){gpos++;gUpdate();});
+    function gBuildDots(){
+      if(!galDots)return;
+      galDots.innerHTML='';
+      for(var i=0;i<N;i++){(function(i){
+        var b=el('button');b.type='button';b.setAttribute('aria-label','Foto anzeigen '+(i+1));
+        b.addEventListener('click',function(){if(gLock)return;gpos=i;gShift(gpos,true);gDotsSync();});
+        galDots.appendChild(b);
+      })(i);}
+      gDotsSync();
+    }
+    // posun o krok; pri pretecení dojede na klon a pak neviditelne skoci na realnou fotku
+    function gMove(dir){
+      if(gLock)return;
+      var target=gpos+dir;
+      gShift(target,true);
+      if(target<0||target>=N){
+        gLock=true;
+        setTimeout(function(){
+          gpos=(target%N+N)%N;
+          gShift(gpos,false);
+          gLock=false;
+        },GAL_DUR+20);
+      }
+      gpos=(target%N+N)%N;
+      gDotsSync();
+    }
+    function gUpdate(){gShift(gpos,false);gDotsSync();}
+    if(galPrev)galPrev.addEventListener('click',function(){gMove(-1);});
+    if(galNext)galNext.addEventListener('click',function(){gMove(1);});
     // swipe na dotyku
     var gsX=0,gsY=0,gTouch=false;
     track.addEventListener('touchstart',function(e){var t=e.touches[0];gsX=t.clientX;gsY=t.clientY;gTouch=true;},{passive:true});
     track.addEventListener('touchend',function(e){
       if(!gTouch)return;gTouch=false;
       var t=e.changedTouches[0];var dx=t.clientX-gsX,dy=t.clientY-gsY;
-      if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){if(dx<0)gpos++;else gpos--;gUpdate();}
+      if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy))gMove(dx<0?1:-1);
     },{passive:true});
-    var gRt;window.addEventListener('resize',function(){clearTimeout(gRt);gRt=setTimeout(function(){gBuildDots();gUpdate();},150);});
+    var gRt;window.addEventListener('resize',function(){clearTimeout(gRt);gRt=setTimeout(gUpdate,150);});
     gBuildDots();gUpdate();
+    // pojistka: dorovnat offset klonu, az bude layout/fonty/obrazky hotove
+    requestAnimationFrame(gUpdate);
+    window.addEventListener('load',function(){if(!gLock)gUpdate();});
 
     /* ---- lightbox ---- */
     var lb=$('galLightbox'),lbImg=$('galLbImg');
@@ -2048,7 +2137,20 @@ function jtCookieCloseSettings(){document.getElementById('jtCookieSettings').cla
 (function(){
   var s=jtCookieGetStored();
   if(s&&s.consent){jtCookieApply(s.consent);}
-  else{setTimeout(function(){var b=document.getElementById('jtCookieBanner');if(b)b.classList.add('jt-active');},1500);}
+  else{
+    // Lista se ukaze az kdyz navstevnik zacne scrollovat — hlavni strana tak zustane cista.
+    // Pojistka: kdyby nescrolloval vubec, zobrazi se sama po 12 s.
+    var shown=false,fallback;
+    function jtCookieShow(){
+      if(shown)return;shown=true;
+      clearTimeout(fallback);
+      window.removeEventListener('scroll',onScroll);
+      var b=document.getElementById('jtCookieBanner');if(b)b.classList.add('jt-active');
+    }
+    function onScroll(){if(window.scrollY>60)setTimeout(jtCookieShow,350);}
+    window.addEventListener('scroll',onScroll,{passive:true});
+    fallback=setTimeout(jtCookieShow,12000);
+  }
   // close settings modal on backdrop click
   var sm=document.getElementById('jtCookieSettings');
   if(sm)sm.addEventListener('click',function(e){if(e.target===sm)jtCookieCloseSettings();});
