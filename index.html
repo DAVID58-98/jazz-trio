@@ -2309,14 +2309,23 @@ body{overflow-x:hidden;max-width:100%}
     var lockY=0;
     function lockScroll(){
       lockY=window.scrollY||document.documentElement.scrollTop||0;
+      // kompenzace zmizelého posuvníku, aby stránka neposkočila do strany
+      var sw=window.innerWidth-document.documentElement.clientWidth;
+      if(sw>0)document.body.style.paddingRight=sw+'px';
       var b=document.body;
       b.style.position='fixed';b.style.top=(-lockY)+'px';
       b.style.left='0';b.style.right='0';b.style.width='100%';b.style.overflow='hidden';
     }
     function unlockScroll(){
-      var b=document.body;
-      b.style.position='';b.style.top='';b.style.left='';b.style.right='';b.style.width='';b.style.overflow='';
+      var b=document.body, r=document.documentElement;
+      var prevBehavior=r.style.scrollBehavior;
+      r.style.scrollBehavior='auto';          // html má scroll-behavior:smooth — jinak by se návrat animoval
+      b.style.position='';b.style.top='';b.style.left='';b.style.right='';b.style.width='';b.style.overflow='';b.style.paddingRight='';
       window.scrollTo(0,lockY);
+      requestAnimationFrame(function(){
+        window.scrollTo(0,lockY);             // pojistka po přepočtu layoutu
+        r.style.scrollBehavior=prevBehavior;
+      });
     }
     btns.forEach(function(b){b.addEventListener('click',function(){last=b;open(b.closest('.lineup-card'),b.dataset.bio);});});
     // ---- reference: nekonečný slider po celých sloupcích ----
