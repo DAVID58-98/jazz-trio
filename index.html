@@ -1274,7 +1274,7 @@ main{position:relative;z-index:2}
 /* tlačítka v úvodu vždy vedle sebe */
 @media (max-width:560px){
   .hero-cta{flex-wrap:nowrap;gap:8px;width:100%}
-  .hero-cta .btn{flex:1 1 0;min-width:0;white-space:nowrap;padding-left:12px;padding-right:12px;font-size:13.5px;text-align:center;justify-content:center}
+  .hero-cta .btn{flex:1 1 0;min-width:0;white-space:normal;overflow-wrap:break-word;hyphens:auto;padding-left:10px;padding-right:10px;font-size:13px;line-height:1.25;text-align:center;justify-content:center}
 }
 /* interaktivní sestava — kompaktnější na mobilu */
 @media (max-width:640px){
@@ -2303,9 +2303,9 @@ body{overflow-x:hidden;max-width:100%}
       modal.querySelector('.bio-text').innerHTML=bio.innerHTML;
       lockScroll();
       modal.classList.add('open');
-      modal.querySelector('.bio-close').focus();
+      modal.querySelector('.bio-close').focus({preventScroll:true});
     }
-    function close(){modal.classList.remove('open');unlockScroll();if(last)last.focus();}
+    function close(){modal.classList.remove('open');unlockScroll();if(last)last.focus({preventScroll:true});}
     var lockY=0;
     function lockScroll(){
       lockY=window.scrollY||document.documentElement.scrollTop||0;

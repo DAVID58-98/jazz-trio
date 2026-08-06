@@ -922,7 +922,7 @@ main{position:relative;z-index:2}
     <a href="/de/blog/" data-close>Blog</a>
   </nav>
   <div class="drawer-foot">
-    <a href="#poptavka" class="btn btn-light drawer-cta" data-close>Angebot anfordern</a>
+    <a href="#poptavka" class="btn btn-light drawer-cta" data-close>Angebot anfragen</a>
     <span class="drawer-sign">David Kleňha · Live-Jazzmusik</span>
   </div>
 </aside>
@@ -936,8 +936,8 @@ main{position:relative;z-index:2}
       <p class="sr-only">Live-Jazz Trio für Hochzeiten, Bälle und Firmenfeiern — David Kleňha. Gesang, Klavier und Kontrabass, eigene Tontechnik. Aus Prag, wir reisen gern nach Deutschland und ins Grenzgebiet.</p>
       <p class="hero-sub">Gesang, Klavier und Kontrabass — eine bewährte Besetzung, die reich klingt und dennoch die Konversation nicht übertönt. Unsere gefragteste Besetzung für <strong>Hochzeiten</strong>, <strong>Firmenfeiern</strong> und stimmungsvolle Jazzabende.</p>
       <div class="hero-cta">
-        <a href="#poptavka" class="btn btn-primary">Angebot anfordern</a>
-        <a href="#builder" class="btn btn-ghost">Stellen Sie Ihre Band zusammen</a>
+        <a href="#poptavka" class="btn btn-primary">Angebot anfragen</a>
+        <a href="#builder" class="btn btn-ghost">Band zusammenstellen</a>
       </div>
     </div>
     <div class="hero-art">
@@ -1274,7 +1274,7 @@ main{position:relative;z-index:2}
           <span class="eyebrow">Live</span>
           <h2 class="section-title">Hören Sie uns live</h2>
           <p class="section-lead">Am besten überzeugen Sie sich live von uns. Unsere öffentlichen Konzerttermine halten wir aktuell — schauen Sie, wann wir in Ihrer Nähe spielen.</p>
-          <a href="https://www.davidklenha.cz/en/#concerts" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:22px">Konzerttermine ansehen</a>
+          <a href="https://www.davidklenha.cz/en/#concerts" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:22px">Termine ansehen</a>
         </div>
         <div class="concerts-art" aria-hidden="true">
           <div class="ticket">
@@ -1340,7 +1340,7 @@ main{position:relative;z-index:2}
 /* tlačítka v úvodu vždy vedle sebe */
 @media (max-width:560px){
   .hero-cta{flex-wrap:nowrap;gap:8px;width:100%}
-  .hero-cta .btn{flex:1 1 0;min-width:0;white-space:nowrap;padding-left:12px;padding-right:12px;font-size:13.5px;text-align:center;justify-content:center}
+  .hero-cta .btn{flex:1 1 0;min-width:0;white-space:normal;overflow-wrap:break-word;hyphens:auto;padding-left:10px;padding-right:10px;font-size:13px;line-height:1.25;text-align:center;justify-content:center}
 }
 /* interaktivní sestava — kompaktnější na mobilu */
 @media (max-width:640px){
@@ -2349,9 +2349,9 @@ body{overflow-x:hidden;max-width:100%}
       modal.querySelector('.bio-text').innerHTML=bio.innerHTML;
       lockScroll();
       modal.classList.add('open');
-      modal.querySelector('.bio-close').focus();
+      modal.querySelector('.bio-close').focus({preventScroll:true});
     }
-    function close(){modal.classList.remove('open');unlockScroll();if(last)last.focus();}
+    function close(){modal.classList.remove('open');unlockScroll();if(last)last.focus({preventScroll:true});}
     var lockY=0;
     function lockScroll(){
       lockY=window.scrollY||document.documentElement.scrollTop||0;
