@@ -731,7 +731,7 @@ main{position:relative;z-index:2}
   "url": "https://jazztrio.cz/",
   "logo": "https://jazztrio.cz/favicon/favicon-512.png",
   "image": "https://jazztrio.cz/SEO/og-image.jpg",
-  "description": "Jazz trio — voice, piano and double bass for corporate evenings, receptions, standing dinners, gallery openings and dinner jazz. Own PA for events up to 80–100 guests, a repertoire of over 100 songs, fully live with no backing tracks. Prague and the whole Czech Republic.",
+  "description": "Jazz trio — voice, piano and double bass for corporate evenings, receptions, standing dinners, gallery openings and dinner jazz. Own PA for events up to 80–100 guests, a repertoire of over 100 songs, fully live with no backing tracks. Prague and the whole Czech Republic. Price CZK 16,000–20,000 for a standard evening.",
   "genre": [
     "Jazz",
     "Swing",
@@ -791,24 +791,92 @@ main{position:relative;z-index:2}
     "https://jazzquintet.cz/",
     "https://jazztrio.cz/"
   ],
-  "makesOffer": {
-    "@type": "Offer",
-    "name": "Jazz trio — live music for your event",
-    "priceCurrency": "CZK",
-    "price": "18000",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "name": "Jazz trio",
+      "category": "Live music",
       "priceCurrency": "CZK",
-      "minPrice": "18000",
-      "description": "From CZK 18,000 in Prague, including our own PA system and travel within Prague. Outside Prague CZK 8 per kilometre."
+      "price": "16000",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "CZK",
+        "minPrice": "16000",
+        "maxPrice": "20000",
+        "valueAddedTaxIncluded": true,
+        "description": "Price for a standard evening of roughly three hours with breaks, in Prague including our own PA system. Outside Prague CZK 8 per kilometre."
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Czech Republic"
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://jazztrio.cz/en/"
     },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Czech Republic"
+    {
+      "@type": "Offer",
+      "name": "Jazz duo",
+      "category": "Live music",
+      "priceCurrency": "CZK",
+      "price": "10000",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "CZK",
+        "minPrice": "10000",
+        "maxPrice": "14000",
+        "valueAddedTaxIncluded": true,
+        "description": "Price for a standard evening of roughly three hours with breaks, in Prague including our own PA system. Outside Prague CZK 8 per kilometre."
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Czech Republic"
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://jazzduo.cz/en/"
     },
-    "availability": "https://schema.org/InStock",
-    "url": "https://jazztrio.cz/en/"
-  },
+    {
+      "@type": "Offer",
+      "name": "Jazz quartet",
+      "category": "Live music",
+      "priceCurrency": "CZK",
+      "price": "22000",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "CZK",
+        "minPrice": "22000",
+        "maxPrice": "26000",
+        "valueAddedTaxIncluded": true,
+        "description": "Price for a standard evening of roughly three hours with breaks, in Prague including our own PA system. Outside Prague CZK 8 per kilometre."
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Czech Republic"
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://jazzquartet.cz/en/"
+    },
+    {
+      "@type": "Offer",
+      "name": "Jazz quintet",
+      "category": "Live music",
+      "priceCurrency": "CZK",
+      "price": "28000",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "CZK",
+        "minPrice": "28000",
+        "maxPrice": "32000",
+        "valueAddedTaxIncluded": true,
+        "description": "Price for a standard evening of roughly three hours with breaks, in Prague including our own PA system. Outside Prague CZK 8 per kilometre."
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Czech Republic"
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://jazzquintet.cz/en/"
+    }
+  ],
   "knowsLanguage": [
     "cs",
     "en",
@@ -823,10 +891,26 @@ main{position:relative;z-index:2}
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How much does a jazz trio cost for a wedding or corporate party?",
+      "name": "What is the approximate price of the jazz trio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We don't have a fixed price list — the cost depends on how long we play, the venue and the size of the line-up. Send us the date and location of your event and we'll get back to you within 24 hours with a non-binding estimate."
+        "text": "The jazz trio in Prague costs between CZK 16,000 and 20,000 depending on the length of the programme and the venue. The price covers a standard evening of roughly three hours with breaks — longer programmes are arranged individually. It includes our own PA system and travel within Prague; outside Prague we add CZK 8 per kilometre. We send an exact quote within 24 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer a cheaper option?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The jazz duo (voice and piano) costs CZK 10,000 to 14,000 and suits smaller events, dinner jazz or background music. Same musicians and repertoire, just without the double bass."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does the quartet or quintet cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The jazz quartet with drums costs CZK 22,000 to 26,000 and the jazz quintet with a horn section CZK 28,000 to 32,000. Prices are for a standard evening in Prague including our own PA system."
       }
     },
     {
@@ -842,7 +926,7 @@ main{position:relative;z-index:2}
       "name": "Do you bring your own PA system?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. For more intimate venues we bring our own equipment and handle the sound ourselves. In large halls we coordinate with your sound engineer."
+        "text": "Yes. We bring our own professional active PA system, which comfortably covers intimate to mid-sized events of up to 80–100 guests. For halls above 100 people and large outdoor productions we require a sound engineer provided by the organiser."
       }
     },
     {
@@ -851,6 +935,14 @@ main{position:relative;z-index:2}
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "We play jazz and swing standards, chanson and tastefully arranged modern songs. We're happy to learn a favourite piece — for a first dance, for example — specially for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the technical requirements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The trio needs a minimum area of 3.5 × 3 metres on a level, clean and dry surface, and one standard 230 V / 16 A socket. Total power draw does not exceed 1.5 kW. We arrive 60 minutes before the start; set-up and pack-down take 30 minutes each. Outdoor performances require solid cover for the band and equipment."
       }
     },
     {
@@ -1440,7 +1532,9 @@ body{overflow-x:hidden;max-width:100%}
     <span class="eyebrow">FAQ</span>
     <h2 class="section-title">Frequently asked questions</h2>
     <div class="faq-wrap">
-        <details class="faq-item"><summary>What is the approximate price of the jazz trio?</summary><div class="faq-a">The jazz trio in Prague starts at CZK 18,000, including our own PA system and travel within Prague. Outside Prague we add CZK 8 per kilometre. We send an exact quote within 24 hours of your enquiry.</div></details>
+        <details class="faq-item"><summary>What is the approximate price of the jazz trio?</summary><div class="faq-a">The jazz trio in Prague costs between <strong>CZK 16,000</strong> and <strong>20,000</strong> depending on the length of the programme and the venue. The price covers a standard evening of roughly three hours with breaks — longer programmes are arranged individually. It includes our own PA system and travel within Prague; outside Prague we add <strong>CZK 8 per kilometre</strong>. We send an exact quote within 24 hours.</div></details>
+        <details class="faq-item"><summary>Do you offer a cheaper option?</summary><div class="faq-a">Yes. The jazz duo (voice and piano) costs <strong>CZK 10,000</strong> to <strong>14,000</strong> and suits smaller events, dinner jazz or background music. Same musicians and repertoire, just without the double bass.</div></details>
+        <details class="faq-item"><summary>How much does the quartet or quintet cost?</summary><div class="faq-a">The jazz quartet with drums costs <strong>CZK 22,000</strong> to <strong>26,000</strong> and the jazz quintet with a horn section <strong>CZK 28,000</strong> to <strong>32,000</strong>. Prices are for a standard evening in Prague including our own PA system.</div></details>
         <details class="faq-item"><summary>How long do you play and how many sets do you do?</summary><div class="faq-a">We usually play two to three 45-minute sets with breaks. We'll adjust the overall length and timing to fit the programme of your event.</div></details>
         <details class="faq-item"><summary>Do you bring your own PA system?</summary><div class="faq-a">Yes. We bring our own professional active PA system, which comfortably covers intimate to mid-sized events of up to 80–100 guests. For halls above 100 people and large outdoor productions we require a sound engineer provided by the organiser.</div></details>
         <details class="faq-item"><summary>What music do you play and can we request a song?</summary><div class="faq-a">We play jazz and swing standards, chanson and tastefully arranged modern songs. We're happy to learn a favourite piece — for a first dance, for example — specially for you.</div></details>
@@ -2354,24 +2448,17 @@ body{overflow-x:hidden;max-width:100%}
     function close(){modal.classList.remove('open');unlockScroll();if(last)last.focus({preventScroll:true});}
     var lockY=0;
     function lockScroll(){
-      lockY=window.scrollY||document.documentElement.scrollTop||0;
-      // kompenzace zmizelého posuvníku, aby stránka neposkočila do strany
-      var sw=window.innerWidth-document.documentElement.clientWidth;
+      // NEMĚNÍME pozici stránky — jen zamkneme rolování. Nic se tedy nemůže posunout.
+      var r=document.documentElement;
+      var sw=window.innerWidth-r.clientWidth;
       if(sw>0)document.body.style.paddingRight=sw+'px';
-      var b=document.body;
-      b.style.position='fixed';b.style.top=(-lockY)+'px';
-      b.style.left='0';b.style.right='0';b.style.width='100%';b.style.overflow='hidden';
+      r.style.overflow='hidden';
+      document.body.style.overflow='hidden';
     }
     function unlockScroll(){
-      var b=document.body, r=document.documentElement;
-      var prevBehavior=r.style.scrollBehavior;
-      r.style.scrollBehavior='auto';          // html má scroll-behavior:smooth — jinak by se návrat animoval
-      b.style.position='';b.style.top='';b.style.left='';b.style.right='';b.style.width='';b.style.overflow='';b.style.paddingRight='';
-      window.scrollTo(0,lockY);
-      requestAnimationFrame(function(){
-        window.scrollTo(0,lockY);             // pojistka po přepočtu layoutu
-        r.style.scrollBehavior=prevBehavior;
-      });
+      document.documentElement.style.overflow='';
+      document.body.style.overflow='';
+      document.body.style.paddingRight='';
     }
     btns.forEach(function(b){b.addEventListener('click',function(){last=b;open(b.closest('.lineup-card'),b.dataset.bio);});});
     // ---- reference: nekonečný slider po celých sloupcích ----
