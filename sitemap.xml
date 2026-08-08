@@ -33,8 +33,8 @@
   </url>
   <url>
     <loc>https://jazztrio.cz/blog/</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/"/>
@@ -43,9 +43,9 @@
   </url>
   <url>
     <loc>https://jazztrio.cz/en/blog/</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/"/>
@@ -53,169 +53,79 @@
   </url>
   <url>
     <loc>https://jazztrio.cz/de/blog/</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/"/>
   </url>
   <url>
-    <loc>https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jazztrio.cz/blog/ceny-jazzove-kapely-na-firemni-akci.html</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-jazz-band.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazzband-hochzeit.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ceny-jazzove-kapely-na-firemni-akci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-band-prices-corporate-events.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/preise-jazzband-firmenevent.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ceny-jazzove-kapely-na-firemni-akci.html"/>
   </url>
   <url>
-    <loc>https://jazztrio.cz/en/blog/wedding-jazz-band.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jazztrio.cz/en/blog/jazz-band-prices-corporate-events.html</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-jazz-band.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazzband-hochzeit.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ceny-jazzove-kapely-na-firemni-akci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-band-prices-corporate-events.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/preise-jazzband-firmenevent.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ceny-jazzove-kapely-na-firemni-akci.html"/>
   </url>
   <url>
-    <loc>https://jazztrio.cz/de/blog/jazzband-hochzeit.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jazztrio.cz/de/blog/preise-jazzband-firmenevent.html</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-jazz-band.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazzband-hochzeit.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ceny-jazzove-kapely-na-firemni-akci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-band-prices-corporate-events.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/preise-jazzband-firmenevent.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ceny-jazzove-kapely-na-firemni-akci.html"/>
   </url>
   <url>
-    <loc>https://jazztrio.cz/blog/svatebni-pochod-a-pisne-k-oltari.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jazztrio.cz/blog/jazzova-kapela-pro-firemni-akce-v-praze.html</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/svatebni-pochod-a-pisne-k-oltari.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-march-aisle-songs.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitsmarsch-lieder.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/svatebni-pochod-a-pisne-k-oltari.html"/>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzova-kapela-pro-firemni-akce-v-praze.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-jazz-band-corporate-events-prague.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-jazzband-firmenevents-prag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzova-kapela-pro-firemni-akce-v-praze.html"/>
   </url>
   <url>
-    <loc>https://jazztrio.cz/en/blog/wedding-march-aisle-songs.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jazztrio.cz/en/blog/live-jazz-band-corporate-events-prague.html</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/svatebni-pochod-a-pisne-k-oltari.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-march-aisle-songs.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitsmarsch-lieder.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/svatebni-pochod-a-pisne-k-oltari.html"/>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzova-kapela-pro-firemni-akce-v-praze.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-jazz-band-corporate-events-prague.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-jazzband-firmenevents-prag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzova-kapela-pro-firemni-akce-v-praze.html"/>
   </url>
   <url>
-    <loc>https://jazztrio.cz/de/blog/hochzeitsmarsch-lieder.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jazztrio.cz/de/blog/live-jazzband-firmenevents-prag.html</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/svatebni-pochod-a-pisne-k-oltari.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-march-aisle-songs.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitsmarsch-lieder.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/svatebni-pochod-a-pisne-k-oltari.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/svatebni-pisne-repertoar.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-songs-repertoire.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitslieder-repertoire.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/en/blog/wedding-songs-repertoire.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-songs-repertoire.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitslieder-repertoire.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/de/blog/hochzeitslieder-repertoire.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-songs-repertoire.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitslieder-repertoire.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/prvni-tanec-novomanzelu.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/prvni-tanec-novomanzelu.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/first-dance-songs.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitstanz-songs.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/prvni-tanec-novomanzelu.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/en/blog/first-dance-songs.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/prvni-tanec-novomanzelu.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/first-dance-songs.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitstanz-songs.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/prvni-tanec-novomanzelu.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/de/blog/hochzeitstanz-songs.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/prvni-tanec-novomanzelu.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/first-dance-songs.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitstanz-songs.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/prvni-tanec-novomanzelu.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/ziva-hudba-na-ples.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-for-a-ball.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-ball.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/en/blog/live-music-for-a-ball.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-for-a-ball.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-ball.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/de/blog/live-musik-ball.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-for-a-ball.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-ball.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzova-kapela-pro-firemni-akce-v-praze.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-jazz-band-corporate-events-prague.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-jazzband-firmenevents-prag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzova-kapela-pro-firemni-akce-v-praze.html"/>
   </url>
   <url>
     <loc>https://jazztrio.cz/blog/jazz-na-firemni-vecirek.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazz-na-firemni-vecirek.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-for-corporate-events.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-firmenfeier.html"/>
@@ -223,9 +133,9 @@
   </url>
   <url>
     <loc>https://jazztrio.cz/en/blog/jazz-for-corporate-events.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazz-na-firemni-vecirek.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-for-corporate-events.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-firmenfeier.html"/>
@@ -233,17 +143,227 @@
   </url>
   <url>
     <loc>https://jazztrio.cz/de/blog/jazz-firmenfeier.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazz-na-firemni-vecirek.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-for-corporate-events.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-firmenfeier.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazz-na-firemni-vecirek.html"/>
   </url>
   <url>
+    <loc>https://jazztrio.cz/blog/zivy-jazz-do-restaurace-a-hotelu.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/zivy-jazz-do-restaurace-a-hotelu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-jazz-restaurant-hotel.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-jazz-restaurant-hotel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/zivy-jazz-do-restaurace-a-hotelu.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/live-jazz-restaurant-hotel.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/zivy-jazz-do-restaurace-a-hotelu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-jazz-restaurant-hotel.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-jazz-restaurant-hotel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/zivy-jazz-do-restaurace-a-hotelu.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/live-jazz-restaurant-hotel.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/zivy-jazz-do-restaurace-a-hotelu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-jazz-restaurant-hotel.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-jazz-restaurant-hotel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/zivy-jazz-do-restaurace-a-hotelu.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/jazz-na-vernisaz-a-raut.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazz-na-vernisaz-a-raut.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-gallery-opening-reception.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-vernissage-empfang.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazz-na-vernisaz-a-raut.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/jazz-gallery-opening-reception.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazz-na-vernisaz-a-raut.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-gallery-opening-reception.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-vernissage-empfang.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazz-na-vernisaz-a-raut.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/jazz-vernissage-empfang.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazz-na-vernisaz-a-raut.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-gallery-opening-reception.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-vernissage-empfang.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazz-na-vernisaz-a-raut.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/kolik-hudebniku-na-kolik-hostu.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/kolik-hudebniku-na-kolik-hostu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/how-many-musicians-per-guests.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/wie-viele-musiker-pro-gaeste.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/kolik-hudebniku-na-kolik-hostu.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/how-many-musicians-per-guests.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/kolik-hudebniku-na-kolik-hostu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/how-many-musicians-per-guests.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/wie-viele-musiker-pro-gaeste.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/kolik-hudebniku-na-kolik-hostu.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/wie-viele-musiker-pro-gaeste.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/kolik-hudebniku-na-kolik-hostu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/how-many-musicians-per-guests.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/wie-viele-musiker-pro-gaeste.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/kolik-hudebniku-na-kolik-hostu.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/jak-vybrat-kapelu-na-firemni-vecer.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jak-vybrat-kapelu-na-firemni-vecer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/how-to-choose-band-corporate-event.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/band-fuer-firmenabend-auswaehlen.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jak-vybrat-kapelu-na-firemni-vecer.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/how-to-choose-band-corporate-event.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jak-vybrat-kapelu-na-firemni-vecer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/how-to-choose-band-corporate-event.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/band-fuer-firmenabend-auswaehlen.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jak-vybrat-kapelu-na-firemni-vecer.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/band-fuer-firmenabend-auswaehlen.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jak-vybrat-kapelu-na-firemni-vecer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/how-to-choose-band-corporate-event.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/band-fuer-firmenabend-auswaehlen.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jak-vybrat-kapelu-na-firemni-vecer.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/co-kapela-potrebuje-na-miste.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/co-kapela-potrebuje-na-miste.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/what-the-band-needs-on-site.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/was-die-band-vor-ort-braucht.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/co-kapela-potrebuje-na-miste.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/what-the-band-needs-on-site.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/co-kapela-potrebuje-na-miste.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/what-the-band-needs-on-site.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/was-die-band-vor-ort-braucht.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/co-kapela-potrebuje-na-miste.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/was-die-band-vor-ort-braucht.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/co-kapela-potrebuje-na-miste.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/what-the-band-needs-on-site.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/was-die-band-vor-ort-braucht.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/co-kapela-potrebuje-na-miste.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/jazz-k-poslechu-vs-hudba-k-tanci.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazz-k-poslechu-vs-hudba-k-tanci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/background-jazz-vs-dance-music.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-zum-zuhoeren-vs-tanzmusik.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazz-k-poslechu-vs-hudba-k-tanci.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/background-jazz-vs-dance-music.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazz-k-poslechu-vs-hudba-k-tanci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/background-jazz-vs-dance-music.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-zum-zuhoeren-vs-tanzmusik.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazz-k-poslechu-vs-hudba-k-tanci.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/jazz-zum-zuhoeren-vs-tanzmusik.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazz-k-poslechu-vs-hudba-k-tanci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/background-jazz-vs-dance-music.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-zum-zuhoeren-vs-tanzmusik.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazz-k-poslechu-vs-hudba-k-tanci.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/objednani-zive-hudby-v-praze.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/objednani-zive-hudby-v-praze.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/hiring-live-music-in-prague.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-buchen-in-prag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/objednani-zive-hudby-v-praze.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/hiring-live-music-in-prague.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/objednani-zive-hudby-v-praze.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/hiring-live-music-in-prague.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-buchen-in-prag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/objednani-zive-hudby-v-praze.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/live-musik-buchen-in-prag.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/objednani-zive-hudby-v-praze.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/hiring-live-music-in-prague.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-buchen-in-prag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/objednani-zive-hudby-v-praze.html"/>
+  </url>
+  <url>
     <loc>https://jazztrio.cz/blog/vanocni-jazz-na-firemni-party.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/vanocni-jazz-na-firemni-party.html"/>
@@ -253,9 +373,9 @@
   </url>
   <url>
     <loc>https://jazztrio.cz/en/blog/christmas-jazz-band.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/vanocni-jazz-na-firemni-party.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/christmas-jazz-band.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/weihnachtsjazz.html"/>
@@ -263,77 +383,17 @@
   </url>
   <url>
     <loc>https://jazztrio.cz/de/blog/weihnachtsjazz.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/vanocni-jazz-na-firemni-party.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/christmas-jazz-band.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/weihnachtsjazz.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/vanocni-jazz-na-firemni-party.html"/>
   </url>
   <url>
-    <loc>https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-birthday-anniversary.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-geburtstag.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/en/blog/live-music-birthday-anniversary.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-birthday-anniversary.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-geburtstag.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/de/blog/live-musik-geburtstag.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-birthday-anniversary.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-geburtstag.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-styles-swing-bossa-lounge.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-stile-swing-bossa-lounge.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/en/blog/jazz-styles-swing-bossa-lounge.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-styles-swing-bossa-lounge.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-stile-swing-bossa-lounge.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
-  </url>
-  <url>
-    <loc>https://jazztrio.cz/de/blog/jazz-stile-swing-bossa-lounge.html</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-styles-swing-bossa-lounge.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-stile-swing-bossa-lounge.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
-  </url>
-  <url>
     <loc>https://jazztrio.cz/blog/jaka-sestava-na-jakou-akci.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jaka-sestava-na-jakou-akci.html"/>
@@ -343,9 +403,9 @@
   </url>
   <url>
     <loc>https://jazztrio.cz/en/blog/duo-trio-quartet-quintet.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jaka-sestava-na-jakou-akci.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/duo-trio-quartet-quintet.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/duo-trio-quartett-quintett.html"/>
@@ -353,12 +413,192 @@
   </url>
   <url>
     <loc>https://jazztrio.cz/de/blog/duo-trio-quartett-quintett.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jaka-sestava-na-jakou-akci.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/duo-trio-quartet-quintet.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/duo-trio-quartett-quintett.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jaka-sestava-na-jakou-akci.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-styles-swing-bossa-lounge.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-stile-swing-bossa-lounge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/jazz-styles-swing-bossa-lounge.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-styles-swing-bossa-lounge.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-stile-swing-bossa-lounge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/jazz-stile-swing-bossa-lounge.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/jazz-styles-swing-bossa-lounge.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazz-stile-swing-bossa-lounge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzove-styly-swing-bossa-lounge.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-jazz-band.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazzband-hochzeit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/wedding-jazz-band.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-jazz-band.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazzband-hochzeit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/jazzband-hochzeit.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-jazz-band.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/jazzband-hochzeit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/jazzova-kapela-na-svatbu.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/hudba-na-svatebni-obrad.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/hudba-na-svatebni-obrad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-ceremony-music.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/musik-hochzeitszeremonie.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/hudba-na-svatebni-obrad.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/wedding-ceremony-music.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/hudba-na-svatebni-obrad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-ceremony-music.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/musik-hochzeitszeremonie.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/hudba-na-svatebni-obrad.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/musik-hochzeitszeremonie.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/hudba-na-svatebni-obrad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-ceremony-music.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/musik-hochzeitszeremonie.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/hudba-na-svatebni-obrad.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/svatebni-pisne-repertoar.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-songs-repertoire.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitslieder-repertoire.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/wedding-songs-repertoire.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-songs-repertoire.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitslieder-repertoire.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/hochzeitslieder-repertoire.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/wedding-songs-repertoire.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/hochzeitslieder-repertoire.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/svatebni-pisne-repertoar.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/ziva-hudba-na-ples.html</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-for-a-ball.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-ball.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/live-music-for-a-ball.html</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-for-a-ball.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-ball.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/live-musik-ball.html</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-for-a-ball.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-ball.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-ples.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-birthday-anniversary.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-geburtstag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/live-music-birthday-anniversary.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-birthday-anniversary.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-geburtstag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/live-musik-geburtstag.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/live-music-birthday-anniversary.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-geburtstag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/ziva-hudba-na-oslavu-narozenin.html"/>
   </url>
 </urlset>
