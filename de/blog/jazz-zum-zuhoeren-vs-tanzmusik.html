@@ -144,7 +144,7 @@
       "name": "Was kostet eine Band zum Zuhören und was eine Tanzband?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Duo und Trio zum Zuhören kosten 10.000 bis 20.000 CZK pro Standardabend, ein Tanzquartett oder -quintett 22.000 bis 32.000 CZK. Die Preise gelten für Prag inklusive eigener Beschallung."
+        "text": "Duo und Trio zum Zuhören kosten 400 bis 800 € pro Standardabend, ein Tanzquartett oder -quintett 880 bis 1.280 €. Die Preise gelten für Prag inklusive eigener Beschallung."
       }
     }
   ]
@@ -307,25 +307,67 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 }
 </style>
 <style>
-/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+/* ===== tabulky =====
+   Základ = mobilní (skládané karty). Tabulkový vzhled se zapíná až od 721 px.
+   Prvky jsou <div>, takže bez CSS zůstanou čitelné pod sebou. */
 html{overflow-x:hidden}
-.article table.ptable{max-width:100%;table-layout:auto}
-.ptable td,.ptable th{overflow-wrap:anywhere}
-@media (max-width:680px){
-  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
-  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-  .ptable tbody,.ptable tr{display:block}
-  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
-  .ptable tr:last-child{margin-bottom:4px}
-  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
-    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
-  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
-    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
-  .ptable td[data-label=""]::before{display:none}
-  .ptable tr td:last-child{border-bottom:none}
-  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
-    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
-  .ptable td:first-child::before{display:none}
+.ptable{display:block;margin:10px 0 30px;font-size:15px;max-width:100%}
+.ptable .thead{display:none}
+.ptable .tcell{display:block;overflow-wrap:anywhere}
+.ptable a,.ptable a.inline{color:var(--emerald);text-decoration:none;border-bottom:none}
+.ptable a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* dvousloupcové: jeden panel, řádek = tučný název + popis */
+.ptable--cols2{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);overflow:hidden}
+.ptable--cols2 .trow{padding:13px 18px;border-bottom:1px solid var(--line)}
+.ptable--cols2 .trow:last-child{border-bottom:none}
+.ptable--cols2 .tcell:first-child{font-family:var(--font-head);font-weight:600;font-size:15.5px;color:var(--petrol);line-height:1.4}
+.ptable--cols2 .tcell:last-child{margin-top:3px;font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+
+/* tři a více sloupců: karta na řádek */
+.ptable--cards .trow{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+.ptable--cards .trow:last-child{margin-bottom:0}
+.ptable--cards .tcell{padding:12px 18px 0;font-size:15px;line-height:1.55;color:var(--ink)}
+.ptable--cards .tcell:last-child{padding-bottom:16px}
+.ptable--cards .tcell::before{content:attr(data-label);display:block;margin-bottom:3px;
+  font-family:var(--font-head);font-weight:600;font-size:11.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-soft);line-height:1.35}
+.ptable--cards .tcell:first-child{padding:13px 18px 12px;margin-bottom:2px;background:var(--cream-2);
+  border-left:3px solid var(--emerald);font-family:var(--font-head);font-weight:700;
+  font-size:16px;color:var(--petrol);line-height:1.35}
+.ptable--cards .tcell:first-child::before{display:none}
+.ptable--price .tcell:nth-child(2){font-family:var(--font-head);font-weight:700;font-size:20px;
+  color:var(--emerald);line-height:1.25}
+
+/* ===== od 721 px klasická tabulka ===== */
+@media (min-width:721px){
+  .ptable{display:table;width:100%;border-collapse:collapse;background:var(--white);
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);
+    font-size:15.5px;margin:8px 0 28px}
+  .ptable .thead{display:table-row}
+  .ptable .trow{display:table-row;padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable .tcell{display:table-cell;padding:15px 18px;border-bottom:1px solid var(--line);
+    vertical-align:top;font-size:15.5px;line-height:1.6;color:var(--ink);
+    background:none;border-left:none;margin:0;font-family:inherit;font-weight:400;letter-spacing:normal}
+  .ptable .thead .tcell{background:var(--cream-2);font-family:var(--font-head);
+    color:var(--petrol);font-weight:600}
+  .ptable .trow:last-child .tcell{border-bottom:none}
+  .ptable .tcell:first-child{font-weight:600;color:var(--petrol)}
+  .ptable .tcell::before{display:none}
+  /* zrušit mobilní varianty — stejná nebo vyšší specificita */
+  .ptable--cols2 .trow,.ptable--cards .trow{padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable--cols2{background:var(--white);border-radius:var(--radius)}
+  .ptable--cards .tcell:first-child,.ptable--cols2 .tcell:first-child{
+    padding:15px 18px;margin:0;background:none;border-left:none;
+    font-family:var(--font-head);font-weight:600;font-size:15.5px;
+    color:var(--petrol);line-height:1.6}
+  .ptable--cards .tcell:last-child,.ptable--cols2 .tcell:last-child{
+    padding:15px 18px;margin-top:0;font-size:15.5px;color:var(--ink)}
+  .ptable--price .tcell:nth-child(2){font-family:inherit;font-weight:400;
+    font-size:15.5px;color:var(--ink);line-height:1.6}
+  .ptable--cards .tcell::before,.ptable--cols2 .tcell::before{display:none}
 }
 </style>
 </head>
@@ -366,14 +408,15 @@ html{overflow-x:hidden}
     <p>Wenn ein Veranstalter „eine Jazzband“ bucht, kann er zwei völlig verschiedene Dinge meinen. Die eine spielt so, dass die Gäste sie kaum bemerken. Die andere so, dass nach einer halben Stunde niemand mehr sitzt. Wir können beides — aber es sind verschiedene Abende und verschiedene Besetzungen.</p>
 
     <h2>Der Unterschied in einer Tabelle</h2>
-    <table class="ptable"><thead><tr><th></th><th>Jazz zum Zuhören</th><th>Tanzmusik</th></tr></thead><tbody>
-      <tr><td data-label="">Typische Besetzung</td><td data-label="Jazz zum Zuhören">Duo, Trio</td><td data-label="Tanzmusik">Quartett, Quintett</td></tr>
-      <tr><td data-label="">Schlagzeug</td><td data-label="Jazz zum Zuhören">Nein</td><td data-label="Tanzmusik">Ja — unverzichtbar</td></tr>
-      <tr><td data-label="">Tempo</td><td data-label="Jazz zum Zuhören">Balladen, mittlere Tempi</td><td data-label="Tanzmusik">Schneller Swing, Funk, Latin</td></tr>
-      <tr><td data-label="">Lautstärke</td><td data-label="Jazz zum Zuhören">Gespräch ohne Stimmerhebung</td><td data-label="Tanzmusik">Deutlich höher</td></tr>
-      <tr><td data-label="">Preis</td><td data-label="Jazz zum Zuhören">10.000 – 20.000 CZK</td><td data-label="Tanzmusik">22.000 – 32.000 CZK</td></tr>
-      <tr><td data-label="">Typische Veranstaltung</td><td data-label="Jazz zum Zuhören">Empfang, Vernissage, Dinner</td><td data-label="Tanzmusik">Firmenparty, Ball, Jubiläum</td></tr>
-    </tbody></table>
+    <div class="ptable ptable--cards" role="table">
+  <div class="thead" role="row"><div class="tcell" role="columnheader"></div><div class="tcell" role="columnheader">Jazz zum Zuhören</div><div class="tcell" role="columnheader">Tanzmusik</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="">Typische Besetzung</div><div class="tcell" role="cell" data-label="Jazz zum Zuhören">Duo, Trio</div><div class="tcell" role="cell" data-label="Tanzmusik">Quartett, Quintett</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="">Schlagzeug</div><div class="tcell" role="cell" data-label="Jazz zum Zuhören">Nein</div><div class="tcell" role="cell" data-label="Tanzmusik">Ja — unverzichtbar</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="">Tempo</div><div class="tcell" role="cell" data-label="Jazz zum Zuhören">Balladen, mittlere Tempi</div><div class="tcell" role="cell" data-label="Tanzmusik">Schneller Swing, Funk, Latin</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="">Lautstärke</div><div class="tcell" role="cell" data-label="Jazz zum Zuhören">Gespräch ohne Stimmerhebung</div><div class="tcell" role="cell" data-label="Tanzmusik">Deutlich höher</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="">Preis</div><div class="tcell" role="cell" data-label="Jazz zum Zuhören">400 – 800 €</div><div class="tcell" role="cell" data-label="Tanzmusik">880 – 1.280 €</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="">Typische Veranstaltung</div><div class="tcell" role="cell" data-label="Jazz zum Zuhören">Empfang, Vernissage, Dinner</div><div class="tcell" role="cell" data-label="Tanzmusik">Firmenparty, Ball, Jubiläum</div></div>
+</div>
     <p>Die Preise gelten für einen Standardabend in Prag; die vollständige Aufschlüsselung finden Sie im Artikel <a href="/de/blog/preise-jazzband-firmenevent.html" class="inline">was eine Jazzband kostet</a>.</p>
 
     <h2>Jazz zum Zuhören: was ihn gut macht</h2>
@@ -404,13 +447,14 @@ html{overflow-x:hidden}
 
     <h2>Beides an einem Abend verbinden</h2>
     <p>Die meisten Firmenevents brauchen beides — und genau deshalb wird eine Band gebucht und keine Playlist. Das bewährte Szenario:</p>
-    <table class="ptable"><thead><tr><th>Abendteil</th><th>Charakter der Musik</th></tr></thead><tbody>
-      <tr><td data-label="Abendteil">Ankunft der Gäste, Welcome Drink</td><td data-label="Charakter der Musik">Ruhiger Jazz, Bossa Nova, leiser</td></tr>
-      <tr><td data-label="Abendteil">Dinner oder Empfang</td><td data-label="Charakter der Musik">Balladen und mittlere Tempi, Gespräch muss möglich sein</td></tr>
-      <tr><td data-label="Abendteil">Reden, Preisverleihungen</td><td data-label="Charakter der Musik">Stille — die Band spielt nicht</td></tr>
-      <tr><td data-label="Abendteil">Freier Teil</td><td data-label="Charakter der Musik">Stufenweise schneller, bekanntere Titel</td></tr>
-      <tr><td data-label="Abendteil">Tanzblock</td><td data-label="Charakter der Musik">Swing, Funk, Latin in voller Länge</td></tr>
-    </tbody></table>
+    <div class="ptable ptable--cols2" role="table">
+  <div class="thead" role="row"><div class="tcell" role="columnheader">Abendteil</div><div class="tcell" role="columnheader">Charakter der Musik</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Abendteil">Ankunft der Gäste, Welcome Drink</div><div class="tcell" role="cell" data-label="Charakter der Musik">Ruhiger Jazz, Bossa Nova, leiser</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Abendteil">Dinner oder Empfang</div><div class="tcell" role="cell" data-label="Charakter der Musik">Balladen und mittlere Tempi, Gespräch muss möglich sein</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Abendteil">Reden, Preisverleihungen</div><div class="tcell" role="cell" data-label="Charakter der Musik">Stille — die Band spielt nicht</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Abendteil">Freier Teil</div><div class="tcell" role="cell" data-label="Charakter der Musik">Stufenweise schneller, bekanntere Titel</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Abendteil">Tanzblock</div><div class="tcell" role="cell" data-label="Charakter der Musik">Swing, Funk, Latin in voller Länge</div></div>
+</div>
     <p>Dieser Übergang ist Erfahrungssache, nicht Repertoire. Die Band muss spüren, wann der Saal reif ist — und wann noch nicht.</p>
 
     <h2>Wie Sie sich entscheiden</h2>
@@ -430,7 +474,7 @@ html{overflow-x:hidden}
       <details><summary>Füllt sich die Tanzfläche auch ohne Schlagzeug?</summary><p>In der Regel nicht. Das Schlagzeug hält das Tempo und gibt der Musik den Zug, ohne den Gäste nicht aufstehen. Wenn getanzt werden soll, empfehlen wir mindestens ein Quartett.</p></details>
       <details><summary>Lassen sich Kulisse und Tanz an einem Abend verbinden?</summary><p>Ja, das ist das häufigste Szenario eines Firmenabends. Es beginnt mit ruhigem Jazz zur Ankunft und zum Dinner, nach dem offiziellen Teil wird das Programm stufenweise schneller bis zum Tanzblock.</p></details>
       <details><summary>Welches Genre eignet sich am besten für einen Empfang?</summary><p>Bossa Nova. Der gleichmäßige Rhythmus hat keine dynamischen Sprünge, bindet keine Aufmerksamkeit und Gäste unterhalten sich gut dazu.</p></details>
-      <details><summary>Was kostet eine Band zum Zuhören und was eine Tanzband?</summary><p>Duo und Trio zum Zuhören kosten 10.000 bis 20.000 CZK pro Standardabend, ein Tanzquartett oder -quintett 22.000 bis 32.000 CZK. Die Preise gelten für Prag inklusive eigener Beschallung.</p></details>
+      <details><summary>Was kostet eine Band zum Zuhören und was eine Tanzband?</summary><p>Duo und Trio zum Zuhören kosten 400 bis 800 € pro Standardabend, ein Tanzquartett oder -quintett 880 bis 1.280 €. Die Preise gelten für Prag inklusive eigener Beschallung.</p></details>
     </div>
 
   </div>

@@ -307,25 +307,67 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 }
 </style>
 <style>
-/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+/* ===== tabulky =====
+   Základ = mobilní (skládané karty). Tabulkový vzhled se zapíná až od 721 px.
+   Prvky jsou <div>, takže bez CSS zůstanou čitelné pod sebou. */
 html{overflow-x:hidden}
-.article table.ptable{max-width:100%;table-layout:auto}
-.ptable td,.ptable th{overflow-wrap:anywhere}
-@media (max-width:680px){
-  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
-  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-  .ptable tbody,.ptable tr{display:block}
-  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
-  .ptable tr:last-child{margin-bottom:4px}
-  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
-    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
-  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
-    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
-  .ptable td[data-label=""]::before{display:none}
-  .ptable tr td:last-child{border-bottom:none}
-  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
-    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
-  .ptable td:first-child::before{display:none}
+.ptable{display:block;margin:10px 0 30px;font-size:15px;max-width:100%}
+.ptable .thead{display:none}
+.ptable .tcell{display:block;overflow-wrap:anywhere}
+.ptable a,.ptable a.inline{color:var(--emerald);text-decoration:none;border-bottom:none}
+.ptable a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* dvousloupcové: jeden panel, řádek = tučný název + popis */
+.ptable--cols2{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);overflow:hidden}
+.ptable--cols2 .trow{padding:13px 18px;border-bottom:1px solid var(--line)}
+.ptable--cols2 .trow:last-child{border-bottom:none}
+.ptable--cols2 .tcell:first-child{font-family:var(--font-head);font-weight:600;font-size:15.5px;color:var(--petrol);line-height:1.4}
+.ptable--cols2 .tcell:last-child{margin-top:3px;font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+
+/* tři a více sloupců: karta na řádek */
+.ptable--cards .trow{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+.ptable--cards .trow:last-child{margin-bottom:0}
+.ptable--cards .tcell{padding:12px 18px 0;font-size:15px;line-height:1.55;color:var(--ink)}
+.ptable--cards .tcell:last-child{padding-bottom:16px}
+.ptable--cards .tcell::before{content:attr(data-label);display:block;margin-bottom:3px;
+  font-family:var(--font-head);font-weight:600;font-size:11.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-soft);line-height:1.35}
+.ptable--cards .tcell:first-child{padding:13px 18px 12px;margin-bottom:2px;background:var(--cream-2);
+  border-left:3px solid var(--emerald);font-family:var(--font-head);font-weight:700;
+  font-size:16px;color:var(--petrol);line-height:1.35}
+.ptable--cards .tcell:first-child::before{display:none}
+.ptable--price .tcell:nth-child(2){font-family:var(--font-head);font-weight:700;font-size:20px;
+  color:var(--emerald);line-height:1.25}
+
+/* ===== od 721 px klasická tabulka ===== */
+@media (min-width:721px){
+  .ptable{display:table;width:100%;border-collapse:collapse;background:var(--white);
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);
+    font-size:15.5px;margin:8px 0 28px}
+  .ptable .thead{display:table-row}
+  .ptable .trow{display:table-row;padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable .tcell{display:table-cell;padding:15px 18px;border-bottom:1px solid var(--line);
+    vertical-align:top;font-size:15.5px;line-height:1.6;color:var(--ink);
+    background:none;border-left:none;margin:0;font-family:inherit;font-weight:400;letter-spacing:normal}
+  .ptable .thead .tcell{background:var(--cream-2);font-family:var(--font-head);
+    color:var(--petrol);font-weight:600}
+  .ptable .trow:last-child .tcell{border-bottom:none}
+  .ptable .tcell:first-child{font-weight:600;color:var(--petrol)}
+  .ptable .tcell::before{display:none}
+  /* zrušit mobilní varianty — stejná nebo vyšší specificita */
+  .ptable--cols2 .trow,.ptable--cards .trow{padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable--cols2{background:var(--white);border-radius:var(--radius)}
+  .ptable--cards .tcell:first-child,.ptable--cols2 .tcell:first-child{
+    padding:15px 18px;margin:0;background:none;border-left:none;
+    font-family:var(--font-head);font-weight:600;font-size:15.5px;
+    color:var(--petrol);line-height:1.6}
+  .ptable--cards .tcell:last-child,.ptable--cols2 .tcell:last-child{
+    padding:15px 18px;margin-top:0;font-size:15.5px;color:var(--ink)}
+  .ptable--price .tcell:nth-child(2){font-family:inherit;font-weight:400;
+    font-size:15.5px;color:var(--ink);line-height:1.6}
+  .ptable--cards .tcell::before,.ptable--cols2 .tcell::before{display:none}
 }
 </style>
 </head>
@@ -368,7 +410,13 @@ html{overflow-x:hidden}
     <p>Hrajeme <strong>jazz</strong>, ne popový repertoár se saxofonem. To je rozdíl, který stojí za vyjasnění hned na začátku: jazzové standardy, swing, bossa nova a šanson, k tomu moderní písně v jazzové úpravě. Pokud hledáte kapelu, která odehraje aktuální rádiový playlist, nejsme to my.</p>
 
     <h2>Ceny svatební kapely</h2>
-    <table class="ptable"><thead><tr><th>Sestava</th><th>Cena za standardní večer</th><th>Min. plocha</th><th>Typická akce</th></tr></thead><tbody><tr><td data-label="Sestava"><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — zpěv + klavír</td><td data-label="Cena za standardní večer">10 000 – 14 000 Kč</td><td data-label="Min. plocha">3 × 2,5 m</td><td data-label="Typická akce">večeře, recepce, vernisáž, komorní raut</td></tr><tr><td data-label="Sestava"><a href="/" class="inline">Trio</a> — zpěv, klavír, kontrabas</td><td data-label="Cena za standardní večer">16 000 – 20 000 Kč</td><td data-label="Min. plocha">3,5 × 3 m</td><td data-label="Typická akce">firemní večer, hotelový večer, svatba</td></tr><tr><td data-label="Sestava"><a href="https://jazzquartet.cz" class="inline" rel="noopener">Kvartet</a> — + bicí</td><td data-label="Cena za standardní večer">22 000 – 26 000 Kč</td><td data-label="Min. plocha">4 × 3 m</td><td data-label="Typická akce">večírek s tancem, ples, výroční akce</td></tr><tr><td data-label="Sestava"><a href="https://jazzquintet.cz" class="inline" rel="noopener">Kvintet</a> — + dechová sekce</td><td data-label="Cena za standardní večer">28 000 – 32 000 Kč</td><td data-label="Min. plocha">4 × 3 m</td><td data-label="Typická akce">velká firemní párty, galavečer</td></tr></tbody></table>
+    <div class="ptable ptable--price ptable--cards" role="table">
+  <div class="thead" role="row"><div class="tcell" role="columnheader">Sestava</div><div class="tcell" role="columnheader">Cena za standardní večer</div><div class="tcell" role="columnheader">Min. plocha</div><div class="tcell" role="columnheader">Typická akce</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Sestava"><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — zpěv + klavír</div><div class="tcell" role="cell" data-label="Cena za standardní večer">10 000 – 14 000 Kč</div><div class="tcell" role="cell" data-label="Min. plocha">3 × 2,5 m</div><div class="tcell" role="cell" data-label="Typická akce">večeře, recepce, vernisáž, komorní raut</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Sestava"><a href="/" class="inline">Trio</a> — zpěv, klavír, kontrabas</div><div class="tcell" role="cell" data-label="Cena za standardní večer">16 000 – 20 000 Kč</div><div class="tcell" role="cell" data-label="Min. plocha">3,5 × 3 m</div><div class="tcell" role="cell" data-label="Typická akce">firemní večer, hotelový večer, svatba</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Sestava"><a href="https://jazzquartet.cz" class="inline" rel="noopener">Kvartet</a> — + bicí</div><div class="tcell" role="cell" data-label="Cena za standardní večer">22 000 – 26 000 Kč</div><div class="tcell" role="cell" data-label="Min. plocha">4 × 3 m</div><div class="tcell" role="cell" data-label="Typická akce">večírek s tancem, ples, výroční akce</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Sestava"><a href="https://jazzquintet.cz" class="inline" rel="noopener">Kvintet</a> — + dechová sekce</div><div class="tcell" role="cell" data-label="Cena za standardní večer">28 000 – 32 000 Kč</div><div class="tcell" role="cell" data-label="Min. plocha">4 × 3 m</div><div class="tcell" role="cell" data-label="Typická akce">velká firemní párty, galavečer</div></div>
+</div>
 
     <p>Standardní večer jsou tři sety po 45 minutách, tedy zhruba tři hodiny. Doprava po Praze v ceně; mimo Prahu <strong>6 Kč/km u dua a tria</strong>, <strong>12 Kč/km u kvartetu a kvintetu</strong> (dva vozy). Podrobný rozbor v článku <a href="/blog/ceny-jazzove-kapely-na-firemni-akci.html" class="inline">kolik stojí jazzová kapela</a>.</p>
     <p>Pokud chcete hudbu i k obřadu, počítejte s tím jako se samostatným blokem — obvykle 20 až 30 minut před obřadem, během něj a po něm. Domlouváme ho individuálně podle místa a časování dne.</p>
@@ -391,14 +439,15 @@ html{overflow-x:hidden}
 </div>
 
     <h2>Průběh svatebního dne</h2>
-    <table class="ptable"><thead><tr><th>Část dne</th><th>Hudba</th><th>Délka</th></tr></thead><tbody>
-      <tr><td data-label="Část dne">Příchod hostů před obřadem</td><td data-label="Hudba">Klidné instrumentálky</td><td data-label="Délka">20–30 min</td></tr>
-      <tr><td data-label="Část dne">Obřad</td><td data-label="Hudba">Nástup nevěsty, podpis, odchod</td><td data-label="Délka">3 skladby</td></tr>
-      <tr><td data-label="Část dne">Gratulace a přípitek</td><td data-label="Hudba">Bossa nova, standardy</td><td data-label="Délka">30–45 min</td></tr>
-      <tr><td data-label="Část dne">Hostina</td><td data-label="Hudba">Ballady, tišeji</td><td data-label="Délka">1 set</td></tr>
-      <tr><td data-label="Část dne">První tanec</td><td data-label="Hudba">Skladba na přání</td><td data-label="Délka">1 skladba</td></tr>
-      <tr><td data-label="Část dne">Večerní zábava</td><td data-label="Hudba">Swing, latina, tanec</td><td data-label="Délka">1–2 sety</td></tr>
-    </tbody></table>
+    <div class="ptable ptable--cards" role="table">
+  <div class="thead" role="row"><div class="tcell" role="columnheader">Část dne</div><div class="tcell" role="columnheader">Hudba</div><div class="tcell" role="columnheader">Délka</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Část dne">Příchod hostů před obřadem</div><div class="tcell" role="cell" data-label="Hudba">Klidné instrumentálky</div><div class="tcell" role="cell" data-label="Délka">20–30 min</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Část dne">Obřad</div><div class="tcell" role="cell" data-label="Hudba">Nástup nevěsty, podpis, odchod</div><div class="tcell" role="cell" data-label="Délka">3 skladby</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Část dne">Gratulace a přípitek</div><div class="tcell" role="cell" data-label="Hudba">Bossa nova, standardy</div><div class="tcell" role="cell" data-label="Délka">30–45 min</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Část dne">Hostina</div><div class="tcell" role="cell" data-label="Hudba">Ballady, tišeji</div><div class="tcell" role="cell" data-label="Délka">1 set</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Část dne">První tanec</div><div class="tcell" role="cell" data-label="Hudba">Skladba na přání</div><div class="tcell" role="cell" data-label="Délka">1 skladba</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Část dne">Večerní zábava</div><div class="tcell" role="cell" data-label="Hudba">Swing, latina, tanec</div><div class="tcell" role="cell" data-label="Délka">1–2 sety</div></div>
+</div>
     <p>Hudbě k obřadu se podrobně věnuje samostatný článek <a href="/blog/hudba-na-svatebni-obrad.html" class="inline">hudba na svatební obřad</a>, výběru konkrétních písní <a href="/blog/svatebni-pisne-repertoar.html" class="inline">svatební písně: inspirace pro celý den</a>.</p>
 
     <h2>Skladba na přání</h2>

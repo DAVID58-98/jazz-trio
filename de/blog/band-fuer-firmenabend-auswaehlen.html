@@ -307,25 +307,67 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 }
 </style>
 <style>
-/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+/* ===== tabulky =====
+   Základ = mobilní (skládané karty). Tabulkový vzhled se zapíná až od 721 px.
+   Prvky jsou <div>, takže bez CSS zůstanou čitelné pod sebou. */
 html{overflow-x:hidden}
-.article table.ptable{max-width:100%;table-layout:auto}
-.ptable td,.ptable th{overflow-wrap:anywhere}
-@media (max-width:680px){
-  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
-  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-  .ptable tbody,.ptable tr{display:block}
-  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
-  .ptable tr:last-child{margin-bottom:4px}
-  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
-    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
-  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
-    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
-  .ptable td[data-label=""]::before{display:none}
-  .ptable tr td:last-child{border-bottom:none}
-  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
-    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
-  .ptable td:first-child::before{display:none}
+.ptable{display:block;margin:10px 0 30px;font-size:15px;max-width:100%}
+.ptable .thead{display:none}
+.ptable .tcell{display:block;overflow-wrap:anywhere}
+.ptable a,.ptable a.inline{color:var(--emerald);text-decoration:none;border-bottom:none}
+.ptable a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* dvousloupcové: jeden panel, řádek = tučný název + popis */
+.ptable--cols2{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);overflow:hidden}
+.ptable--cols2 .trow{padding:13px 18px;border-bottom:1px solid var(--line)}
+.ptable--cols2 .trow:last-child{border-bottom:none}
+.ptable--cols2 .tcell:first-child{font-family:var(--font-head);font-weight:600;font-size:15.5px;color:var(--petrol);line-height:1.4}
+.ptable--cols2 .tcell:last-child{margin-top:3px;font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+
+/* tři a více sloupců: karta na řádek */
+.ptable--cards .trow{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+.ptable--cards .trow:last-child{margin-bottom:0}
+.ptable--cards .tcell{padding:12px 18px 0;font-size:15px;line-height:1.55;color:var(--ink)}
+.ptable--cards .tcell:last-child{padding-bottom:16px}
+.ptable--cards .tcell::before{content:attr(data-label);display:block;margin-bottom:3px;
+  font-family:var(--font-head);font-weight:600;font-size:11.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-soft);line-height:1.35}
+.ptable--cards .tcell:first-child{padding:13px 18px 12px;margin-bottom:2px;background:var(--cream-2);
+  border-left:3px solid var(--emerald);font-family:var(--font-head);font-weight:700;
+  font-size:16px;color:var(--petrol);line-height:1.35}
+.ptable--cards .tcell:first-child::before{display:none}
+.ptable--price .tcell:nth-child(2){font-family:var(--font-head);font-weight:700;font-size:20px;
+  color:var(--emerald);line-height:1.25}
+
+/* ===== od 721 px klasická tabulka ===== */
+@media (min-width:721px){
+  .ptable{display:table;width:100%;border-collapse:collapse;background:var(--white);
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);
+    font-size:15.5px;margin:8px 0 28px}
+  .ptable .thead{display:table-row}
+  .ptable .trow{display:table-row;padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable .tcell{display:table-cell;padding:15px 18px;border-bottom:1px solid var(--line);
+    vertical-align:top;font-size:15.5px;line-height:1.6;color:var(--ink);
+    background:none;border-left:none;margin:0;font-family:inherit;font-weight:400;letter-spacing:normal}
+  .ptable .thead .tcell{background:var(--cream-2);font-family:var(--font-head);
+    color:var(--petrol);font-weight:600}
+  .ptable .trow:last-child .tcell{border-bottom:none}
+  .ptable .tcell:first-child{font-weight:600;color:var(--petrol)}
+  .ptable .tcell::before{display:none}
+  /* zrušit mobilní varianty — stejná nebo vyšší specificita */
+  .ptable--cols2 .trow,.ptable--cards .trow{padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable--cols2{background:var(--white);border-radius:var(--radius)}
+  .ptable--cards .tcell:first-child,.ptable--cols2 .tcell:first-child{
+    padding:15px 18px;margin:0;background:none;border-left:none;
+    font-family:var(--font-head);font-weight:600;font-size:15.5px;
+    color:var(--petrol);line-height:1.6}
+  .ptable--cards .tcell:last-child,.ptable--cols2 .tcell:last-child{
+    padding:15px 18px;margin-top:0;font-size:15.5px;color:var(--ink)}
+  .ptable--price .tcell:nth-child(2){font-family:inherit;font-weight:400;
+    font-size:15.5px;color:var(--ink);line-height:1.6}
+  .ptable--cards .tcell::before,.ptable--cols2 .tcell::before{display:none}
 }
 </style>
 </head>
@@ -374,7 +416,7 @@ html{overflow-x:hidden}
     <p>Eine Band ohne Anlage bedeutet, dass Sie eine mieten müssen. Wir bringen eine <strong>eigene aktive Bose-Anlage für Veranstaltungen bis 80 bis 100 Gäste</strong> mit. Über 100 Gäste brauchen Sie einen Tontechniker — besser im August zu wissen als am Veranstaltungstag.</p>
 
     <h2>3. Wie wird die Anfahrt berechnet?</h2>
-    <p>Entweder pauschal oder pro Kilometer. Bei uns ist die Anfahrt innerhalb Prags enthalten, außerhalb <strong>6 CZK/km bei Duo und Trio</strong> und <strong>12 CZK/km bei Quartett und Quintett</strong>, die mit zwei Fahrzeugen anreisen müssen. Fragen Sie auch, mit wie vielen Fahrzeugen die Band anreist — bei größeren Besetzungen verdoppelt das die Anfahrtskosten.</p>
+    <p>Entweder pauschal oder pro Kilometer. Bei uns ist die Anfahrt innerhalb Prags enthalten, außerhalb <strong>0,24 €/km bei Duo und Trio</strong> und <strong>0,48 €/km bei Quartett und Quintett</strong>, die mit zwei Fahrzeugen anreisen müssen. Fragen Sie auch, mit wie vielen Fahrzeugen die Band anreist — bei größeren Besetzungen verdoppelt das die Anfahrtskosten.</p>
 
     <h2>4. Wird live gespielt oder mit Playback?</h2>
     <p>Viele Bands nutzen Playbacks, damit eine kleinere Besetzung voller klingt. Das ist nicht per se falsch, fällt bei repräsentativen Veranstaltungen aber meist auf. Wir spielen <strong>ohne Playback</strong> — alles entsteht vor Ort.</p>
@@ -412,14 +454,15 @@ html{overflow-x:hidden}
     <p>Die Antwortgeschwindigkeit sagt viel über die Kommunikation vor der Veranstaltung. Wir senden Angebote <strong>innerhalb von 24 Stunden</strong>. Wir verständigen uns auf Tschechisch, Englisch und Deutsch.</p>
 
     <h2>Was schriftlich festgehalten gehört</h2>
-    <table class="ptable"><thead><tr><th>Angabe</th><th>Warum</th></tr></thead><tbody>
-      <tr><td data-label="Angabe">Datum, Beginn und Ende der Produktion</td><td data-label="Warum">Häufigste Quelle von Missverständnissen</td></tr>
-      <tr><td data-label="Angabe">Anzahl und Länge der Sets</td><td data-label="Warum">Bestimmt Preis und Abendverlauf</td></tr>
-      <tr><td data-label="Angabe">Genaue Besetzung</td><td data-label="Warum">Damit keine andere Band kommt</td></tr>
-      <tr><td data-label="Angabe">Preis inklusive Anfahrt</td><td data-label="Warum">Damit später keine Position dazukommt</td></tr>
-      <tr><td data-label="Angabe">Wer die Beschallung stellt</td><td data-label="Warum">Über 100 Gäste entscheidend</td></tr>
-      <tr><td data-label="Angabe">Ansprechpartner vor Ort</td><td data-label="Warum">Wer die Band einlässt und Signale gibt</td></tr>
-    </tbody></table>
+    <div class="ptable ptable--cols2" role="table">
+  <div class="thead" role="row"><div class="tcell" role="columnheader">Angabe</div><div class="tcell" role="columnheader">Warum</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Angabe">Datum, Beginn und Ende der Produktion</div><div class="tcell" role="cell" data-label="Warum">Häufigste Quelle von Missverständnissen</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Angabe">Anzahl und Länge der Sets</div><div class="tcell" role="cell" data-label="Warum">Bestimmt Preis und Abendverlauf</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Angabe">Genaue Besetzung</div><div class="tcell" role="cell" data-label="Warum">Damit keine andere Band kommt</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Angabe">Preis inklusive Anfahrt</div><div class="tcell" role="cell" data-label="Warum">Damit später keine Position dazukommt</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Angabe">Wer die Beschallung stellt</div><div class="tcell" role="cell" data-label="Warum">Über 100 Gäste entscheidend</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Angabe">Ansprechpartner vor Ort</div><div class="tcell" role="cell" data-label="Warum">Wer die Band einlässt und Signale gibt</div></div>
+</div>
 
     <h3>Über den Autor</h3>
     <p><strong>David Kleňha</strong> ist <strong>Jazzsänger</strong> und Bandleader aus Prag und tritt in ganz Tschechien auf. Er leitet Besetzungen vom Duo bis zum Quintett — <a href="https://jazzduo.cz" class="inline" rel="noopener">jazzduo.cz</a>, <a href="/de/" class="inline">jazztrio.cz</a>, <a href="https://jazzquartet.cz" class="inline" rel="noopener">jazzquartet.cz</a> und <a href="https://jazzquintet.cz" class="inline" rel="noopener">jazzquintet.cz</a> — und hat seit 2015 über 320 Veranstaltungen gespielt: Firmenabende, Empfänge, Vernissagen, Hotel- und Restaurantabende, Hochzeiten und Festivals. Mehr auf seiner persönlichen Website <a href="https://davidklenha.cz" class="inline" rel="noopener">davidklenha.cz</a>.</p>

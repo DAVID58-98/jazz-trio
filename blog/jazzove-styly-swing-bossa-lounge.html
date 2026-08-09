@@ -307,25 +307,67 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 }
 </style>
 <style>
-/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+/* ===== tabulky =====
+   Základ = mobilní (skládané karty). Tabulkový vzhled se zapíná až od 721 px.
+   Prvky jsou <div>, takže bez CSS zůstanou čitelné pod sebou. */
 html{overflow-x:hidden}
-.article table.ptable{max-width:100%;table-layout:auto}
-.ptable td,.ptable th{overflow-wrap:anywhere}
-@media (max-width:680px){
-  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
-  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-  .ptable tbody,.ptable tr{display:block}
-  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
-  .ptable tr:last-child{margin-bottom:4px}
-  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
-    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
-  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
-    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
-  .ptable td[data-label=""]::before{display:none}
-  .ptable tr td:last-child{border-bottom:none}
-  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
-    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
-  .ptable td:first-child::before{display:none}
+.ptable{display:block;margin:10px 0 30px;font-size:15px;max-width:100%}
+.ptable .thead{display:none}
+.ptable .tcell{display:block;overflow-wrap:anywhere}
+.ptable a,.ptable a.inline{color:var(--emerald);text-decoration:none;border-bottom:none}
+.ptable a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* dvousloupcové: jeden panel, řádek = tučný název + popis */
+.ptable--cols2{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);overflow:hidden}
+.ptable--cols2 .trow{padding:13px 18px;border-bottom:1px solid var(--line)}
+.ptable--cols2 .trow:last-child{border-bottom:none}
+.ptable--cols2 .tcell:first-child{font-family:var(--font-head);font-weight:600;font-size:15.5px;color:var(--petrol);line-height:1.4}
+.ptable--cols2 .tcell:last-child{margin-top:3px;font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+
+/* tři a více sloupců: karta na řádek */
+.ptable--cards .trow{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+.ptable--cards .trow:last-child{margin-bottom:0}
+.ptable--cards .tcell{padding:12px 18px 0;font-size:15px;line-height:1.55;color:var(--ink)}
+.ptable--cards .tcell:last-child{padding-bottom:16px}
+.ptable--cards .tcell::before{content:attr(data-label);display:block;margin-bottom:3px;
+  font-family:var(--font-head);font-weight:600;font-size:11.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-soft);line-height:1.35}
+.ptable--cards .tcell:first-child{padding:13px 18px 12px;margin-bottom:2px;background:var(--cream-2);
+  border-left:3px solid var(--emerald);font-family:var(--font-head);font-weight:700;
+  font-size:16px;color:var(--petrol);line-height:1.35}
+.ptable--cards .tcell:first-child::before{display:none}
+.ptable--price .tcell:nth-child(2){font-family:var(--font-head);font-weight:700;font-size:20px;
+  color:var(--emerald);line-height:1.25}
+
+/* ===== od 721 px klasická tabulka ===== */
+@media (min-width:721px){
+  .ptable{display:table;width:100%;border-collapse:collapse;background:var(--white);
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);
+    font-size:15.5px;margin:8px 0 28px}
+  .ptable .thead{display:table-row}
+  .ptable .trow{display:table-row;padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable .tcell{display:table-cell;padding:15px 18px;border-bottom:1px solid var(--line);
+    vertical-align:top;font-size:15.5px;line-height:1.6;color:var(--ink);
+    background:none;border-left:none;margin:0;font-family:inherit;font-weight:400;letter-spacing:normal}
+  .ptable .thead .tcell{background:var(--cream-2);font-family:var(--font-head);
+    color:var(--petrol);font-weight:600}
+  .ptable .trow:last-child .tcell{border-bottom:none}
+  .ptable .tcell:first-child{font-weight:600;color:var(--petrol)}
+  .ptable .tcell::before{display:none}
+  /* zrušit mobilní varianty — stejná nebo vyšší specificita */
+  .ptable--cols2 .trow,.ptable--cards .trow{padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable--cols2{background:var(--white);border-radius:var(--radius)}
+  .ptable--cards .tcell:first-child,.ptable--cols2 .tcell:first-child{
+    padding:15px 18px;margin:0;background:none;border-left:none;
+    font-family:var(--font-head);font-weight:600;font-size:15.5px;
+    color:var(--petrol);line-height:1.6}
+  .ptable--cards .tcell:last-child,.ptable--cols2 .tcell:last-child{
+    padding:15px 18px;margin-top:0;font-size:15.5px;color:var(--ink)}
+  .ptable--price .tcell:nth-child(2){font-family:inherit;font-weight:400;
+    font-size:15.5px;color:var(--ink);line-height:1.6}
+  .ptable--cards .tcell::before,.ptable--cols2 .tcell::before{display:none}
 }
 </style>
 </head>
@@ -366,13 +408,14 @@ html{overflow-x:hidden}
     <p>Styl rozhoduje o tom, co akce udělá s hosty — víc než konkrétní skladby. Následující přehled je praktický: co který styl dělá se sálem a kdy ho zvolit.</p>
 
     <h2>Rychlé srovnání</h2>
-    <table class="ptable"><thead><tr><th>Styl</th><th>Charakter</th><th>Hodí se na</th></tr></thead><tbody>
-      <tr><td data-label="Styl">Swing</td><td data-label="Charakter">Rytmický tah, energie</td><td data-label="Hodí se na">Tanec, večírek, ples</td></tr>
-      <tr><td data-label="Styl">Bossa nova</td><td data-label="Charakter">Klidný rovnoměrný rytmus</td><td data-label="Hodí se na">Raut, vernisáž, večeře</td></tr>
-      <tr><td data-label="Styl">Lounge / ballady</td><td data-label="Charakter">Pomalé, atmosférické</td><td data-label="Hodí se na">Recepce, hotelová lobby</td></tr>
-      <tr><td data-label="Styl">Latina</td><td data-label="Charakter">Živý rytmus, teplé barvy</td><td data-label="Hodí se na">Letní akce, přechod k tanci</td></tr>
-      <tr><td data-label="Styl">Šanson</td><td data-label="Charakter">Vyprávěcí, komorní</td><td data-label="Hodí se na">Galerie, komorní večer</td></tr>
-    </tbody></table>
+    <div class="ptable ptable--cards" role="table">
+  <div class="thead" role="row"><div class="tcell" role="columnheader">Styl</div><div class="tcell" role="columnheader">Charakter</div><div class="tcell" role="columnheader">Hodí se na</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Styl">Swing</div><div class="tcell" role="cell" data-label="Charakter">Rytmický tah, energie</div><div class="tcell" role="cell" data-label="Hodí se na">Tanec, večírek, ples</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Styl">Bossa nova</div><div class="tcell" role="cell" data-label="Charakter">Klidný rovnoměrný rytmus</div><div class="tcell" role="cell" data-label="Hodí se na">Raut, vernisáž, večeře</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Styl">Lounge / ballady</div><div class="tcell" role="cell" data-label="Charakter">Pomalé, atmosférické</div><div class="tcell" role="cell" data-label="Hodí se na">Recepce, hotelová lobby</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Styl">Latina</div><div class="tcell" role="cell" data-label="Charakter">Živý rytmus, teplé barvy</div><div class="tcell" role="cell" data-label="Hodí se na">Letní akce, přechod k tanci</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Styl">Šanson</div><div class="tcell" role="cell" data-label="Charakter">Vyprávěcí, komorní</div><div class="tcell" role="cell" data-label="Hodí se na">Galerie, komorní večer</div></div>
+</div>
 
     <h2>Swing</h2>
     <p>Klasický jazz třicátých až padesátých let. Má výrazný rytmický tah — <strong>swing je jediný z těchto stylů, který spolehlivě dostane lidi na parket</strong>. Potřebuje ale bicí, tedy minimálně <a href="https://jazzquartet.cz" class="inline" rel="noopener">kvartet</a>.</p>
@@ -402,12 +445,13 @@ html{overflow-x:hidden}
     <p>Francouzská a středoevropská písňová tradice v jazzové úpravě. Komorní, vyprávěcí, textově zaměřená. Nejlépe funguje v galerijním prostředí a na akcích, kde se poslouchá.</p>
 
     <h2>Jak z toho sestavit večer</h2>
-    <table class="ptable"><thead><tr><th>Část večera</th><th>Styl</th></tr></thead><tbody>
-      <tr><td data-label="Část večera">Příchod hostů</td><td data-label="Styl">Lounge, ballady</td></tr>
-      <tr><td data-label="Část večera">Raut, večeře</td><td data-label="Styl">Bossa nova, střední tempa</td></tr>
-      <tr><td data-label="Část večera">Volná zábava</td><td data-label="Styl">Latina, lehčí swing</td></tr>
-      <tr><td data-label="Část večera">Taneční blok</td><td data-label="Styl">Swing naplno</td></tr>
-    </tbody></table>
+    <div class="ptable ptable--cols2" role="table">
+  <div class="thead" role="row"><div class="tcell" role="columnheader">Část večera</div><div class="tcell" role="columnheader">Styl</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Část večera">Příchod hostů</div><div class="tcell" role="cell" data-label="Styl">Lounge, ballady</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Část večera">Raut, večeře</div><div class="tcell" role="cell" data-label="Styl">Bossa nova, střední tempa</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Část večera">Volná zábava</div><div class="tcell" role="cell" data-label="Styl">Latina, lehčí swing</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Část večera">Taneční blok</div><div class="tcell" role="cell" data-label="Styl">Swing naplno</div></div>
+</div>
     <p>Rozdílu mezi hudbou k poslechu a k tanci se podrobně věnuje článek <a href="/blog/jazz-k-poslechu-vs-hudba-k-tanci.html" class="inline">jazz k poslechu vs. hudba k tanci</a>, výběru sestavy článek <a href="/blog/jaka-sestava-na-jakou-akci.html" class="inline">jaká sestava na jakou akci</a>.</p>
 
     <h2>Repertoár</h2>

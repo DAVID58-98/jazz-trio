@@ -120,7 +120,7 @@
       "name": "Gibt es einen Aufschlag für Dezembertermine?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nein. Die Preise sind wie im übrigen Jahr: Duo 10.000 bis 14.000 CZK, Trio 16.000 bis 20.000 CZK, Quartett 22.000 bis 26.000 CZK, Quintett 28.000 bis 32.000 CZK pro Standardabend."
+        "text": "Nein. Die Preise sind wie im übrigen Jahr: Duo 400 bis 560 €, Trio 640 bis 800 €, Quartett 880 bis 1.040 €, Quintett 1.120 bis 1.280 € pro Standardabend."
       }
     },
     {
@@ -307,25 +307,67 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 }
 </style>
 <style>
-/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+/* ===== tabulky =====
+   Základ = mobilní (skládané karty). Tabulkový vzhled se zapíná až od 721 px.
+   Prvky jsou <div>, takže bez CSS zůstanou čitelné pod sebou. */
 html{overflow-x:hidden}
-.article table.ptable{max-width:100%;table-layout:auto}
-.ptable td,.ptable th{overflow-wrap:anywhere}
-@media (max-width:680px){
-  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
-  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-  .ptable tbody,.ptable tr{display:block}
-  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
-  .ptable tr:last-child{margin-bottom:4px}
-  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
-    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
-  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
-    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
-  .ptable td[data-label=""]::before{display:none}
-  .ptable tr td:last-child{border-bottom:none}
-  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
-    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
-  .ptable td:first-child::before{display:none}
+.ptable{display:block;margin:10px 0 30px;font-size:15px;max-width:100%}
+.ptable .thead{display:none}
+.ptable .tcell{display:block;overflow-wrap:anywhere}
+.ptable a,.ptable a.inline{color:var(--emerald);text-decoration:none;border-bottom:none}
+.ptable a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* dvousloupcové: jeden panel, řádek = tučný název + popis */
+.ptable--cols2{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);overflow:hidden}
+.ptable--cols2 .trow{padding:13px 18px;border-bottom:1px solid var(--line)}
+.ptable--cols2 .trow:last-child{border-bottom:none}
+.ptable--cols2 .tcell:first-child{font-family:var(--font-head);font-weight:600;font-size:15.5px;color:var(--petrol);line-height:1.4}
+.ptable--cols2 .tcell:last-child{margin-top:3px;font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+
+/* tři a více sloupců: karta na řádek */
+.ptable--cards .trow{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+.ptable--cards .trow:last-child{margin-bottom:0}
+.ptable--cards .tcell{padding:12px 18px 0;font-size:15px;line-height:1.55;color:var(--ink)}
+.ptable--cards .tcell:last-child{padding-bottom:16px}
+.ptable--cards .tcell::before{content:attr(data-label);display:block;margin-bottom:3px;
+  font-family:var(--font-head);font-weight:600;font-size:11.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-soft);line-height:1.35}
+.ptable--cards .tcell:first-child{padding:13px 18px 12px;margin-bottom:2px;background:var(--cream-2);
+  border-left:3px solid var(--emerald);font-family:var(--font-head);font-weight:700;
+  font-size:16px;color:var(--petrol);line-height:1.35}
+.ptable--cards .tcell:first-child::before{display:none}
+.ptable--price .tcell:nth-child(2){font-family:var(--font-head);font-weight:700;font-size:20px;
+  color:var(--emerald);line-height:1.25}
+
+/* ===== od 721 px klasická tabulka ===== */
+@media (min-width:721px){
+  .ptable{display:table;width:100%;border-collapse:collapse;background:var(--white);
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);
+    font-size:15.5px;margin:8px 0 28px}
+  .ptable .thead{display:table-row}
+  .ptable .trow{display:table-row;padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable .tcell{display:table-cell;padding:15px 18px;border-bottom:1px solid var(--line);
+    vertical-align:top;font-size:15.5px;line-height:1.6;color:var(--ink);
+    background:none;border-left:none;margin:0;font-family:inherit;font-weight:400;letter-spacing:normal}
+  .ptable .thead .tcell{background:var(--cream-2);font-family:var(--font-head);
+    color:var(--petrol);font-weight:600}
+  .ptable .trow:last-child .tcell{border-bottom:none}
+  .ptable .tcell:first-child{font-weight:600;color:var(--petrol)}
+  .ptable .tcell::before{display:none}
+  /* zrušit mobilní varianty — stejná nebo vyšší specificita */
+  .ptable--cols2 .trow,.ptable--cards .trow{padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable--cols2{background:var(--white);border-radius:var(--radius)}
+  .ptable--cards .tcell:first-child,.ptable--cols2 .tcell:first-child{
+    padding:15px 18px;margin:0;background:none;border-left:none;
+    font-family:var(--font-head);font-weight:600;font-size:15.5px;
+    color:var(--petrol);line-height:1.6}
+  .ptable--cards .tcell:last-child,.ptable--cols2 .tcell:last-child{
+    padding:15px 18px;margin-top:0;font-size:15.5px;color:var(--ink)}
+  .ptable--price .tcell:nth-child(2){font-family:inherit;font-weight:400;
+    font-size:15.5px;color:var(--ink);line-height:1.6}
+  .ptable--cards .tcell::before,.ptable--cols2 .tcell::before{display:none}
 }
 </style>
 </head>
@@ -366,12 +408,13 @@ html{overflow-x:hidden}
     <p>Die Firmenweihnachtsfeier hat eine spezielle Falle: Die Musik muss festlich sein, ohne kitschig zu werden. Eine Playlist mit Weihnachtsliedern im Original hält etwa vierzig Minuten. Jazzarrangements derselben Melodien halten den ganzen Abend, weil sie die Stimmung tragen, ohne sie aufzudrängen.</p>
 
     <h2>Wann buchen</h2>
-    <table class="ptable"><thead><tr><th>Anfragezeitpunkt</th><th>Chance auf einen freien Termin</th></tr></thead><tbody>
-      <tr><td data-label="Anfragezeitpunkt">September</td><td data-label="Chance auf einen freien Termin">Hoch — Auswahl bei Besetzung und Datum</td></tr>
-      <tr><td data-label="Anfragezeitpunkt">Oktober</td><td data-label="Chance auf einen freien Termin">Gut — beliebte Termine gehen bereits</td></tr>
-      <tr><td data-label="Anfragezeitpunkt">November</td><td data-label="Chance auf einen freien Termin">Begrenzt — vor allem Werktage</td></tr>
-      <tr><td data-label="Anfragezeitpunkt">Dezember</td><td data-label="Chance auf einen freien Termin">Gering, eine Anfrage lohnt sich dennoch</td></tr>
-    </tbody></table>
+    <div class="ptable ptable--cols2" role="table">
+  <div class="thead" role="row"><div class="tcell" role="columnheader">Anfragezeitpunkt</div><div class="tcell" role="columnheader">Chance auf einen freien Termin</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Anfragezeitpunkt">September</div><div class="tcell" role="cell" data-label="Chance auf einen freien Termin">Hoch — Auswahl bei Besetzung und Datum</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Anfragezeitpunkt">Oktober</div><div class="tcell" role="cell" data-label="Chance auf einen freien Termin">Gut — beliebte Termine gehen bereits</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Anfragezeitpunkt">November</div><div class="tcell" role="cell" data-label="Chance auf einen freien Termin">Begrenzt — vor allem Werktage</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Anfragezeitpunkt">Dezember</div><div class="tcell" role="cell" data-label="Chance auf einen freien Termin">Gering, eine Anfrage lohnt sich dennoch</div></div>
+</div>
     <p>Am schnellsten vergriffen sind Freitage in der zweiten und dritten Dezemberwoche. Wenn Sie die Wahl haben, ist ein <strong>Werktag in der ersten Dezemberhälfte</strong> hinsichtlich Verfügbarkeit am günstigsten.</p>
 
     <h2>Repertoire</h2>
@@ -393,9 +436,15 @@ html{overflow-x:hidden}
 </div>
 
     <h2>Besetzungen und Preise</h2>
-    <table class="ptable"><thead><tr><th>Besetzung</th><th>Preis pro Standardabend</th><th>Min. Fläche</th><th>Typische Veranstaltung</th></tr></thead><tbody><tr><td data-label="Besetzung"><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — Gesang + Klavier</td><td data-label="Preis pro Standardabend">10.000 – 14.000 CZK</td><td data-label="Min. Fläche">3 × 2,5 m</td><td data-label="Typische Veranstaltung">Dinner, Empfang, Vernissage</td></tr><tr><td data-label="Besetzung"><a href="/de/" class="inline">Trio</a> — Gesang, Klavier, Kontrabass</td><td data-label="Preis pro Standardabend">16.000 – 20.000 CZK</td><td data-label="Min. Fläche">3,5 × 3 m</td><td data-label="Typische Veranstaltung">Firmenabend, Hotelabend, Hochzeit</td></tr><tr><td data-label="Besetzung"><a href="https://jazzquartet.cz" class="inline" rel="noopener">Quartett</a> — + Schlagzeug</td><td data-label="Preis pro Standardabend">22.000 – 26.000 CZK</td><td data-label="Min. Fläche">4 × 3 m</td><td data-label="Typische Veranstaltung">Feier mit Tanz, Ball, Jubiläum</td></tr><tr><td data-label="Besetzung"><a href="https://jazzquintet.cz" class="inline" rel="noopener">Quintett</a> — + Bläser</td><td data-label="Preis pro Standardabend">28.000 – 32.000 CZK</td><td data-label="Min. Fläche">4 × 3 m</td><td data-label="Typische Veranstaltung">große Firmenparty, Galaabend</td></tr></tbody></table>
+    <div class="ptable ptable--price ptable--cards" role="table">
+  <div class="thead" role="row"><div class="tcell" role="columnheader">Besetzung</div><div class="tcell" role="columnheader">Preis pro Standardabend</div><div class="tcell" role="columnheader">Min. Fläche</div><div class="tcell" role="columnheader">Typische Veranstaltung</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Besetzung"><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — Gesang + Klavier</div><div class="tcell" role="cell" data-label="Preis pro Standardabend">400 – 560 €</div><div class="tcell" role="cell" data-label="Min. Fläche">3 × 2,5 m</div><div class="tcell" role="cell" data-label="Typische Veranstaltung">Dinner, Empfang, Vernissage</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Besetzung"><a href="/de/" class="inline">Trio</a> — Gesang, Klavier, Kontrabass</div><div class="tcell" role="cell" data-label="Preis pro Standardabend">640 – 800 €</div><div class="tcell" role="cell" data-label="Min. Fläche">3,5 × 3 m</div><div class="tcell" role="cell" data-label="Typische Veranstaltung">Firmenabend, Hotelabend, Hochzeit</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Besetzung"><a href="https://jazzquartet.cz" class="inline" rel="noopener">Quartett</a> — + Schlagzeug</div><div class="tcell" role="cell" data-label="Preis pro Standardabend">880 – 1.040 €</div><div class="tcell" role="cell" data-label="Min. Fläche">4 × 3 m</div><div class="tcell" role="cell" data-label="Typische Veranstaltung">Feier mit Tanz, Ball, Jubiläum</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Besetzung"><a href="https://jazzquintet.cz" class="inline" rel="noopener">Quintett</a> — + Bläser</div><div class="tcell" role="cell" data-label="Preis pro Standardabend">1.120 – 1.280 €</div><div class="tcell" role="cell" data-label="Min. Fläche">4 × 3 m</div><div class="tcell" role="cell" data-label="Typische Veranstaltung">große Firmenparty, Galaabend</div></div>
+</div>
 
-    <p>Für Dezembertermine gibt es keinen Aufschlag — die Preise sind wie im übrigen Jahr. Ein Standardabend besteht aus drei Sets à 45 Minuten inklusive eigener Beschallung und Anfahrt innerhalb Prags; außerhalb 6 CZK/km bei Duo und Trio und 12 CZK/km bei Quartett und Quintett. Vollständig im Artikel <a href="/de/blog/preise-jazzband-firmenevent.html" class="inline">was eine Jazzband kostet</a>.</p>
+    <p>Für Dezembertermine gibt es keinen Aufschlag — die Preise sind wie im übrigen Jahr. Ein Standardabend besteht aus drei Sets à 45 Minuten inklusive eigener Beschallung und Anfahrt innerhalb Prags; außerhalb 0,24 €/km bei Duo und Trio und 0,48 €/km bei Quartett und Quintett. Vollständig im Artikel <a href="/de/blog/preise-jazzband-firmenevent.html" class="inline">was eine Jazzband kostet</a>.</p>
 
     <h3>Trio oder Quartett</h3>
     <p>Weihnachtsfeiern werden oft später zur Tanzveranstaltung als erwartet — nach Dinner und Reden. Wenn Sie mit Tanz rechnen, wählen Sie ein <a href="https://jazzquartet.cz" class="inline" rel="noopener">Quartett</a> mit Schlagzeug. Für einen Adventsempfang oder ein Kundentreffen genügt ein <a href="/de/" class="inline">Trio</a> oder <a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a>.</p>
@@ -417,7 +466,7 @@ html{overflow-x:hidden}
     <h2>Häufige Fragen</h2>
     <div class="faq">
       <details><summary>Wann sollte ich eine Band für die Firmenweihnachtsfeier buchen?</summary><p>Idealerweise im September. Freitage in der zweiten und dritten Dezemberwoche sind am schnellsten vergriffen. Ein Werktag in der ersten Dezemberhälfte ist hinsichtlich Verfügbarkeit am günstigsten.</p></details>
-      <details><summary>Gibt es einen Aufschlag für Dezembertermine?</summary><p>Nein. Die Preise sind wie im übrigen Jahr: Duo 10.000 bis 14.000 CZK, Trio 16.000 bis 20.000 CZK, Quartett 22.000 bis 26.000 CZK, Quintett 28.000 bis 32.000 CZK pro Standardabend.</p></details>
+      <details><summary>Gibt es einen Aufschlag für Dezembertermine?</summary><p>Nein. Die Preise sind wie im übrigen Jahr: Duo 400 bis 560 €, Trio 640 bis 800 €, Quartett 880 bis 1.040 €, Quintett 1.120 bis 1.280 € pro Standardabend.</p></details>
       <details><summary>Spielen Sie nur Weihnachtslieder?</summary><p>Nein. Weihnachtsmaterial macht etwa ein Drittel des Programms aus, der Rest ist unser reguläres Jazz- und Swingrepertoire. Ein reines Weihnachtsprogramm würde nach einer Stunde ermüden.</p></details>
       <details><summary>Spielen Sie auch bei Adventsveranstaltungen im Freien?</summary><p>Ja, wir verlangen jedoch feste Überdachung für Band und Technik sowie einen beheizten Raum. Unter 12 °C verstimmen sich die Instrumente.</p></details>
       <details><summary>Studieren Sie einen Wunschtitel ein?</summary><p>Ja. Im Dezember ist die Kapazität begrenzt, wir empfehlen daher, einen konkreten Titel etwa einen Monat im Voraus abzustimmen.</p></details>

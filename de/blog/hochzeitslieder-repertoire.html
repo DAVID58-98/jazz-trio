@@ -307,25 +307,67 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 }
 </style>
 <style>
-/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+/* ===== tabulky =====
+   Základ = mobilní (skládané karty). Tabulkový vzhled se zapíná až od 721 px.
+   Prvky jsou <div>, takže bez CSS zůstanou čitelné pod sebou. */
 html{overflow-x:hidden}
-.article table.ptable{max-width:100%;table-layout:auto}
-.ptable td,.ptable th{overflow-wrap:anywhere}
-@media (max-width:680px){
-  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
-  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-  .ptable tbody,.ptable tr{display:block}
-  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
-  .ptable tr:last-child{margin-bottom:4px}
-  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
-    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
-  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
-    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
-  .ptable td[data-label=""]::before{display:none}
-  .ptable tr td:last-child{border-bottom:none}
-  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
-    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
-  .ptable td:first-child::before{display:none}
+.ptable{display:block;margin:10px 0 30px;font-size:15px;max-width:100%}
+.ptable .thead{display:none}
+.ptable .tcell{display:block;overflow-wrap:anywhere}
+.ptable a,.ptable a.inline{color:var(--emerald);text-decoration:none;border-bottom:none}
+.ptable a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* dvousloupcové: jeden panel, řádek = tučný název + popis */
+.ptable--cols2{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);overflow:hidden}
+.ptable--cols2 .trow{padding:13px 18px;border-bottom:1px solid var(--line)}
+.ptable--cols2 .trow:last-child{border-bottom:none}
+.ptable--cols2 .tcell:first-child{font-family:var(--font-head);font-weight:600;font-size:15.5px;color:var(--petrol);line-height:1.4}
+.ptable--cols2 .tcell:last-child{margin-top:3px;font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+
+/* tři a více sloupců: karta na řádek */
+.ptable--cards .trow{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+.ptable--cards .trow:last-child{margin-bottom:0}
+.ptable--cards .tcell{padding:12px 18px 0;font-size:15px;line-height:1.55;color:var(--ink)}
+.ptable--cards .tcell:last-child{padding-bottom:16px}
+.ptable--cards .tcell::before{content:attr(data-label);display:block;margin-bottom:3px;
+  font-family:var(--font-head);font-weight:600;font-size:11.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-soft);line-height:1.35}
+.ptable--cards .tcell:first-child{padding:13px 18px 12px;margin-bottom:2px;background:var(--cream-2);
+  border-left:3px solid var(--emerald);font-family:var(--font-head);font-weight:700;
+  font-size:16px;color:var(--petrol);line-height:1.35}
+.ptable--cards .tcell:first-child::before{display:none}
+.ptable--price .tcell:nth-child(2){font-family:var(--font-head);font-weight:700;font-size:20px;
+  color:var(--emerald);line-height:1.25}
+
+/* ===== od 721 px klasická tabulka ===== */
+@media (min-width:721px){
+  .ptable{display:table;width:100%;border-collapse:collapse;background:var(--white);
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);
+    font-size:15.5px;margin:8px 0 28px}
+  .ptable .thead{display:table-row}
+  .ptable .trow{display:table-row;padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable .tcell{display:table-cell;padding:15px 18px;border-bottom:1px solid var(--line);
+    vertical-align:top;font-size:15.5px;line-height:1.6;color:var(--ink);
+    background:none;border-left:none;margin:0;font-family:inherit;font-weight:400;letter-spacing:normal}
+  .ptable .thead .tcell{background:var(--cream-2);font-family:var(--font-head);
+    color:var(--petrol);font-weight:600}
+  .ptable .trow:last-child .tcell{border-bottom:none}
+  .ptable .tcell:first-child{font-weight:600;color:var(--petrol)}
+  .ptable .tcell::before{display:none}
+  /* zrušit mobilní varianty — stejná nebo vyšší specificita */
+  .ptable--cols2 .trow,.ptable--cards .trow{padding:0;border:none;background:none;
+    box-shadow:none;margin:0;border-radius:0}
+  .ptable--cols2{background:var(--white);border-radius:var(--radius)}
+  .ptable--cards .tcell:first-child,.ptable--cols2 .tcell:first-child{
+    padding:15px 18px;margin:0;background:none;border-left:none;
+    font-family:var(--font-head);font-weight:600;font-size:15.5px;
+    color:var(--petrol);line-height:1.6}
+  .ptable--cards .tcell:last-child,.ptable--cols2 .tcell:last-child{
+    padding:15px 18px;margin-top:0;font-size:15.5px;color:var(--ink)}
+  .ptable--price .tcell:nth-child(2){font-family:inherit;font-weight:400;
+    font-size:15.5px;color:var(--ink);line-height:1.6}
+  .ptable--cards .tcell::before,.ptable--cols2 .tcell::before{display:none}
 }
 </style>
 </head>
@@ -366,14 +408,15 @@ html{overflow-x:hidden}
     <p>Die häufigste Frage von Brautpaaren lautet: „Was würden Sie spielen?“ Die Antwort hängt davon ab, in welchem Abschnitt des Tages. Ein Stück, das für den Hochzeitstanz perfekt ist, ist bei der Unterschrift unbrauchbar — und umgekehrt.</p>
 
     <h2>Überblick über den Tag</h2>
-    <table class="ptable"><thead><tr><th>Moment</th><th>Art des Stücks</th><th>Dauer</th></tr></thead><tbody>
-      <tr><td data-label="Moment">Ankunft der Gäste</td><td data-label="Art des Stücks">Ruhige Instrumentalstücke</td><td data-label="Dauer">20–30 Min.</td></tr>
-      <tr><td data-label="Moment">Einzug der Braut</td><td data-label="Art des Stücks">Feierlich, klarer Anfang</td><td data-label="Dauer">90–120 s</td></tr>
-      <tr><td data-label="Moment">Unterschrift</td><td data-label="Art des Stücks">Instrumental, verlängerbar</td><td data-label="Dauer">2–3 Min.</td></tr>
-      <tr><td data-label="Moment">Auszug des Paares</td><td data-label="Art des Stücks">Freudig, zügig</td><td data-label="Dauer">2–3 Min.</td></tr>
-      <tr><td data-label="Moment">Gratulation, Sekt, Essen</td><td data-label="Art des Stücks">Bossa Nova, Balladen</td><td data-label="Dauer">1–2 Sets</td></tr>
-      <tr><td data-label="Moment">Hochzeitstanz</td><td data-label="Art des Stücks">Wunschtitel</td><td data-label="Dauer">2–3 Min.</td></tr>
-    </tbody></table>
+    <div class="ptable ptable--cards" role="table">
+  <div class="thead" role="row"><div class="tcell" role="columnheader">Moment</div><div class="tcell" role="columnheader">Art des Stücks</div><div class="tcell" role="columnheader">Dauer</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Moment">Ankunft der Gäste</div><div class="tcell" role="cell" data-label="Art des Stücks">Ruhige Instrumentalstücke</div><div class="tcell" role="cell" data-label="Dauer">20–30 Min.</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Moment">Einzug der Braut</div><div class="tcell" role="cell" data-label="Art des Stücks">Feierlich, klarer Anfang</div><div class="tcell" role="cell" data-label="Dauer">90–120 s</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Moment">Unterschrift</div><div class="tcell" role="cell" data-label="Art des Stücks">Instrumental, verlängerbar</div><div class="tcell" role="cell" data-label="Dauer">2–3 Min.</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Moment">Auszug des Paares</div><div class="tcell" role="cell" data-label="Art des Stücks">Freudig, zügig</div><div class="tcell" role="cell" data-label="Dauer">2–3 Min.</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Moment">Gratulation, Sekt, Essen</div><div class="tcell" role="cell" data-label="Art des Stücks">Bossa Nova, Balladen</div><div class="tcell" role="cell" data-label="Dauer">1–2 Sets</div></div>
+  <div class="trow" role="row"><div class="tcell" role="cell" data-label="Moment">Hochzeitstanz</div><div class="tcell" role="cell" data-label="Art des Stücks">Wunschtitel</div><div class="tcell" role="cell" data-label="Dauer">2–3 Min.</div></div>
+</div>
     <p>Die Trauung selbst behandelt der Artikel <a href="/de/blog/musik-hochzeitszeremonie.html" class="inline">Musik zur Hochzeitszeremonie</a>.</p>
 
     <h2>Ankunft und Trauung</h2>
