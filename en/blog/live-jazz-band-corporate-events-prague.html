@@ -292,6 +292,50 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 .foot-fam{max-width:var(--maxw);margin:18px auto 0;padding-top:16px;border-top:1px solid rgba(157,194,182,.18);display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px}
 .foot-fam a{color:var(--mint-soft)}.foot-fam a:hover{color:var(--mint)}
 </style>
+
+<style>
+/* Responzivní tabulky — na mobilu se řádek zobrazí jako karta, žádné vodorovné posouvání */
+.ptable{table-layout:fixed;word-wrap:break-word;overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .ptable tbody{display:block}
+  .ptable tr{display:block;background:var(--white);border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:12.5px;letter-spacing:.02em;
+    text-transform:uppercase;color:var(--ink-soft)}
+  .ptable td:empty{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-size:16px;padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
+<style>
+/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+html{overflow-x:hidden}
+.article table.ptable{max-width:100%;table-layout:auto}
+.ptable td,.ptable th{overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .ptable tbody,.ptable tr{display:block}
+  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable tr:last-child{margin-bottom:4px}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
+  .ptable td[data-label=""]::before{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -340,19 +384,19 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
     </ul>
 
     <h2>Line-ups and prices</h2>
-    <table class="ptable"><thead><tr><th>Line-up</th><th>Price per standard evening</th><th>Min. floor area</th><th>Typical event</th></tr></thead><tbody><tr><td><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — vocals + piano</td><td>CZK 10,000 – 14,000</td><td>3 × 2.5 m</td><td>dinner, reception, gallery opening</td></tr><tr><td><a href="/en/" class="inline">Trio</a> — vocals, piano, double bass</td><td>CZK 16,000 – 20,000</td><td>3.5 × 3 m</td><td>corporate evening, hotel night, wedding</td></tr><tr><td><a href="https://jazzquartet.cz" class="inline" rel="noopener">Quartet</a> — + drums</td><td>CZK 22,000 – 26,000</td><td>4 × 3 m</td><td>party with dancing, ball, anniversary</td></tr><tr><td><a href="https://jazzquintet.cz" class="inline" rel="noopener">Quintet</a> — + horn section</td><td>CZK 28,000 – 32,000</td><td>4 × 3 m</td><td>large corporate party, gala evening</td></tr></tbody></table>
+    <table class="ptable"><thead><tr><th>Line-up</th><th>Price per standard evening</th><th>Min. floor area</th><th>Typical event</th></tr></thead><tbody><tr><td data-label="Line-up"><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — vocals + piano</td><td data-label="Price per standard evening">CZK 10,000 – 14,000</td><td data-label="Min. floor area">3 × 2.5 m</td><td data-label="Typical event">dinner, reception, gallery opening</td></tr><tr><td data-label="Line-up"><a href="/en/" class="inline">Trio</a> — vocals, piano, double bass</td><td data-label="Price per standard evening">CZK 16,000 – 20,000</td><td data-label="Min. floor area">3.5 × 3 m</td><td data-label="Typical event">corporate evening, hotel night, wedding</td></tr><tr><td data-label="Line-up"><a href="https://jazzquartet.cz" class="inline" rel="noopener">Quartet</a> — + drums</td><td data-label="Price per standard evening">CZK 22,000 – 26,000</td><td data-label="Min. floor area">4 × 3 m</td><td data-label="Typical event">party with dancing, ball, anniversary</td></tr><tr><td data-label="Line-up"><a href="https://jazzquintet.cz" class="inline" rel="noopener">Quintet</a> — + horn section</td><td data-label="Price per standard evening">CZK 28,000 – 32,000</td><td data-label="Min. floor area">4 × 3 m</td><td data-label="Typical event">large corporate party, gala evening</td></tr></tbody></table>
 
     <p>A standard evening means <strong>three 45-minute sets</strong>, roughly three hours including breaks; four sets maximum. The price includes our own PA and transport within Prague; outside Prague <strong>CZK 6/km for a duo or trio</strong> and <strong>CZK 12/km for a quartet or quintet</strong>, which travel in two vehicles. A full breakdown is in <a href="/en/blog/jazz-band-prices-corporate-events.html" class="inline">how much a jazz band costs for a corporate event</a>.</p>
 
     <h2>Prague references</h2>
     <table class="ptable"><thead><tr><th>Venue / client</th><th>Type of engagement</th></tr></thead><tbody>
-      <tr><td>Hotel Augustine</td><td>Regular performances</td></tr>
-      <tr><td>Le Palais Art Hotel</td><td>Regular performances</td></tr>
-      <tr><td>Fairmont Golden Prague</td><td>Hotel evening</td></tr>
-      <tr><td>Jazz Club Reduta</td><td>Regular performances</td></tr>
-      <tr><td>ČEZ</td><td>Corporate evening</td></tr>
-      <tr><td>ČESMAD Bohemia</td><td>Corporate event</td></tr>
-      <tr><td>Karlovy Vary Municipal Theatre</td><td>Regular performances</td></tr>
+      <tr><td data-label="Venue / client">Hotel Augustine</td><td data-label="Type of engagement">Regular performances</td></tr>
+      <tr><td data-label="Venue / client">Le Palais Art Hotel</td><td data-label="Type of engagement">Regular performances</td></tr>
+      <tr><td data-label="Venue / client">Fairmont Golden Prague</td><td data-label="Type of engagement">Hotel evening</td></tr>
+      <tr><td data-label="Venue / client">Jazz Club Reduta</td><td data-label="Type of engagement">Regular performances</td></tr>
+      <tr><td data-label="Venue / client">ČEZ</td><td data-label="Type of engagement">Corporate evening</td></tr>
+      <tr><td data-label="Venue / client">ČESMAD Bohemia</td><td data-label="Type of engagement">Corporate event</td></tr>
+      <tr><td data-label="Venue / client">Karlovy Vary Municipal Theatre</td><td data-label="Type of engagement">Regular performances</td></tr>
     </tbody></table>
 
     <div class="callout">

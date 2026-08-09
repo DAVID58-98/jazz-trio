@@ -284,6 +284,50 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 .foot-fam{max-width:var(--maxw);margin:18px auto 0;padding-top:16px;border-top:1px solid rgba(157,194,182,.18);display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px}
 .foot-fam a{color:var(--mint-soft)}.foot-fam a:hover{color:var(--mint)}
 </style>
+
+<style>
+/* Responzivní tabulky — na mobilu se řádek zobrazí jako karta, žádné vodorovné posouvání */
+.ptable{table-layout:fixed;word-wrap:break-word;overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .ptable tbody{display:block}
+  .ptable tr{display:block;background:var(--white);border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:12.5px;letter-spacing:.02em;
+    text-transform:uppercase;color:var(--ink-soft)}
+  .ptable td:empty{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-size:16px;padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
+<style>
+/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+html{overflow-x:hidden}
+.article table.ptable{max-width:100%;table-layout:auto}
+.ptable td,.ptable th{overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .ptable tbody,.ptable tr{display:block}
+  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable tr:last-child{margin-bottom:4px}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
+  .ptable td[data-label=""]::before{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -324,7 +368,7 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
     <p>We play <strong>jazz</strong>, not a pop repertoire with a saxophone on top. That distinction is worth clearing up straight away: jazz standards, swing, bossa nova and chanson, plus modern songs in jazz arrangements. If you are looking for a band to play the current radio playlist, we are not it.</p>
 
     <h2>Wedding band prices</h2>
-    <table class="ptable"><thead><tr><th>Line-up</th><th>Price per standard evening</th><th>Min. floor area</th><th>Typical event</th></tr></thead><tbody><tr><td><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — vocals + piano</td><td>CZK 10,000 – 14,000</td><td>3 × 2.5 m</td><td>dinner, reception, gallery opening</td></tr><tr><td><a href="/en/" class="inline">Trio</a> — vocals, piano, double bass</td><td>CZK 16,000 – 20,000</td><td>3.5 × 3 m</td><td>corporate evening, hotel night, wedding</td></tr><tr><td><a href="https://jazzquartet.cz" class="inline" rel="noopener">Quartet</a> — + drums</td><td>CZK 22,000 – 26,000</td><td>4 × 3 m</td><td>party with dancing, ball, anniversary</td></tr><tr><td><a href="https://jazzquintet.cz" class="inline" rel="noopener">Quintet</a> — + horn section</td><td>CZK 28,000 – 32,000</td><td>4 × 3 m</td><td>large corporate party, gala evening</td></tr></tbody></table>
+    <table class="ptable"><thead><tr><th>Line-up</th><th>Price per standard evening</th><th>Min. floor area</th><th>Typical event</th></tr></thead><tbody><tr><td data-label="Line-up"><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — vocals + piano</td><td data-label="Price per standard evening">CZK 10,000 – 14,000</td><td data-label="Min. floor area">3 × 2.5 m</td><td data-label="Typical event">dinner, reception, gallery opening</td></tr><tr><td data-label="Line-up"><a href="/en/" class="inline">Trio</a> — vocals, piano, double bass</td><td data-label="Price per standard evening">CZK 16,000 – 20,000</td><td data-label="Min. floor area">3.5 × 3 m</td><td data-label="Typical event">corporate evening, hotel night, wedding</td></tr><tr><td data-label="Line-up"><a href="https://jazzquartet.cz" class="inline" rel="noopener">Quartet</a> — + drums</td><td data-label="Price per standard evening">CZK 22,000 – 26,000</td><td data-label="Min. floor area">4 × 3 m</td><td data-label="Typical event">party with dancing, ball, anniversary</td></tr><tr><td data-label="Line-up"><a href="https://jazzquintet.cz" class="inline" rel="noopener">Quintet</a> — + horn section</td><td data-label="Price per standard evening">CZK 28,000 – 32,000</td><td data-label="Min. floor area">4 × 3 m</td><td data-label="Typical event">large corporate party, gala evening</td></tr></tbody></table>
 
     <p>A standard evening is three 45-minute sets, roughly three hours. Transport within Prague is included; outside Prague <strong>CZK 6/km for a duo or trio</strong> and <strong>CZK 12/km for a quartet or quintet</strong> (two vehicles). Full breakdown in <a href="/en/blog/jazz-band-prices-corporate-events.html" class="inline">how much a jazz band costs</a>.</p>
     <p>If you also want music for the ceremony, treat it as a separate block — usually 20 to 30 minutes before, during and after. We agree it individually according to venue and the timing of the day.</p>
@@ -348,12 +392,12 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 
     <h2>How the wedding day runs</h2>
     <table class="ptable"><thead><tr><th>Part of the day</th><th>Music</th><th>Length</th></tr></thead><tbody>
-      <tr><td>Guests arriving before the ceremony</td><td>Calm instrumentals</td><td>20–30 min</td></tr>
-      <tr><td>Ceremony</td><td>Bride's entrance, signing, exit</td><td>3 pieces</td></tr>
-      <tr><td>Congratulations and toast</td><td>Bossa nova, standards</td><td>30–45 min</td></tr>
-      <tr><td>Dinner</td><td>Ballads, quieter</td><td>1 set</td></tr>
-      <tr><td>First dance</td><td>Requested song</td><td>1 piece</td></tr>
-      <tr><td>Evening party</td><td>Swing, latin, dancing</td><td>1–2 sets</td></tr>
+      <tr><td data-label="Part of the day">Guests arriving before the ceremony</td><td data-label="Music">Calm instrumentals</td><td data-label="Length">20–30 min</td></tr>
+      <tr><td data-label="Part of the day">Ceremony</td><td data-label="Music">Bride's entrance, signing, exit</td><td data-label="Length">3 pieces</td></tr>
+      <tr><td data-label="Part of the day">Congratulations and toast</td><td data-label="Music">Bossa nova, standards</td><td data-label="Length">30–45 min</td></tr>
+      <tr><td data-label="Part of the day">Dinner</td><td data-label="Music">Ballads, quieter</td><td data-label="Length">1 set</td></tr>
+      <tr><td data-label="Part of the day">First dance</td><td data-label="Music">Requested song</td><td data-label="Length">1 piece</td></tr>
+      <tr><td data-label="Part of the day">Evening party</td><td data-label="Music">Swing, latin, dancing</td><td data-label="Length">1–2 sets</td></tr>
     </tbody></table>
     <p>Ceremony music is covered in detail in <a href="/en/blog/wedding-ceremony-music.html" class="inline">wedding ceremony music</a>, and song choices in <a href="/en/blog/wedding-songs-repertoire.html" class="inline">wedding songs for the whole day</a>.</p>
 

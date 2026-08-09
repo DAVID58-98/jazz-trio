@@ -284,6 +284,50 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 .foot-fam{max-width:var(--maxw);margin:18px auto 0;padding-top:16px;border-top:1px solid rgba(157,194,182,.18);display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px}
 .foot-fam a{color:var(--mint-soft)}.foot-fam a:hover{color:var(--mint)}
 </style>
+
+<style>
+/* Responzivní tabulky — na mobilu se řádek zobrazí jako karta, žádné vodorovné posouvání */
+.ptable{table-layout:fixed;word-wrap:break-word;overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .ptable tbody{display:block}
+  .ptable tr{display:block;background:var(--white);border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:12.5px;letter-spacing:.02em;
+    text-transform:uppercase;color:var(--ink-soft)}
+  .ptable td:empty{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-size:16px;padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
+<style>
+/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+html{overflow-x:hidden}
+.article table.ptable{max-width:100%;table-layout:auto}
+.ptable td,.ptable th{overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .ptable tbody,.ptable tr{display:block}
+  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable tr:last-child{margin-bottom:4px}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
+  .ptable td[data-label=""]::before{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -325,7 +369,7 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 
     <h2>Jazz band price list 2026</h2>
     <p>A <strong>standard evening means three 45-minute sets</strong>, roughly three hours including breaks. The price includes our own PA system and transport within Prague.</p>
-    <table class="ptable"><thead><tr><th>Line-up</th><th>Price per standard evening</th><th>Min. floor area</th><th>Typical event</th></tr></thead><tbody><tr><td><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — vocals + piano</td><td>CZK 10,000 – 14,000</td><td>3 × 2.5 m</td><td>dinner, reception, gallery opening</td></tr><tr><td><a href="/en/" class="inline">Trio</a> — vocals, piano, double bass</td><td>CZK 16,000 – 20,000</td><td>3.5 × 3 m</td><td>corporate evening, hotel night, wedding</td></tr><tr><td><a href="https://jazzquartet.cz" class="inline" rel="noopener">Quartet</a> — + drums</td><td>CZK 22,000 – 26,000</td><td>4 × 3 m</td><td>party with dancing, ball, anniversary</td></tr><tr><td><a href="https://jazzquintet.cz" class="inline" rel="noopener">Quintet</a> — + horn section</td><td>CZK 28,000 – 32,000</td><td>4 × 3 m</td><td>large corporate party, gala evening</td></tr></tbody></table>
+    <table class="ptable"><thead><tr><th>Line-up</th><th>Price per standard evening</th><th>Min. floor area</th><th>Typical event</th></tr></thead><tbody><tr><td data-label="Line-up"><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — vocals + piano</td><td data-label="Price per standard evening">CZK 10,000 – 14,000</td><td data-label="Min. floor area">3 × 2.5 m</td><td data-label="Typical event">dinner, reception, gallery opening</td></tr><tr><td data-label="Line-up"><a href="/en/" class="inline">Trio</a> — vocals, piano, double bass</td><td data-label="Price per standard evening">CZK 16,000 – 20,000</td><td data-label="Min. floor area">3.5 × 3 m</td><td data-label="Typical event">corporate evening, hotel night, wedding</td></tr><tr><td data-label="Line-up"><a href="https://jazzquartet.cz" class="inline" rel="noopener">Quartet</a> — + drums</td><td data-label="Price per standard evening">CZK 22,000 – 26,000</td><td data-label="Min. floor area">4 × 3 m</td><td data-label="Typical event">party with dancing, ball, anniversary</td></tr><tr><td data-label="Line-up"><a href="https://jazzquintet.cz" class="inline" rel="noopener">Quintet</a> — + horn section</td><td data-label="Price per standard evening">CZK 28,000 – 32,000</td><td data-label="Min. floor area">4 × 3 m</td><td data-label="Typical event">large corporate party, gala evening</td></tr></tbody></table>
 
     <p>Prices are final for events in Prague. Outside Prague, transport is charged by the number of vehicles — <strong>CZK 6/km for a duo or trio</strong> and <strong>CZK 12/km for a quartet or quintet</strong>, which travel in two vehicles. Kilometres are counted from Prague and back. A quote for a specific date is sent <strong>within 24 hours</strong> of your enquiry.</p>
 
@@ -340,20 +384,20 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 
     <h2>What increases the price</h2>
     <table class="ptable"><thead><tr><th>Item</th><th>When it applies</th><th>Approximately</th></tr></thead><tbody>
-      <tr><td>Transport outside Prague</td><td>Events outside the capital</td><td>CZK 6/km (duo, trio) · CZK 12/km (quartet, quintet)</td></tr>
-      <tr><td>Fourth set</td><td>Programme longer than three hours</td><td>Maximum 4 × 45 minutes in total</td></tr>
-      <tr><td>Song on request</td><td>Learning a specific piece</td><td>Arranged individually</td></tr>
-      <tr><td>External sound engineer</td><td>Rooms over 100 guests, large outdoor events</td><td>Provided by the organiser</td></tr>
-      <tr><td>Shorter programme</td><td>Gallery opening, reception, 2 × 45 minutes</td><td>Individually, depending on date</td></tr>
+      <tr><td data-label="Item">Transport outside Prague</td><td data-label="When it applies">Events outside the capital</td><td data-label="Approximately">CZK 6/km (duo, trio) · CZK 12/km (quartet, quintet)</td></tr>
+      <tr><td data-label="Item">Fourth set</td><td data-label="When it applies">Programme longer than three hours</td><td data-label="Approximately">Maximum 4 × 45 minutes in total</td></tr>
+      <tr><td data-label="Item">Song on request</td><td data-label="When it applies">Learning a specific piece</td><td data-label="Approximately">Arranged individually</td></tr>
+      <tr><td data-label="Item">External sound engineer</td><td data-label="When it applies">Rooms over 100 guests, large outdoor events</td><td data-label="Approximately">Provided by the organiser</td></tr>
+      <tr><td data-label="Item">Shorter programme</td><td data-label="When it applies">Gallery opening, reception, 2 × 45 minutes</td><td data-label="Approximately">Individually, depending on date</td></tr>
     </tbody></table>
 
     <h2>Transport outside Prague: why larger line-ups cost double</h2>
     <p>Transport is not charged per band but <strong>per vehicle</strong>. A duo and a trio fit into one car along with the PA system. A quartet also carries a drum kit, and a quintet is five musicians with instruments — neither fits into one vehicle, so we travel in two.</p>
-    <table class="ptable"><thead><tr><th>Line-up</th><th>Vehicles</th><th>Transport outside Prague</th></tr></thead><tbody><tr><td>Duo</td><td>1</td><td>CZK 6/km</td></tr><tr><td>Trio</td><td>1</td><td>CZK 6/km</td></tr><tr><td>Quartet</td><td>2</td><td>CZK 12/km</td></tr><tr><td>Quintet</td><td>2</td><td>CZK 12/km</td></tr></tbody></table>
+    <table class="ptable"><thead><tr><th>Line-up</th><th>Vehicles</th><th>Transport outside Prague</th></tr></thead><tbody><tr><td data-label="Line-up">Duo</td><td data-label="Vehicles">1</td><td data-label="Transport outside Prague">CZK 6/km</td></tr><tr><td data-label="Line-up">Trio</td><td data-label="Vehicles">1</td><td data-label="Transport outside Prague">CZK 6/km</td></tr><tr><td data-label="Line-up">Quartet</td><td data-label="Vehicles">2</td><td data-label="Transport outside Prague">CZK 12/km</td></tr><tr><td data-label="Line-up">Quintet</td><td data-label="Vehicles">2</td><td data-label="Transport outside Prague">CZK 12/km</td></tr></tbody></table>
 
     <h3>How the CZK 6/km rate is calculated</h3>
     <p>Transport is not a source of profit — it is a <strong>pass-through of actual costs</strong>: fuel, the motorway vignette and any parking in city centres. So here are the figures the rate is built from.</p>
-    <table class="ptable"><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>Consumption of a fully loaded vehicle</td><td>9.5 l / 100 km</td></tr><tr><td>Petrol price</td><td>CZK 45 / l</td></tr><tr><td>Fuel per 100 km</td><td>CZK 428</td></tr><tr><td><strong>Fuel per 1 km</strong></td><td><strong>CZK 4.28</strong></td></tr><tr><td>Motorway vignette and parking</td><td>the remaining CZK 1.72/km</td></tr><tr><td><strong>Rate charged</strong></td><td><strong>CZK 6/km per vehicle</strong></td></tr></tbody></table>
+    <table class="ptable"><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td data-label="Item">Consumption of a fully loaded vehicle</td><td data-label="Value">9.5 l / 100 km</td></tr><tr><td data-label="Item">Petrol price</td><td data-label="Value">CZK 45 / l</td></tr><tr><td data-label="Item">Fuel per 100 km</td><td data-label="Value">CZK 428</td></tr><tr><td data-label="Item"><strong>Fuel per 1 km</strong></td><td data-label="Value"><strong>CZK 4.28</strong></td></tr><tr><td data-label="Item">Motorway vignette and parking</td><td data-label="Value">the remaining CZK 1.72/km</td></tr><tr><td data-label="Item"><strong>Rate charged</strong></td><td data-label="Value"><strong>CZK 6/km per vehicle</strong></td></tr></tbody></table>
 
     <p>A fully loaded vehicle — equipment, instruments and musicians — uses more fuel than an empty car, which is why the calculation uses 9.5 litres per 100 kilometres. The rate does not include time spent travelling or wear on the vehicle; those are part of the fee, not of transport.</p>
 

@@ -284,6 +284,50 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 .foot-fam{max-width:var(--maxw);margin:18px auto 0;padding-top:16px;border-top:1px solid rgba(157,194,182,.18);display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px}
 .foot-fam a{color:var(--mint-soft)}.foot-fam a:hover{color:var(--mint)}
 </style>
+
+<style>
+/* Responzivní tabulky — na mobilu se řádek zobrazí jako karta, žádné vodorovné posouvání */
+.ptable{table-layout:fixed;word-wrap:break-word;overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .ptable tbody{display:block}
+  .ptable tr{display:block;background:var(--white);border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:12.5px;letter-spacing:.02em;
+    text-transform:uppercase;color:var(--ink-soft)}
+  .ptable td:empty{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-size:16px;padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
+<style>
+/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+html{overflow-x:hidden}
+.article table.ptable{max-width:100%;table-layout:auto}
+.ptable td,.ptable th{overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .ptable tbody,.ptable tr{display:block}
+  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable tr:last-child{margin-bottom:4px}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
+  .ptable td[data-label=""]::before{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -324,12 +368,12 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
     <h2>Step 1: The enquiry — what to include</h2>
     <p>Six details are enough. With them we can send a specific price; without them, only a range.</p>
     <table class="ptable"><thead><tr><th>Detail</th><th>Why we need it</th></tr></thead><tbody>
-      <tr><td>Date of the event</td><td>Checking availability</td></tr>
-      <tr><td>Start and end time of the performance</td><td>Determines the number of sets</td></tr>
-      <tr><td>Venue address</td><td>Transport and loading access</td></tr>
-      <tr><td>Number of guests</td><td>Choice of line-up and PA</td></tr>
-      <tr><td>Type of event</td><td>Background, concert or dancing</td></tr>
-      <tr><td>Whether the venue has its own PA</td><td>Critical above 100 guests</td></tr>
+      <tr><td data-label="Detail">Date of the event</td><td data-label="Why we need it">Checking availability</td></tr>
+      <tr><td data-label="Detail">Start and end time of the performance</td><td data-label="Why we need it">Determines the number of sets</td></tr>
+      <tr><td data-label="Detail">Venue address</td><td data-label="Why we need it">Transport and loading access</td></tr>
+      <tr><td data-label="Detail">Number of guests</td><td data-label="Why we need it">Choice of line-up and PA</td></tr>
+      <tr><td data-label="Detail">Type of event</td><td data-label="Why we need it">Background, concert or dancing</td></tr>
+      <tr><td data-label="Detail">Whether the venue has its own PA</td><td data-label="Why we need it">Critical above 100 guests</td></tr>
     </tbody></table>
 
     <h2>Step 2: The quote — within 24 hours</h2>
@@ -375,11 +419,11 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 
     <h2>Step 5: On the day</h2>
     <table class="ptable"><thead><tr><th>Time</th><th>What happens</th></tr></thead><tbody>
-      <tr><td>−60 minutes</td><td>Band arrives, load-in</td></tr>
-      <tr><td>−30 minutes</td><td>Set-up and sound check</td></tr>
-      <tr><td>0</td><td>First set</td></tr>
-      <tr><td>Throughout</td><td>Breaks of 15–20 minutes between sets</td></tr>
-      <tr><td>+30 minutes after the end</td><td>Pack-down and departure</td></tr>
+      <tr><td data-label="Time">−60 minutes</td><td data-label="What happens">Band arrives, load-in</td></tr>
+      <tr><td data-label="Time">−30 minutes</td><td data-label="What happens">Set-up and sound check</td></tr>
+      <tr><td data-label="Time">0</td><td data-label="What happens">First set</td></tr>
+      <tr><td data-label="Time">Throughout</td><td data-label="What happens">Breaks of 15–20 minutes between sets</td></tr>
+      <tr><td data-label="Time">+30 minutes after the end</td><td data-label="What happens">Pack-down and departure</td></tr>
     </tbody></table>
     <p>Detailed technical conditions are in <a href="/en/blog/what-the-band-needs-on-site.html" class="inline">what the band needs on site</a>.</p>
 
