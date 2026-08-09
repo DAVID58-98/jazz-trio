@@ -292,6 +292,50 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 .foot-fam{max-width:var(--maxw);margin:18px auto 0;padding-top:16px;border-top:1px solid rgba(157,194,182,.18);display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px}
 .foot-fam a{color:var(--mint-soft)}.foot-fam a:hover{color:var(--mint)}
 </style>
+
+<style>
+/* Responzivní tabulky — na mobilu se řádek zobrazí jako karta, žádné vodorovné posouvání */
+.ptable{table-layout:fixed;word-wrap:break-word;overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .ptable tbody{display:block}
+  .ptable tr{display:block;background:var(--white);border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:12.5px;letter-spacing:.02em;
+    text-transform:uppercase;color:var(--ink-soft)}
+  .ptable td:empty{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-size:16px;padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
+<style>
+/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+html{overflow-x:hidden}
+.article table.ptable{max-width:100%;table-layout:auto}
+.ptable td,.ptable th{overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .ptable tbody,.ptable tr{display:block}
+  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable tr:last-child{margin-bottom:4px}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
+  .ptable td[data-label=""]::before{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -333,17 +377,17 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 
     <h2>Ablauf des Abends: was wann gespielt wird</h2>
     <table class="ptable"><thead><tr><th>Abendteil</th><th>Charakter der Musik</th><th>Lautstärke</th></tr></thead><tbody>
-      <tr><td>Ankunft, Welcome Drink</td><td>Bossa Nova, ruhige Standards</td><td>Niedrig — der Saal füllt sich</td></tr>
-      <tr><td>Empfang, Dinner, Networking</td><td>Balladen und mittlere Tempi</td><td>Gespräch ohne Stimmerhebung</td></tr>
-      <tr><td>Reden, Preisverleihungen</td><td>Die Band spielt nicht</td><td>Stille</td></tr>
-      <tr><td>Freier Teil</td><td>Bekanntere Titel, stufenweise schneller</td><td>Mittel</td></tr>
-      <tr><td>Tanzblock</td><td>Swing, Funk, Latin</td><td>Höher — die Tanzfläche muss ziehen</td></tr>
+      <tr><td data-label="Abendteil">Ankunft, Welcome Drink</td><td data-label="Charakter der Musik">Bossa Nova, ruhige Standards</td><td data-label="Lautstärke">Niedrig — der Saal füllt sich</td></tr>
+      <tr><td data-label="Abendteil">Empfang, Dinner, Networking</td><td data-label="Charakter der Musik">Balladen und mittlere Tempi</td><td data-label="Lautstärke">Gespräch ohne Stimmerhebung</td></tr>
+      <tr><td data-label="Abendteil">Reden, Preisverleihungen</td><td data-label="Charakter der Musik">Die Band spielt nicht</td><td data-label="Lautstärke">Stille</td></tr>
+      <tr><td data-label="Abendteil">Freier Teil</td><td data-label="Charakter der Musik">Bekanntere Titel, stufenweise schneller</td><td data-label="Lautstärke">Mittel</td></tr>
+      <tr><td data-label="Abendteil">Tanzblock</td><td data-label="Charakter der Musik">Swing, Funk, Latin</td><td data-label="Lautstärke">Höher — die Tanzfläche muss ziehen</td></tr>
     </tbody></table>
     <p>Der häufigste Fehler ist, während der Reden leise weiterzuspielen, damit keine Stille entsteht. Der Redner ist dann nicht zu verstehen und die Musik wirkt störend. Die Band sollte eine Minute vorher enden und schweigen, bis der offizielle Teil vorbei ist.</p>
 
     <h2>Die Wahl der Besetzung</h2>
     <p>Zwei Dinge entscheiden: wie viele Gäste kommen und ob getanzt werden soll.</p>
-    <table class="ptable"><thead><tr><th>Besetzung</th><th>Preis pro Standardabend</th><th>Min. Fläche</th><th>Typische Veranstaltung</th></tr></thead><tbody><tr><td><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — Gesang + Klavier</td><td>10.000 – 14.000 CZK</td><td>3 × 2,5 m</td><td>Dinner, Empfang, Vernissage</td></tr><tr><td><a href="/de/" class="inline">Trio</a> — Gesang, Klavier, Kontrabass</td><td>16.000 – 20.000 CZK</td><td>3,5 × 3 m</td><td>Firmenabend, Hotelabend, Hochzeit</td></tr><tr><td><a href="https://jazzquartet.cz" class="inline" rel="noopener">Quartett</a> — + Schlagzeug</td><td>22.000 – 26.000 CZK</td><td>4 × 3 m</td><td>Feier mit Tanz, Ball, Jubiläum</td></tr><tr><td><a href="https://jazzquintet.cz" class="inline" rel="noopener">Quintett</a> — + Bläser</td><td>28.000 – 32.000 CZK</td><td>4 × 3 m</td><td>große Firmenparty, Galaabend</td></tr></tbody></table>
+    <table class="ptable"><thead><tr><th>Besetzung</th><th>Preis pro Standardabend</th><th>Min. Fläche</th><th>Typische Veranstaltung</th></tr></thead><tbody><tr><td data-label="Besetzung"><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — Gesang + Klavier</td><td data-label="Preis pro Standardabend">10.000 – 14.000 CZK</td><td data-label="Min. Fläche">3 × 2,5 m</td><td data-label="Typische Veranstaltung">Dinner, Empfang, Vernissage</td></tr><tr><td data-label="Besetzung"><a href="/de/" class="inline">Trio</a> — Gesang, Klavier, Kontrabass</td><td data-label="Preis pro Standardabend">16.000 – 20.000 CZK</td><td data-label="Min. Fläche">3,5 × 3 m</td><td data-label="Typische Veranstaltung">Firmenabend, Hotelabend, Hochzeit</td></tr><tr><td data-label="Besetzung"><a href="https://jazzquartet.cz" class="inline" rel="noopener">Quartett</a> — + Schlagzeug</td><td data-label="Preis pro Standardabend">22.000 – 26.000 CZK</td><td data-label="Min. Fläche">4 × 3 m</td><td data-label="Typische Veranstaltung">Feier mit Tanz, Ball, Jubiläum</td></tr><tr><td data-label="Besetzung"><a href="https://jazzquintet.cz" class="inline" rel="noopener">Quintett</a> — + Bläser</td><td data-label="Preis pro Standardabend">28.000 – 32.000 CZK</td><td data-label="Min. Fläche">4 × 3 m</td><td data-label="Typische Veranstaltung">große Firmenparty, Galaabend</td></tr></tbody></table>
 
     <p>Ein Standardabend besteht aus <strong>drei Sets à 45 Minuten</strong>, maximal vier. Im Preis enthalten sind eigene Beschallung und Anfahrt innerhalb Prags; außerhalb 6 CZK/km bei Duo und Trio und 12 CZK/km bei Quartett und Quintett, die mit zwei Fahrzeugen anreisen. Die vollständige Aufschlüsselung finden Sie im Artikel <a href="/de/blog/preise-jazzband-firmenevent.html" class="inline">was eine Jazzband für ein Firmenevent kostet</a>.</p>
 
