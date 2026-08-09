@@ -284,6 +284,50 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 .foot-fam{max-width:var(--maxw);margin:18px auto 0;padding-top:16px;border-top:1px solid rgba(157,194,182,.18);display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px}
 .foot-fam a{color:var(--mint-soft)}.foot-fam a:hover{color:var(--mint)}
 </style>
+
+<style>
+/* Responzivní tabulky — na mobilu se řádek zobrazí jako karta, žádné vodorovné posouvání */
+.ptable{table-layout:fixed;word-wrap:break-word;overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .ptable tbody{display:block}
+  .ptable tr{display:block;background:var(--white);border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:12.5px;letter-spacing:.02em;
+    text-transform:uppercase;color:var(--ink-soft)}
+  .ptable td:empty{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-size:16px;padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
+<style>
+/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+html{overflow-x:hidden}
+.article table.ptable{max-width:100%;table-layout:auto}
+.ptable td,.ptable th{overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .ptable tbody,.ptable tr{display:block}
+  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable tr:last-child{margin-bottom:4px}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
+  .ptable td[data-label=""]::before{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -323,10 +367,10 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 
     <h2>Kdy rezervovat</h2>
     <table class="ptable"><thead><tr><th>Kdy poptat</th><th>Šance na volný termín</th></tr></thead><tbody>
-      <tr><td>Září</td><td>Vysoká — výběr obsazení i data</td></tr>
-      <tr><td>Říjen</td><td>Dobrá — populární termíny už mizí</td></tr>
-      <tr><td>Listopad</td><td>Omezená — hlavně všední dny</td></tr>
-      <tr><td>Prosinec</td><td>Nízká, ale zeptat se vyplatí</td></tr>
+      <tr><td data-label="Kdy poptat">Září</td><td data-label="Šance na volný termín">Vysoká — výběr obsazení i data</td></tr>
+      <tr><td data-label="Kdy poptat">Říjen</td><td data-label="Šance na volný termín">Dobrá — populární termíny už mizí</td></tr>
+      <tr><td data-label="Kdy poptat">Listopad</td><td data-label="Šance na volný termín">Omezená — hlavně všední dny</td></tr>
+      <tr><td data-label="Kdy poptat">Prosinec</td><td data-label="Šance na volný termín">Nízká, ale zeptat se vyplatí</td></tr>
     </tbody></table>
     <p>Nejrychleji mizí pátky ve druhém a třetím prosincovém týdnu. Pokud máte volbu, <strong>všední den v první polovině prosince</strong> je z hlediska dostupnosti i ceny nejvýhodnější.</p>
 
@@ -349,7 +393,7 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 </div>
 
     <h2>Obsazení a ceny</h2>
-    <table class="ptable"><thead><tr><th>Sestava</th><th>Cena za standardní večer</th><th>Min. plocha</th><th>Typická akce</th></tr></thead><tbody><tr><td><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — zpěv + klavír</td><td>10 000 – 14 000 Kč</td><td>3 × 2,5 m</td><td>večeře, recepce, vernisáž, komorní raut</td></tr><tr><td><a href="/" class="inline">Trio</a> — zpěv, klavír, kontrabas</td><td>16 000 – 20 000 Kč</td><td>3,5 × 3 m</td><td>firemní večer, hotelový večer, svatba</td></tr><tr><td><a href="https://jazzquartet.cz" class="inline" rel="noopener">Kvartet</a> — + bicí</td><td>22 000 – 26 000 Kč</td><td>4 × 3 m</td><td>večírek s tancem, ples, výroční akce</td></tr><tr><td><a href="https://jazzquintet.cz" class="inline" rel="noopener">Kvintet</a> — + dechová sekce</td><td>28 000 – 32 000 Kč</td><td>4 × 3 m</td><td>velká firemní párty, galavečer</td></tr></tbody></table>
+    <table class="ptable"><thead><tr><th>Sestava</th><th>Cena za standardní večer</th><th>Min. plocha</th><th>Typická akce</th></tr></thead><tbody><tr><td data-label="Sestava"><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — zpěv + klavír</td><td data-label="Cena za standardní večer">10 000 – 14 000 Kč</td><td data-label="Min. plocha">3 × 2,5 m</td><td data-label="Typická akce">večeře, recepce, vernisáž, komorní raut</td></tr><tr><td data-label="Sestava"><a href="/" class="inline">Trio</a> — zpěv, klavír, kontrabas</td><td data-label="Cena za standardní večer">16 000 – 20 000 Kč</td><td data-label="Min. plocha">3,5 × 3 m</td><td data-label="Typická akce">firemní večer, hotelový večer, svatba</td></tr><tr><td data-label="Sestava"><a href="https://jazzquartet.cz" class="inline" rel="noopener">Kvartet</a> — + bicí</td><td data-label="Cena za standardní večer">22 000 – 26 000 Kč</td><td data-label="Min. plocha">4 × 3 m</td><td data-label="Typická akce">večírek s tancem, ples, výroční akce</td></tr><tr><td data-label="Sestava"><a href="https://jazzquintet.cz" class="inline" rel="noopener">Kvintet</a> — + dechová sekce</td><td data-label="Cena za standardní večer">28 000 – 32 000 Kč</td><td data-label="Min. plocha">4 × 3 m</td><td data-label="Typická akce">velká firemní párty, galavečer</td></tr></tbody></table>
 
     <p>Vánoční termíny nemají příplatek — ceny jsou stejné jako po zbytek roku. Standardní večer jsou tři sety po 45 minutách včetně vlastního ozvučení a dopravy po Praze; mimo Prahu 6 Kč/km u dua a tria a 12 Kč/km u kvartetu a kvintetu. Celý rozbor v článku <a href="/blog/ceny-jazzove-kapely-na-firemni-akci.html" class="inline">kolik stojí jazzová kapela</a>.</p>
 

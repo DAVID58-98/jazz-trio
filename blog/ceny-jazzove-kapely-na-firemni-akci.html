@@ -284,6 +284,50 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 .foot-fam{max-width:var(--maxw);margin:18px auto 0;padding-top:16px;border-top:1px solid rgba(157,194,182,.18);display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px}
 .foot-fam a{color:var(--mint-soft)}.foot-fam a:hover{color:var(--mint)}
 </style>
+
+<style>
+/* Responzivní tabulky — na mobilu se řádek zobrazí jako karta, žádné vodorovné posouvání */
+.ptable{table-layout:fixed;word-wrap:break-word;overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .ptable tbody{display:block}
+  .ptable tr{display:block;background:var(--white);border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:12.5px;letter-spacing:.02em;
+    text-transform:uppercase;color:var(--ink-soft)}
+  .ptable td:empty{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-size:16px;padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
+<style>
+/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+html{overflow-x:hidden}
+.article table.ptable{max-width:100%;table-layout:auto}
+.ptable td,.ptable th{overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .ptable tbody,.ptable tr{display:block}
+  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable tr:last-child{margin-bottom:4px}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
+  .ptable td[data-label=""]::before{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -325,7 +369,7 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 
     <h2>Ceník jazzové kapely 2026</h2>
     <p><strong>Standardní večer znamená tři sety po 45 minutách</strong>, tedy zhruba tři hodiny včetně přestávek. V ceně je vlastní ozvučení a doprava po Praze.</p>
-    <table class="ptable"><thead><tr><th>Sestava</th><th>Cena za standardní večer</th><th>Min. plocha</th><th>Typická akce</th></tr></thead><tbody><tr><td><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — zpěv + klavír</td><td>10 000 – 14 000 Kč</td><td>3 × 2,5 m</td><td>večeře, recepce, vernisáž, komorní raut</td></tr><tr><td><a href="/" class="inline">Trio</a> — zpěv, klavír, kontrabas</td><td>16 000 – 20 000 Kč</td><td>3,5 × 3 m</td><td>firemní večer, hotelový večer, svatba</td></tr><tr><td><a href="https://jazzquartet.cz" class="inline" rel="noopener">Kvartet</a> — + bicí</td><td>22 000 – 26 000 Kč</td><td>4 × 3 m</td><td>večírek s tancem, ples, výroční akce</td></tr><tr><td><a href="https://jazzquintet.cz" class="inline" rel="noopener">Kvintet</a> — + dechová sekce</td><td>28 000 – 32 000 Kč</td><td>4 × 3 m</td><td>velká firemní párty, galavečer</td></tr></tbody></table>
+    <table class="ptable"><thead><tr><th>Sestava</th><th>Cena za standardní večer</th><th>Min. plocha</th><th>Typická akce</th></tr></thead><tbody><tr><td data-label="Sestava"><a href="https://jazzduo.cz" class="inline" rel="noopener">Duo</a> — zpěv + klavír</td><td data-label="Cena za standardní večer">10 000 – 14 000 Kč</td><td data-label="Min. plocha">3 × 2,5 m</td><td data-label="Typická akce">večeře, recepce, vernisáž, komorní raut</td></tr><tr><td data-label="Sestava"><a href="/" class="inline">Trio</a> — zpěv, klavír, kontrabas</td><td data-label="Cena za standardní večer">16 000 – 20 000 Kč</td><td data-label="Min. plocha">3,5 × 3 m</td><td data-label="Typická akce">firemní večer, hotelový večer, svatba</td></tr><tr><td data-label="Sestava"><a href="https://jazzquartet.cz" class="inline" rel="noopener">Kvartet</a> — + bicí</td><td data-label="Cena za standardní večer">22 000 – 26 000 Kč</td><td data-label="Min. plocha">4 × 3 m</td><td data-label="Typická akce">večírek s tancem, ples, výroční akce</td></tr><tr><td data-label="Sestava"><a href="https://jazzquintet.cz" class="inline" rel="noopener">Kvintet</a> — + dechová sekce</td><td data-label="Cena za standardní večer">28 000 – 32 000 Kč</td><td data-label="Min. plocha">4 × 3 m</td><td data-label="Typická akce">velká firemní párty, galavečer</td></tr></tbody></table>
 
     <p>Ceny jsou konečné pro akci v Praze. Mimo Prahu se připočítává doprava podle počtu vozů — <strong>6 Kč/km u dua a tria</strong>, <strong>12 Kč/km u kvartetu a kvintetu</strong>, které jedou dvěma vozy. Kilometry se počítají z Prahy a zpět. Nabídku na konkrétní termín posíláme <strong>do 24 hodin</strong> od poptávky.</p>
 
@@ -340,20 +384,20 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 
     <h2>Co cenu zvyšuje</h2>
     <table class="ptable"><thead><tr><th>Položka</th><th>Kdy se uplatní</th><th>Orientačně</th></tr></thead><tbody>
-      <tr><td>Doprava mimo Prahu</td><td>Akce mimo hlavní město</td><td>6 Kč/km (duo, trio) · 12 Kč/km (kvartet, kvintet)</td></tr>
-      <tr><td>Čtvrtý set</td><td>Program delší než tři hodiny</td><td>Maximálně 4 × 45 minut celkem</td></tr>
-      <tr><td>Skladba na přání</td><td>Nastudování konkrétní písně</td><td>Domlouváme individuálně</td></tr>
-      <tr><td>Externí zvukař</td><td>Sál nad 100 hostů, velká venkovní akce</td><td>Zajišťuje pořadatel</td></tr>
-      <tr><td>Kratší program</td><td>Vernisáž, raut, 2 × 45 minut</td><td>Individuálně, dle termínu</td></tr>
+      <tr><td data-label="Položka">Doprava mimo Prahu</td><td data-label="Kdy se uplatní">Akce mimo hlavní město</td><td data-label="Orientačně">6 Kč/km (duo, trio) · 12 Kč/km (kvartet, kvintet)</td></tr>
+      <tr><td data-label="Položka">Čtvrtý set</td><td data-label="Kdy se uplatní">Program delší než tři hodiny</td><td data-label="Orientačně">Maximálně 4 × 45 minut celkem</td></tr>
+      <tr><td data-label="Položka">Skladba na přání</td><td data-label="Kdy se uplatní">Nastudování konkrétní písně</td><td data-label="Orientačně">Domlouváme individuálně</td></tr>
+      <tr><td data-label="Položka">Externí zvukař</td><td data-label="Kdy se uplatní">Sál nad 100 hostů, velká venkovní akce</td><td data-label="Orientačně">Zajišťuje pořadatel</td></tr>
+      <tr><td data-label="Položka">Kratší program</td><td data-label="Kdy se uplatní">Vernisáž, raut, 2 × 45 minut</td><td data-label="Orientačně">Individuálně, dle termínu</td></tr>
     </tbody></table>
 
     <h2>Doprava mimo Prahu: proč u větších sestav dvojnásobek</h2>
     <p>Doprava se neúčtuje za kapelu, ale <strong>za počet vozů</strong>. Duo a trio se i s aparaturou vejdou do jednoho auta. Kvartet veze navíc bicí soupravu a kvintet je pět hudebníků s nástroji — ani jedno se do jednoho vozu nevejde, takže jedeme dvěma.</p>
-    <table class="ptable"><thead><tr><th>Sestava</th><th>Počet vozů</th><th>Doprava mimo Prahu</th></tr></thead><tbody><tr><td>Duo</td><td>1</td><td>6 Kč/km</td></tr><tr><td>Trio</td><td>1</td><td>6 Kč/km</td></tr><tr><td>Kvartet</td><td>2</td><td>12 Kč/km</td></tr><tr><td>Kvintet</td><td>2</td><td>12 Kč/km</td></tr></tbody></table>
+    <table class="ptable"><thead><tr><th>Sestava</th><th>Počet vozů</th><th>Doprava mimo Prahu</th></tr></thead><tbody><tr><td data-label="Sestava">Duo</td><td data-label="Počet vozů">1</td><td data-label="Doprava mimo Prahu">6 Kč/km</td></tr><tr><td data-label="Sestava">Trio</td><td data-label="Počet vozů">1</td><td data-label="Doprava mimo Prahu">6 Kč/km</td></tr><tr><td data-label="Sestava">Kvartet</td><td data-label="Počet vozů">2</td><td data-label="Doprava mimo Prahu">12 Kč/km</td></tr><tr><td data-label="Sestava">Kvintet</td><td data-label="Počet vozů">2</td><td data-label="Doprava mimo Prahu">12 Kč/km</td></tr></tbody></table>
 
     <h3>Z čeho sazba 6 Kč/km vychází</h3>
     <p>Doprava není zdroj zisku — je to <strong>přeúčtování skutečných nákladů</strong>: pohonné hmoty, dálniční známka a případné parkovné v centrech měst. Proto uvádím i vstupní čísla, ze kterých sazba vznikla.</p>
-    <table class="ptable"><thead><tr><th>Položka</th><th>Hodnota</th></tr></thead><tbody><tr><td>Spotřeba plně naloženého vozu</td><td>9,5 l / 100 km</td></tr><tr><td>Cena benzínu</td><td>45 Kč / l</td></tr><tr><td>Palivo na 100 km</td><td>428 Kč</td></tr><tr><td><strong>Palivo na 1 km</strong></td><td><strong>4,28 Kč</strong></td></tr><tr><td>Dálniční známka a parkovné</td><td>zbývajících 1,72 Kč/km</td></tr><tr><td><strong>Účtovaná sazba</strong></td><td><strong>6 Kč/km za vůz</strong></td></tr></tbody></table>
+    <table class="ptable"><thead><tr><th>Položka</th><th>Hodnota</th></tr></thead><tbody><tr><td data-label="Položka">Spotřeba plně naloženého vozu</td><td data-label="Hodnota">9,5 l / 100 km</td></tr><tr><td data-label="Položka">Cena benzínu</td><td data-label="Hodnota">45 Kč / l</td></tr><tr><td data-label="Položka">Palivo na 100 km</td><td data-label="Hodnota">428 Kč</td></tr><tr><td data-label="Položka"><strong>Palivo na 1 km</strong></td><td data-label="Hodnota"><strong>4,28 Kč</strong></td></tr><tr><td data-label="Položka">Dálniční známka a parkovné</td><td data-label="Hodnota">zbývajících 1,72 Kč/km</td></tr><tr><td data-label="Položka"><strong>Účtovaná sazba</strong></td><td data-label="Hodnota"><strong>6 Kč/km za vůz</strong></td></tr></tbody></table>
 
     <p>Plně naložený vůz — technika, nástroje a hudebníci — má vyšší spotřebu než prázdné auto, proto počítám s 9,5 litru na 100 kilometrů. V sazbě není započítaný čas strávený na cestě ani opotřebení vozu; to je součástí honoráře, ne dopravy.</p>
 

@@ -284,6 +284,50 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 .foot-fam{max-width:var(--maxw);margin:18px auto 0;padding-top:16px;border-top:1px solid rgba(157,194,182,.18);display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px}
 .foot-fam a{color:var(--mint-soft)}.foot-fam a:hover{color:var(--mint)}
 </style>
+
+<style>
+/* Responzivní tabulky — na mobilu se řádek zobrazí jako karta, žádné vodorovné posouvání */
+.ptable{table-layout:fixed;word-wrap:break-word;overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .ptable tbody{display:block}
+  .ptable tr{display:block;background:var(--white);border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:12.5px;letter-spacing:.02em;
+    text-transform:uppercase;color:var(--ink-soft)}
+  .ptable td:empty{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-size:16px;padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
+<style>
+/* --- responzivní tabulky: na mobilu karty místo sloupců --- */
+html{overflow-x:hidden}
+.article table.ptable{max-width:100%;table-layout:auto}
+.ptable td,.ptable th{overflow-wrap:anywhere}
+@media (max-width:680px){
+  .ptable{display:block;background:transparent;box-shadow:none;border-radius:0;font-size:15px}
+  .ptable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .ptable tbody,.ptable tr{display:block}
+  .ptable tr{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft);margin:0 0 14px;overflow:hidden}
+  .ptable tr:last-child{margin-bottom:4px}
+  .ptable td{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    padding:11px 16px;border-bottom:1px solid var(--line);text-align:right}
+  .ptable td::before{content:attr(data-label);flex:0 0 40%;text-align:left;
+    font-family:var(--font-head);font-weight:600;font-size:13px;color:var(--ink-soft);line-height:1.4}
+  .ptable td[data-label=""]::before{display:none}
+  .ptable tr td:last-child{border-bottom:none}
+  .ptable td:first-child{display:block;text-align:left;background:var(--cream-2);
+    font-family:var(--font-head);font-weight:600;color:var(--petrol);padding:13px 16px}
+  .ptable td:first-child::before{display:none}
+}
+</style>
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -324,12 +368,12 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
     <h2>Krok 1: Poptávka — co do ní napsat</h2>
     <p>Stačí šest údajů. S nimi umíme poslat konkrétní cenu, bez nich pošleme jen rozpětí.</p>
     <table class="ptable"><thead><tr><th>Údaj</th><th>Proč ho potřebujeme</th></tr></thead><tbody>
-      <tr><td>Datum akce</td><td>Ověření volného termínu</td></tr>
-      <tr><td>Čas začátku a konce produkce</td><td>Určuje počet setů</td></tr>
-      <tr><td>Adresa místa</td><td>Doprava a přístup pro nakládku</td></tr>
-      <tr><td>Počet hostů</td><td>Volba obsazení a ozvučení</td></tr>
-      <tr><td>Typ akce</td><td>Kulisa, koncert, nebo večer s tancem</td></tr>
-      <tr><td>Zda má prostor vlastní ozvučení</td><td>Nad 100 hostů zásadní</td></tr>
+      <tr><td data-label="Údaj">Datum akce</td><td data-label="Proč ho potřebujeme">Ověření volného termínu</td></tr>
+      <tr><td data-label="Údaj">Čas začátku a konce produkce</td><td data-label="Proč ho potřebujeme">Určuje počet setů</td></tr>
+      <tr><td data-label="Údaj">Adresa místa</td><td data-label="Proč ho potřebujeme">Doprava a přístup pro nakládku</td></tr>
+      <tr><td data-label="Údaj">Počet hostů</td><td data-label="Proč ho potřebujeme">Volba obsazení a ozvučení</td></tr>
+      <tr><td data-label="Údaj">Typ akce</td><td data-label="Proč ho potřebujeme">Kulisa, koncert, nebo večer s tancem</td></tr>
+      <tr><td data-label="Údaj">Zda má prostor vlastní ozvučení</td><td data-label="Proč ho potřebujeme">Nad 100 hostů zásadní</td></tr>
     </tbody></table>
 
     <h2>Krok 2: Nabídka — do 24 hodin</h2>
@@ -375,11 +419,11 @@ footer{background:var(--petrol);color:var(--mint-soft);padding:30px clamp(18px,4
 
     <h2>Krok 5: Den akce</h2>
     <table class="ptable"><thead><tr><th>Čas</th><th>Co se děje</th></tr></thead><tbody>
-      <tr><td>−60 minut</td><td>Příjezd kapely, nakládka do sálu</td></tr>
-      <tr><td>−30 minut</td><td>Stavba a zvuková zkouška</td></tr>
-      <tr><td>0</td><td>První set</td></tr>
-      <tr><td>Průběžně</td><td>Přestávky 15–20 minut mezi sety</td></tr>
-      <tr><td>+30 minut po konci</td><td>Úklid a odjezd</td></tr>
+      <tr><td data-label="Čas">−60 minut</td><td data-label="Co se děje">Příjezd kapely, nakládka do sálu</td></tr>
+      <tr><td data-label="Čas">−30 minut</td><td data-label="Co se děje">Stavba a zvuková zkouška</td></tr>
+      <tr><td data-label="Čas">0</td><td data-label="Co se děje">První set</td></tr>
+      <tr><td data-label="Čas">Průběžně</td><td data-label="Co se děje">Přestávky 15–20 minut mezi sety</td></tr>
+      <tr><td data-label="Čas">+30 minut po konci</td><td data-label="Co se děje">Úklid a odjezd</td></tr>
     </tbody></table>
     <p>Detailní technické podmínky najdete v článku <a href="/blog/co-kapela-potrebuje-na-miste.html" class="inline">co kapela potřebuje na místě</a>.</p>
 
