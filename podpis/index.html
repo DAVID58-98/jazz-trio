@@ -74,9 +74,9 @@ const SIZES = {
   S: {w:320,img:128,imgh:126,name:15,role:8,rls:'0.16em',cont:12,ico:14,icopad:8,gap:4,dm1:8,dm2:9,barf:11,barlh:1.8,btnf:10,btnpy:7,btnpx:14,tdpy:5,tdpx:10,r:14,ml:10,h:158}
 };
 const PORTRAITS = {
-  png:   {file:'ekvalizer.png',        label:'Statický',      note:'PNG 48 kB, průhledné pozadí — čistý ve světlém i tmavém režimu.'},
-  anim:  {file:'ekvalizer-anim.gif',   label:'Animovaný',     note:'GIF 256 kB, průhledné pozadí, 56 snímků. Animuje se a v tmavém režimu nedělá světlý blok.'},
-  cream: {file:'ekvalizer-cream.gif',  label:'Animovaný krémový', note:'GIF 184 kB, krémové pozadí zapečené v obrázku. Nejostřejší, ale v tmavém režimu Gmailu zůstane světlý obdélník vlevo.'}
+  png:   {file:'ekvalizer.png',          label:'Statický',            note:'PNG 48 kB, 2×, plně průhledné pozadí. Nejostřejší a v obou režimech čistý — jen se nehýbe.'},
+  sharp: {file:'ekvalizer-anim2x.gif',   label:'Animovaný ostrý',     note:'GIF 184 kB, 2×, 166 snímků, pixel na pixel jako předloha. Průhledné je okolí portrétu, takže v tmavém režimu zůstane kolem hlavy krémový tvar místo světlého obdélníku.'},
+  alpha: {file:'ekvalizer-anim.gif',     label:'Animovaný průhledný', note:'GIF 256 kB, 1×, 56 snímků, plně průhledné pozadí. V tmavém režimu nezůstane vůbec nic světlého, ale na retině je měkčí.'}
 };
 const TXT = {
   cz: {role:'Jazzový zpěvák', cta:'Ověřit termín', quartet:'kvartet', quintet:'kvintet',
@@ -90,7 +90,7 @@ const TXT = {
 const DARK = {'#f4f0e4':'#2d2a22','#0f5257':'#82bbc0','#e0a93c':'#6a4b0c','#14302f':'#d8f3f2',
               '#5d8c86':'#9fb9b4','#c1cdc5':'#3c433c'};
 
-let state = {lang:'cz', size:'L', port:'png', mode:'light', width:'full'};
+let state = {lang:'cz', size:'L', port:'sharp', mode:'light', width:'full'};
 const $ = id => document.getElementById(id);
 const base = () => ($('base').value || 'https://jazztrio.cz/podpis/').replace(/\/?$/, '/');
 

@@ -8,7 +8,7 @@ Složka patří do kořene repozitáře `jazz-trio`. Po nasazení běží na
 1. Rozbal ZIP → složka `podpis` a soubor `.nojekyll`.
 2. GitHub → repozitář `jazz-trio` → **Add file** → **Upload files** → přetáhni
    obojí do kořene → **Commit changes**.
-3. Ověř `https://jazztrio.cz/podpis/ekvalizer.png` — musí se otevřít obrázek.
+3. Ověř `https://jazztrio.cz/podpis/ekvalizer-anim2x.gif` — musí se otevřít obrázek.
 4. Otevři `https://jazztrio.cz/podpis/`, vyber jazyk, velikost a portrét,
    přepni náhled na **Tmavý (Gmail)** a zkontroluj, jak to bude vypadat.
 5. **Kopírovat podpis** → v Gmailu do editoru podpisu `Cmd+A`, `Cmd+V`.
@@ -34,13 +34,16 @@ Stránka `index.html` je umí složit i sama, včetně výběru portrétu.
 
 | Soubor | Váha | Chování |
 | --- | --- | --- |
-| `ekvalizer.png` | 48 kB | Statický, průhledné pozadí. **Výchozí.** Nejostřejší a v obou režimech čistý. |
-| `ekvalizer-anim.gif` | 256 kB | Animovaný, průhledné pozadí, 56 snímků po 210 ms. Pozadí je průhledné, takže v tmavém režimu nedělá světlý blok. Kvůli průhlednosti musí GIF ukládat celé snímky, proto je v rozlišení 1× a na retině bude o něco měkčí. |
-| `ekvalizer-cream.gif` | 184 kB | Animovaný ve 2× s krémovým pozadím zapečeným v obrázku. Nejhezčí ve světlém režimu, ale v tmavém režimu Gmailu zůstane vlevo světlý obdélník — přesně to, co jsi viděl na telefonu. |
+| `ekvalizer-anim2x.gif` | 184 kB | **Výchozí.** Animovaný ve 2×, všech 166 snímků, pixel na pixel jako tvoje předloha. Průhledné je jen okolí portrétu, uvnitř zůstává krémové pozadí, takže v tmavém režimu je kolem hlavy krémový kruh místo světlého obdélníku přes půl podpisu. |
+| `ekvalizer.png` | 48 kB | Statický, 2×, plně průhledný. Nejostřejší a v tmavém režimu úplně bez zbytků — jen se nehýbe. |
+| `ekvalizer-anim.gif` | 256 kB | Animovaný, 1×, plně průhledný. V tmavém režimu nezůstane vůbec nic světlého, ale na retině je měkčí. |
 
-Průhlednost a animace se v GIFu navzájem vylučují cenově: animovaný GIF se
-komprimuje tím, že mezi snímky ukládá jen změněné pixely, a to s průhledností
-nejde. Verze ve 2× s průhledností vychází na 2–3 MB, což je do podpisu moc.
+Proč to takhle. Animovaný GIF se komprimuje tím, že mezi snímky ukládá jen
+změněné pixely. Jakmile se má nějaká plocha mezi snímky *mazat* do průhlednosti,
+musí se ukládat celé snímky a soubor naroste na 2–3 MB. Řešení je nechat
+průhlednou jen tu část, která se nikdy nemění — okolí portrétu — a uvnitř
+obrazce nechat krémovou. Animace se tak komprimuje jako dřív, ostrost je 2×
+a v tmavém režimu zbyde jen krémový tvar kolem hlavy, který vypadá jako záměr.
 
 ## Tmavý režim
 
@@ -51,7 +54,8 @@ tmavě hnědé, ale obrázek s krémovým pozadím zůstal světlý.
 Co s tím jde a co ne:
 
 - **Vyřešeno:** portrét i ikony mají průhledné pozadí, takže se karta v tmavém
-  režimu překlopí celá najednou a žádný světlý blok nezůstane.
+  režimu překlopí celá najednou. Světlý obdélník přes půl podpisu je pryč;
+  u výchozího portrétu zbyde krémový kruh těsně kolem hlavy.
 - **Vyřešeno:** ikony telefonu a obálky mají teď střední odstín teal
   (`#2f7f80`) místo tmavého `#0f5257`. Tmavá ikona by na tmavém pozadí zmizela,
   protože obrázky se nepřeklápějí. Ve světlém režimu je rozdíl sotva znát.
