@@ -1,74 +1,85 @@
 # E-mailový podpis — David Kleňha
 
-Složka patří do kořene repozitáře `jazz-trio`. Po nasazení bude dostupná na
+Složka patří do kořene repozitáře `jazz-trio`. Po nasazení běží na
 `https://jazztrio.cz/podpis/`.
 
-## Co je uvnitř
+## Postup
 
-| Soubor | K čemu je |
-| --- | --- |
-| `ekvalizer.gif` | Animovaný portrét, 176 × 174 px (vyříznutý z tvého velkého GIFu, 166 snímků, 185 kB). |
-| `ico-tel.png` | Ikona telefonu, 18 × 18 px (také vyříznutá z GIFu, takže sedí přesně). |
-| `ico-mail.png` | Ikona obálky, 18 × 18 px. |
-| `podpis-cz.html` | HTML fragment podpisu, česká verze. |
-| `podpis-en.html` | Anglická verze — role, tlačítko a `/en/` odkazy. |
-| `index.html` | Náhled s přepínačem CZ/EN, šířkou 436 / 360 / 320 px, tmavým pozadím a tlačítkem Kopírovat. Má `noindex`. |
-| `../.nojekyll` | Prázdný soubor do kořene repozitáře. Vypne Jekyll, aby GitHub Pages soubory servíroval tak, jak jsou. |
+1. Rozbal ZIP → složka `podpis` a soubor `.nojekyll`.
+2. GitHub → repozitář `jazz-trio` → **Add file** → **Upload files** → přetáhni
+   obojí do kořene → **Commit changes**.
+3. Ověř `https://jazztrio.cz/podpis/ekvalizer.png` — musí se otevřít obrázek.
+4. Otevři `https://jazztrio.cz/podpis/`, vyber jazyk, velikost a portrét,
+   přepni náhled na **Tmavý (Gmail)** a zkontroluj, jak to bude vypadat.
+5. **Kopírovat podpis** → v Gmailu do editoru podpisu `Cmd+A`, `Cmd+V`.
+6. Totéž pro anglickou verzi jako druhý podpis.
+7. Dole ve **Výchozím nastavení podpisů** nastav podpis pro nové zprávy
+   i odpovědi a ulož změny.
+8. V mobilní aplikaci Gmail vypni „Mobilní podpis".
 
-Nic dalšího vyrábět nemusíš, všechny tři obrázky jsou hotové.
+## Velikosti
 
-## Postup krok za krokem
+| | Šířka × výška | Portrét | Kde se hodí |
+| --- | --- | --- | --- |
+| **L** | 436 × 218 px | 176 px | Původní velikost. |
+| **M** | 380 × 188 px | 152 px | Kompromis, na monitoru už nezabírá půl okna. |
+| **S** | 320 × 158 px | 128 px | Nejnižší. Vejde se i na úzký telefon bez zalomení. |
 
-1. Rozbal ZIP. Dostaneš složku `podpis` a soubor `.nojekyll`.
-2. Otevři GitHub → repozitář `jazz-trio` → **Add file** → **Upload files**.
-3. Přetáhni do okna složku `podpis` **i** soubor `.nojekyll`. Obojí patří do
-   kořene repozitáře, tedy vedle `index.html` webu.
-4. Dole napiš commit zprávu a dej **Commit changes**.
-5. Počkej minutu a otevři v prohlížeči `https://jazztrio.cz/podpis/ekvalizer.gif`.
-   Musí se přehrát animace. Dokud tenhle odkaz nefunguje, podpis bude v e-mailu
-   bez obrázků.
-6. Otevři `https://jazztrio.cz/podpis/`, nech přepínač na **Čeština** a klikni
-   na **Kopírovat podpis**.
-7. Gmail → Nastavení → Obecné → Podpis → klikni na tužku u `JAZZ - TEST`,
-   přejmenuj na `Jazz CZ`. Klikni do pravého editoru, `Cmd+A`, `Cmd+V`.
-8. **Vytvořit nový** → `Jazz EN`. V náhledu přepni na **English**, znovu
-   Kopírovat podpis, a vlož stejným způsobem.
-9. Dole v **Výchozí nastavení podpisů** vyber `Jazz CZ` pro nové e-maily
-   i pro odpovědi (teď máš „Bez podpisu"). Úplně dole **Uložit změny**.
-10. V mobilní aplikaci Gmail: Nastavení → účet → Podpis → vypni „Mobilní
-    podpis", jinak telefon použije svůj vlastní jednořádkový text.
+Velikosti nejsou zmenšenina jedné šablony — každá má vlastní velikosti písma,
+odsazení, ikon i tlačítka, aby text zůstal čitelný a nic se nerozsypalo.
+Předgenerované soubory: `podpis-cz-L.html` … `podpis-en-S.html`.
+Stránka `index.html` je umí složit i sama, včetně výběru portrétu.
 
-Při psaní zprávy se mezi CZ a EN přepíná ikonou pera dole v okně.
+## Portréty
 
-## Proč HTML nevypadá na pixel stejně jako GIF
+| Soubor | Váha | Chování |
+| --- | --- | --- |
+| `ekvalizer.png` | 48 kB | Statický, průhledné pozadí. **Výchozí.** Nejostřejší a v obou režimech čistý. |
+| `ekvalizer-anim.gif` | 256 kB | Animovaný, průhledné pozadí, 56 snímků po 210 ms. Pozadí je průhledné, takže v tmavém režimu nedělá světlý blok. Kvůli průhlednosti musí GIF ukládat celé snímky, proto je v rozlišení 1× a na retině bude o něco měkčí. |
+| `ekvalizer-cream.gif` | 184 kB | Animovaný ve 2× s krémovým pozadím zapečeným v obrázku. Nejhezčí ve světlém režimu, ale v tmavém režimu Gmailu zůstane vlevo světlý obdélník — přesně to, co jsi viděl na telefonu. |
 
-Písma. GIF je vyrenderovaný s Unbounded a Poppins. Gmail v podpisu maže
-`<link>` i `@font-face`, takže žádný e-mailový klient webfonty nenačte a text
-spadne na Helveticu / Arial. Jiné tvary písmen znamenají jiné šířky slov
-a jiný optický rozestup — to se v HTML podpisu obejít nedá, leda by byl celý
-podpis obrázek, a pak by nefungovaly odkazy.
+Průhlednost a animace se v GIFu navzájem vylučují cenově: animovaný GIF se
+komprimuje tím, že mezi snímky ukládá jen změněné pixely, a to s průhledností
+nejde. Verze ve 2× s průhledností vychází na 2–3 MB, což je do podpisu moc.
 
-Rozměry jsem doměřil přímo z tvého GIFu a HTML podle nich srovnal:
+## Tmavý režim
 
-- kontaktní řádky 13,5 → **14 px**, ikony 16 → **18 px** (v GIFu jsou větší),
-- obrázkový sloupec 38 % → **40 %**, obrázek je 176 × 174 px a sedí bez
-  odsazení na krémovou plochu, takže výška plochy je stejná jako v GIFu (174 px),
-- dělící linka vychází na 84 px od horní hrany, kontakty na 97 px — přesně
-  jako v GIFu,
-- emeraldový pruh má 44 px a tlačítko 117 × 30 px, stejně jako v GIFu.
+Gmail na iOS a Androidu překlápí barvy celé zprávy — pozadí i text. Obrázky
+nechává být. Proto se ti podpis rozpadl: krémové pozadí buňky se překlopilo do
+tmavě hnědé, ale obrázek s krémovým pozadím zůstal světlý.
 
-Jeden rozdíl je záměrný: v GIFu jsou odkazy vlevo a tlačítko vpravo u okraje.
-V HTML je celá skupina vycentrovaná, protože jen tak se na úzkém displeji
-tlačítko zalomí pod odkazy. Na 436 px zůstává všechno na jednom řádku.
+Co s tím jde a co ne:
+
+- **Vyřešeno:** portrét i ikony mají průhledné pozadí, takže se karta v tmavém
+  režimu překlopí celá najednou a žádný světlý blok nezůstane.
+- **Vyřešeno:** ikony telefonu a obálky mají teď střední odstín teal
+  (`#2f7f80`) místo tmavého `#0f5257`. Tmavá ikona by na tmavém pozadí zmizela,
+  protože obrázky se nepřeklápějí. Ve světlém režimu je rozdíl sotva znát.
+- **Nejde vyřešit:** emeraldový pruh se v tmavém režimu překlopí do světle
+  modré a zlaté tlačítko do tmavě hnědé. Kontrast zůstane, značkové barvy ne.
+  Gmail v podpisu maže `<style>`, `@media` i `color-scheme`, takže neexistuje
+  žádný způsob, jak mu předepsat vlastní tmavou variantu. Barvy v náhledu jsem
+  odečetl přímo z tvého screenshotu z iOS, takže tlačítko **Tmavý (Gmail)**
+  ukazuje reálný výsledek, ne odhad.
+
+## Otestováno
+
+Vykresleno v prohlížeči (Chromium) ve všech kombinacích jazyk × velikost ×
+portrét × režim, v šířkách 320, 360, 420 px a v plné šířce:
+
+- **320 px:** S i M se vejdou na jeden řádek. U L se tlačítko zalomí pod odkazy,
+  což je záměr — nic nepřeteče a Gmail nemusí zmenšovat celou zprávu.
+- **Tmavý režim:** karta je celistvá, text i ikony čitelné.
+- **Outlook pro Windows:** zobrazí z animovaného GIFu první snímek a ignoruje
+  zaoblené rohy — podpis bude hranatý a statický, jinak funkční. Se statickým
+  PNG je rozdíl jen v těch rozích.
 
 ## Na co si dát pozor
 
-- **Outlook pro Windows** ukáže z GIFu jen první snímek a ignoruje zaoblené
-  rohy. Podpis tam bude hranatý a statický, jinak funkční.
-- **Tmavý režim** si Gmail na mobilu řeší sám. Buňky mají `bgcolor`
-  i `background-color`, aby se pozadí a text invertovaly společně. Ikony mají
-  zapečené krémové pozadí, takže nezmizí. Zkontroluj si to přepínačem
-  **Tmavé** v náhledu.
 - **Neměň obsah souboru na stejné adrese.** Odeslané e-maily načítají obrázky
-  živě, změna by se promítla zpětně. Nová verze = nový název souboru.
-- Podpis má ~3 400 znaků, limit Gmailu je 10 000.
+  živě, změna by se promítla i zpětně. Nová verze = nový název souboru.
+- Podpis má ~3 400 znaků, limit editoru Gmailu je 10 000.
+- Písmo: GIF i PNG jsou vyrenderované v Unbounded a Poppins, ale text podpisu
+  je živý HTML text a Gmail webfonty v podpisu nenačte. Jména a kontakty proto
+  poběží v Helvetice/Arialu. Jinak by musel být celý podpis obrázek a nefungovaly
+  by odkazy.

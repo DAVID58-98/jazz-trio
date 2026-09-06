@@ -12,201 +12,161 @@
   :root{--cream:#f4f0e4;--paper:#ece6d6;--emerald:#0f5257;--ink:#14302f;--muted:#4a5e58;--gold:#e0a93c}
   *{box-sizing:border-box}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:Poppins,'Helvetica Neue',Arial,sans-serif}
-  .wrap{max-width:1000px;margin:0 auto;padding:40px clamp(16px,4vw,48px) 96px;display:flex;flex-direction:column;gap:34px}
+  .wrap{max-width:1020px;margin:0 auto;padding:40px clamp(16px,4vw,48px) 96px;display:flex;flex-direction:column;gap:30px}
   h1{font-family:Unbounded,sans-serif;font-weight:800;font-size:clamp(26px,3.2vw,38px);letter-spacing:-.02em;margin:0;line-height:1.1}
-  .lede{font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 0;max-width:62ch}
-  .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .lede{font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 0;max-width:64ch}
+  .controls{display:flex;flex-wrap:wrap;gap:18px}
+  .set{display:flex;flex-direction:column;gap:7px}
+  .set b{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
   .group{display:flex;gap:6px;background:#fff;border:1px solid rgba(15,82,87,.14);border-radius:100px;padding:5px}
-  .pill{font:600 13px Poppins,sans-serif;border:none;border-radius:100px;padding:8px 16px;cursor:pointer;background:transparent;color:var(--muted)}
+  .pill{font:600 13px Poppins,sans-serif;border:none;border-radius:100px;padding:8px 15px;cursor:pointer;background:transparent;color:var(--muted);white-space:nowrap}
   .pill[aria-pressed="true"]{background:var(--emerald);color:var(--cream)}
   .pill:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-  .stage{border:1px solid rgba(15,82,87,.14);border-radius:26px;padding:32px 20px;display:flex;justify-content:center;background:#fff;transition:background .2s}
-  .stage.dark{background:#1b1b1b}
-  .frame{width:100%;transition:max-width .2s}
+  .stage{border:1px solid rgba(15,82,87,.14);border-radius:26px;padding:30px 18px;display:flex;justify-content:center;background:#fff}
+  .stage.dark{background:#131314;border-color:#333}
+  .frame{width:100%}
   .btn{font:600 13.5px Poppins,sans-serif;border-radius:100px;padding:11px 22px;cursor:pointer;background:var(--emerald);color:var(--cream);border:none}
   .btn.ghost{background:transparent;color:var(--emerald);border:1.5px solid var(--emerald)}
   .btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
   .status{font-size:13px;color:var(--muted)}
+  .meta{font-size:13px;line-height:1.7;color:var(--muted);margin:0}
   label.field{display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--muted);max-width:520px}
   input[type=text]{font:12.5px ui-monospace,Menlo,monospace;color:var(--ink);background:#fff;border:1px solid rgba(15,82,87,.2);border-radius:12px;padding:11px 13px}
-  textarea{font:11.5px/1.6 ui-monospace,Menlo,monospace;color:var(--ink);background:#fff;border:1px solid rgba(15,82,87,.14);border-radius:18px;padding:16px;height:230px;resize:vertical;width:100%}
-  .steps{background:var(--ink);color:var(--cream);border-radius:28px;padding:clamp(24px,3vw,36px);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
-  .steps h2{font:700 11px Poppins,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
-  .steps p{margin:0;font-size:14px;line-height:1.75;color:#cfe0d8}
-  code{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--cream)}
-  h3{font-family:Unbounded,sans-serif;font-weight:600;font-size:19px;margin:0}
+  textarea{font:11.5px/1.6 ui-monospace,Menlo,monospace;color:var(--ink);background:#fff;border:1px solid rgba(15,82,87,.14);border-radius:18px;padding:16px;height:220px;resize:vertical;width:100%}
+  h3{font-family:Unbounded,sans-serif;font-weight:600;font-size:19px;margin:0 0 12px}
 </style>
 </head>
 <body>
 <div class="wrap">
-
   <header>
     <h1>E-mailový podpis</h1>
-    <p class="lede">Náhled a zdrojový kód podpisu pro Gmail. Vyber jazyk, zkontroluj šířku a tmavé pozadí, zkopíruj a vlož do Nastavení&nbsp;→&nbsp;Podpis.</p>
+    <p class="lede">Vyber jazyk, velikost a portrét, zkontroluj náhled ve světlém i tmavém režimu, zkopíruj a vlož do Gmailu. Tmavý náhled používá barvy naměřené z Gmailu na iOS, takže ukazuje přesně to, co uvidí příjemce.</p>
   </header>
 
-  <div class="bar">
-    <div class="group">
-      <button class="pill" id="cz" aria-pressed="true">Čeština</button>
-      <button class="pill" id="en" aria-pressed="false">English</button>
-    </div>
-    <div class="group">
-      <button class="pill w" data-w="436" aria-pressed="true">436 px</button>
-      <button class="pill w" data-w="360" aria-pressed="false">360 px</button>
-      <button class="pill w" data-w="320" aria-pressed="false">320 px</button>
-    </div>
-    <div class="group">
-      <button class="pill" id="light" aria-pressed="true">Světlé</button>
-      <button class="pill" id="dark" aria-pressed="false">Tmavé</button>
-    </div>
+  <div class="controls">
+    <div class="set"><b>Jazyk</b><div class="group" id="g-lang"></div></div>
+    <div class="set"><b>Velikost</b><div class="group" id="g-size"></div></div>
+    <div class="set"><b>Portrét</b><div class="group" id="g-port"></div></div>
+    <div class="set"><b>Náhled</b><div class="group" id="g-mode"></div></div>
+    <div class="set"><b>Šířka okna</b><div class="group" id="g-width"></div></div>
   </div>
 
-  <div class="stage" id="stage"><div class="frame" id="frame" style="max-width:436px"></div></div>
+  <div class="stage" id="stage"><div class="frame" id="frame"></div></div>
+  <p class="meta" id="meta"></p>
 
-  <div class="bar">
+  <div class="controls" style="align-items:center">
     <button class="btn" id="copy">Kopírovat podpis</button>
     <button class="btn ghost" id="copyCode">Kopírovat HTML</button>
     <span class="status" id="status"></span>
   </div>
 
-  <label class="field">
-    Adresa složky s obrázky
+  <label class="field">Adresa složky s obrázky
     <input type="text" id="base" value="https://jazztrio.cz/podpis/">
   </label>
 
-  <div class="steps">
-    <div>
-      <h2>1 · Obrázky</h2>
-      <p>Do složky <code>/podpis/</code> v repozitáři patří <code>ekvalizer.gif</code>, <code>ico-tel.png</code> a <code>ico-mail.png</code>. Po nahrání musí jít otevřít přímo v prohlížeči.</p>
-    </div>
-    <div>
-      <h2>2 · Vložení</h2>
-      <p>Gmail → Nastavení → Podpis → Vytvořit nový → Cmd/Ctrl+V. Založ dva podpisy, CZ a EN, a v okně psaní přepínej ikonou pera.</p>
-    </div>
-    <div>
-      <h2>3 · Mobil</h2>
-      <p>V aplikaci Gmail vypni „Mobilní podpis“, jinak se místo tohoto podpisu použije jednořádkový text z telefonu.</p>
-    </div>
-  </div>
-
-  <div>
-    <h3>HTML kód</h3>
-    <textarea readonly id="code" style="margin-top:12px"></textarea>
-  </div>
+  <div><h3>HTML kód</h3><textarea readonly id="code"></textarea></div>
 </div>
 
 <script>
-const SNIPPETS = {
-  cz: `<table role="presentation" cellpadding="0" cellspacing="0" border="0" bgcolor="#f4f0e4" style="border-collapse:collapse;background-color:#f4f0e4;border-radius:18px;width:100%;max-width:436px;font-family:Poppins,'Helvetica Neue',Helvetica,Arial,sans-serif">
-  <tr>
-    <td width="40%" valign="middle" bgcolor="#f4f0e4" style="width:40%;padding:0;background-color:#f4f0e4;border-radius:18px 0 0 0;font-size:0;line-height:0">
-      <img src="https://jazztrio.cz/podpis/ekvalizer.gif" alt="David Kleňha" width="176" height="174" style="display:block;width:100%;max-width:176px;height:auto;border:0;border-radius:18px 0 0 0">
-    </td>
-    <td valign="middle" bgcolor="#f4f0e4" style="padding:0 14px 0 0;background-color:#f4f0e4;border-radius:0 18px 0 0">
-      <div style="font-family:Unbounded,Poppins,Helvetica,Arial,sans-serif;font-size:19px;font-weight:600;color:#14302f;line-height:1.15;letter-spacing:-0.025em">David Kleňha</div>
-      <div style="font-size:10px;font-weight:600;letter-spacing:0.19em;text-transform:uppercase;color:#0f5257;line-height:1.4;padding-top:6px">Jazzový zpěvák</div>
-      <div style="height:1px;background-color:#c1cdc5;margin:11px 0 12px;font-size:0;line-height:0">&nbsp;</div>
-      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse">
-        <tr>
-          <td width="28" valign="middle" style="padding:0 10px 6px 0;font-size:0;line-height:0"><img src="https://jazztrio.cz/podpis/ico-tel.png" alt="Telefon" width="18" height="18" style="display:block;width:18px;height:18px;border:0"></td>
-          <td valign="middle" style="padding:0 0 6px"><a href="tel:+420607828970" style="font-size:14px;line-height:1.4;color:#14302f;text-decoration:none;white-space:nowrap">+420&nbsp;607&nbsp;828&nbsp;970</a></td>
-        </tr>
-        <tr>
-          <td width="28" valign="middle" style="padding:0 10px 0 0;font-size:0;line-height:0"><img src="https://jazztrio.cz/podpis/ico-mail.png" alt="E-mail" width="18" height="18" style="display:block;width:18px;height:18px;border:0"></td>
-          <td valign="middle"><a href="mailto:info@davidklenha.cz" style="font-size:14px;line-height:1.4;color:#14302f;text-decoration:none;white-space:nowrap">info@davidklenha.cz</a></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" bgcolor="#0f5257" style="background-color:#0f5257;border-radius:0 0 18px 18px;padding:7px 14px;font-size:13px;line-height:1.9;color:#f4f0e4;letter-spacing:0.01em">
-      <a href="https://jazzduo.cz/" style="color:#f4f0e4;text-decoration:none;white-space:nowrap">duo</a><span style="color:#5d8c86">&nbsp;·&nbsp;</span><a href="https://jazztrio.cz/" style="color:#f4f0e4;text-decoration:none;white-space:nowrap">trio</a><span style="color:#5d8c86">&nbsp;·&nbsp;</span><a href="https://jazzquartet.cz/" style="color:#f4f0e4;text-decoration:none;white-space:nowrap">kvartet</a><span style="color:#5d8c86">&nbsp;·&nbsp;</span><a href="https://jazzquintet.cz/" style="color:#f4f0e4;text-decoration:none;white-space:nowrap">kvintet</a><a href="https://jazztrio.cz/#poptavka" style="display:inline-block;background-color:#e0a93c;border:1px solid #e0a93c;color:#14302f;font-size:12px;font-weight:700;line-height:1;letter-spacing:0.02em;padding:9px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;margin:2px 0 2px 14px;vertical-align:middle">Ověřit termín</a>
-    </td>
-  </tr>
-</table>`,
-  en: `<table role="presentation" cellpadding="0" cellspacing="0" border="0" bgcolor="#f4f0e4" style="border-collapse:collapse;background-color:#f4f0e4;border-radius:18px;width:100%;max-width:436px;font-family:Poppins,'Helvetica Neue',Helvetica,Arial,sans-serif">
-  <tr>
-    <td width="40%" valign="middle" bgcolor="#f4f0e4" style="width:40%;padding:0;background-color:#f4f0e4;border-radius:18px 0 0 0;font-size:0;line-height:0">
-      <img src="https://jazztrio.cz/podpis/ekvalizer.gif" alt="David Kleňha" width="176" height="174" style="display:block;width:100%;max-width:176px;height:auto;border:0;border-radius:18px 0 0 0">
-    </td>
-    <td valign="middle" bgcolor="#f4f0e4" style="padding:0 14px 0 0;background-color:#f4f0e4;border-radius:0 18px 0 0">
-      <div style="font-family:Unbounded,Poppins,Helvetica,Arial,sans-serif;font-size:19px;font-weight:600;color:#14302f;line-height:1.15;letter-spacing:-0.025em">David Kleňha</div>
-      <div style="font-size:10px;font-weight:600;letter-spacing:0.19em;text-transform:uppercase;color:#0f5257;line-height:1.4;padding-top:6px">Jazz Singer</div>
-      <div style="height:1px;background-color:#c1cdc5;margin:11px 0 12px;font-size:0;line-height:0">&nbsp;</div>
-      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse">
-        <tr>
-          <td width="28" valign="middle" style="padding:0 10px 6px 0;font-size:0;line-height:0"><img src="https://jazztrio.cz/podpis/ico-tel.png" alt="Phone" width="18" height="18" style="display:block;width:18px;height:18px;border:0"></td>
-          <td valign="middle" style="padding:0 0 6px"><a href="tel:+420607828970" style="font-size:14px;line-height:1.4;color:#14302f;text-decoration:none;white-space:nowrap">+420&nbsp;607&nbsp;828&nbsp;970</a></td>
-        </tr>
-        <tr>
-          <td width="28" valign="middle" style="padding:0 10px 0 0;font-size:0;line-height:0"><img src="https://jazztrio.cz/podpis/ico-mail.png" alt="E-mail" width="18" height="18" style="display:block;width:18px;height:18px;border:0"></td>
-          <td valign="middle"><a href="mailto:info@davidklenha.cz" style="font-size:14px;line-height:1.4;color:#14302f;text-decoration:none;white-space:nowrap">info@davidklenha.cz</a></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" bgcolor="#0f5257" style="background-color:#0f5257;border-radius:0 0 18px 18px;padding:7px 14px;font-size:13px;line-height:1.9;color:#f4f0e4;letter-spacing:0.01em">
-      <a href="https://jazzduo.cz/en/" style="color:#f4f0e4;text-decoration:none;white-space:nowrap">duo</a><span style="color:#5d8c86">&nbsp;·&nbsp;</span><a href="https://jazztrio.cz/en/" style="color:#f4f0e4;text-decoration:none;white-space:nowrap">trio</a><span style="color:#5d8c86">&nbsp;·&nbsp;</span><a href="https://jazzquartet.cz/en/" style="color:#f4f0e4;text-decoration:none;white-space:nowrap">quartet</a><span style="color:#5d8c86">&nbsp;·&nbsp;</span><a href="https://jazzquintet.cz/en/" style="color:#f4f0e4;text-decoration:none;white-space:nowrap">quintet</a><a href="https://jazztrio.cz/en/#poptavka" style="display:inline-block;background-color:#e0a93c;border:1px solid #e0a93c;color:#14302f;font-size:12px;font-weight:700;line-height:1;letter-spacing:0.02em;padding:9px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;margin:2px 0 2px 14px;vertical-align:middle">Check a date</a>
-    </td>
-  </tr>
-</table>`
+const SIZES = {
+  L: {w:436,img:176,imgh:174,name:19,role:10,rls:'0.19em',cont:14,ico:18,icopad:10,gap:6,dm1:11,dm2:12,barf:13,barlh:1.9,btnf:12,btnpy:9,btnpx:18,tdpy:7,tdpx:14,r:18,ml:14,h:218},
+  M: {w:380,img:152,imgh:150,name:17,role:9,rls:'0.17em',cont:13,ico:16,icopad:9,gap:5,dm1:9,dm2:10,barf:12,barlh:1.85,btnf:11,btnpy:8,btnpx:16,tdpy:6,tdpx:12,r:16,ml:12,h:188},
+  S: {w:320,img:128,imgh:126,name:15,role:8,rls:'0.16em',cont:12,ico:14,icopad:8,gap:4,dm1:8,dm2:9,barf:11,barlh:1.8,btnf:10,btnpy:7,btnpx:14,tdpy:5,tdpx:10,r:14,ml:10,h:158}
 };
-const DEFAULT_BASE = "https://jazztrio.cz/podpis/";
-let lang = "cz";
-const $ = id => document.getElementById(id);
+const PORTRAITS = {
+  png:   {file:'ekvalizer.png',        label:'Statický',      note:'PNG 48 kB, průhledné pozadí — čistý ve světlém i tmavém režimu.'},
+  anim:  {file:'ekvalizer-anim.gif',   label:'Animovaný',     note:'GIF 256 kB, průhledné pozadí, 56 snímků. Animuje se a v tmavém režimu nedělá světlý blok.'},
+  cream: {file:'ekvalizer-cream.gif',  label:'Animovaný krémový', note:'GIF 184 kB, krémové pozadí zapečené v obrázku. Nejostřejší, ale v tmavém režimu Gmailu zůstane světlý obdélník vlevo.'}
+};
+const TXT = {
+  cz: {role:'Jazzový zpěvák', cta:'Ověřit termín', quartet:'kvartet', quintet:'kvintet',
+       duo:'https://jazzduo.cz/', trio:'https://jazztrio.cz/', qua:'https://jazzquartet.cz/',
+       qui:'https://jazzquintet.cz/', ctaUrl:'https://jazztrio.cz/#poptavka', tel:'Telefon'},
+  en: {role:'Jazz Singer', cta:'Check a date', quartet:'quartet', quintet:'quintet',
+       duo:'https://jazzduo.cz/en/', trio:'https://jazztrio.cz/en/', qua:'https://jazzquartet.cz/en/',
+       qui:'https://jazzquintet.cz/en/', ctaUrl:'https://jazztrio.cz/en/#poptavka', tel:'Phone'}
+};
+// measured in Gmail iOS dark mode
+const DARK = {'#f4f0e4':'#2d2a22','#0f5257':'#82bbc0','#e0a93c':'#6a4b0c','#14302f':'#d8f3f2',
+              '#5d8c86':'#9fb9b4','#c1cdc5':'#3c433c'};
 
-function html() {
-  const base = ($("base").value || DEFAULT_BASE).replace(/\/?$/, "/");
-  const doc = new DOMParser().parseFromString(SNIPPETS[lang], "text/html");
-  doc.querySelectorAll("img").forEach(img => {
-    const file = (img.getAttribute("src") || "").split("/").pop();
-    img.setAttribute("src", base + file);
-  });
-  return doc.body.innerHTML.trim();
+let state = {lang:'cz', size:'L', port:'png', mode:'light', width:'full'};
+const $ = id => document.getElementById(id);
+const base = () => ($('base').value || 'https://jazztrio.cz/podpis/').replace(/\/?$/, '/');
+
+function build() {
+  const s = SIZES[state.size], t = TXT[state.lang], b = base();
+  const pct = Math.round(s.img / s.w * 1000) / 10;
+  const link = 'color:#f4f0e4;text-decoration:none;white-space:nowrap';
+  const sep = '<span style="color:#5d8c86">&nbsp;·&nbsp;</span>';
+  const row = (ico, alt, href, text, last) => `
+        <tr>
+          <td width="${s.ico + s.icopad}" valign="middle" style="padding:0 ${s.icopad}px ${last?0:s.gap}px 0;font-size:0;line-height:0"><img src="${b}${ico}" alt="${alt}" width="${s.ico}" height="${s.ico}" style="display:block;width:${s.ico}px;height:${s.ico}px;border:0"></td>
+          <td valign="middle"${last?'':` style="padding:0 0 ${s.gap}px"`}><a href="${href}" style="font-size:${s.cont}px;line-height:1.4;color:#14302f;text-decoration:none;white-space:nowrap">${text}</a></td>
+        </tr>`;
+  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" bgcolor="#f4f0e4" style="border-collapse:collapse;background-color:#f4f0e4;border-radius:${s.r}px;width:100%;max-width:${s.w}px;font-family:Poppins,'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <tr>
+    <td width="${pct}%" valign="middle" bgcolor="#f4f0e4" style="width:${pct}%;padding:0;background-color:#f4f0e4;border-radius:${s.r}px 0 0 0;font-size:0;line-height:0">
+      <img src="${b}${PORTRAITS[state.port].file}" alt="David Kleňha" width="${s.img}" height="${s.imgh}" style="display:block;width:100%;max-width:${s.img}px;height:auto;border:0;border-radius:${s.r}px 0 0 0">
+    </td>
+    <td valign="middle" bgcolor="#f4f0e4" style="padding:0 ${s.tdpx}px 0 0;background-color:#f4f0e4;border-radius:0 ${s.r}px 0 0">
+      <div style="font-family:Unbounded,Poppins,Helvetica,Arial,sans-serif;font-size:${s.name}px;font-weight:600;color:#14302f;line-height:1.15;letter-spacing:-0.025em">David Kleňha</div>
+      <div style="font-size:${s.role}px;font-weight:600;letter-spacing:${s.rls};text-transform:uppercase;color:#0f5257;line-height:1.4;padding-top:${s.gap}px">${t.role}</div>
+      <div style="height:1px;background-color:#c1cdc5;margin:${s.dm1}px 0 ${s.dm2}px;font-size:0;line-height:0">&nbsp;</div>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse">${row('ico-tel.png', t.tel, 'tel:+420607828970', '+420&nbsp;607&nbsp;828&nbsp;970', false)}${row('ico-mail.png', 'E-mail', 'mailto:info@davidklenha.cz', 'info@davidklenha.cz', true)}
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" bgcolor="#0f5257" style="background-color:#0f5257;border-radius:0 0 ${s.r}px ${s.r}px;padding:${s.tdpy}px ${s.tdpx}px;font-size:${s.barf}px;line-height:${s.barlh};color:#f4f0e4;letter-spacing:0.01em">
+      <a href="${t.duo}" style="${link}">duo</a>${sep}<a href="${t.trio}" style="${link}">trio</a>${sep}<a href="${t.qua}" style="${link}">${t.quartet}</a>${sep}<a href="${t.qui}" style="${link}">${t.quintet}</a><a href="${t.ctaUrl}" style="display:inline-block;background-color:#e0a93c;border:1px solid #e0a93c;color:#14302f;font-size:${s.btnf}px;font-weight:700;line-height:1;letter-spacing:0.02em;padding:${s.btnpy}px ${s.btnpx}px;border-radius:100px;text-decoration:none;white-space:nowrap;margin:2px 0 2px ${s.ml}px;vertical-align:middle">${t.cta}</a>
+    </td>
+  </tr>
+</table>`;
 }
 
 function render() {
-  const code = html();
-  $("frame").innerHTML = code;
-  $("code").value = code;
+  const code = build();
+  let shown = code;
+  const dark = state.mode === 'dark';
+  if (dark) for (const [k, v] of Object.entries(DARK)) shown = shown.split(k).join(v);
+  $('stage').classList.toggle('dark', dark);
+  $('frame').style.maxWidth = state.width === 'full' ? '' : state.width + 'px';
+  $('frame').innerHTML = shown;
+  $('code').value = code;
+  const s = SIZES[state.size];
+  $('meta').textContent = `${s.w} × ${s.h} px · ${PORTRAITS[state.port].note}`;
 }
 
-function say(msg) {
-  $("status").textContent = msg;
-  clearTimeout(say.t);
-  say.t = setTimeout(() => ($("status").textContent = ""), 4000);
+function group(id, opts, key) {
+  $(id).innerHTML = opts.map(o =>
+    `<button class="pill" data-v="${o[0]}" aria-pressed="${state[key] === o[0]}">${o[1]}</button>`).join('');
+  $(id).querySelectorAll('.pill').forEach(b => b.onclick = () => {
+    state[key] = b.dataset.v;
+    $(id).querySelectorAll('.pill').forEach(o => o.setAttribute('aria-pressed', o === b));
+    render();
+  });
 }
+group('g-lang', [['cz','Čeština'],['en','English']], 'lang');
+group('g-size', [['L','L · 436'],['M','M · 380'],['S','S · 320']], 'size');
+group('g-port', Object.entries(PORTRAITS).map(([k,v]) => [k, v.label]), 'port');
+group('g-mode', [['light','Světlý'],['dark','Tmavý (Gmail)']], 'mode');
+group('g-width', [['full','Plná'],['420','420'],['360','360'],['320','320']], 'width');
 
-function pressed(el, on) { el.setAttribute("aria-pressed", on ? "true" : "false"); }
-
-$("cz").onclick = () => { lang = "cz"; pressed($("cz"), true); pressed($("en"), false); render(); };
-$("en").onclick = () => { lang = "en"; pressed($("cz"), false); pressed($("en"), true); render(); };
-$("light").onclick = () => { $("stage").classList.remove("dark"); pressed($("light"), true); pressed($("dark"), false); };
-$("dark").onclick = () => { $("stage").classList.add("dark"); pressed($("light"), false); pressed($("dark"), true); };
-document.querySelectorAll(".w").forEach(b => b.onclick = () => {
-  document.querySelectorAll(".w").forEach(o => pressed(o, o === b));
-  $("frame").style.maxWidth = b.dataset.w + "px";
-});
-$("base").oninput = render;
-
-$("copy").onclick = async () => {
+function say(m){ $('status').textContent = m; clearTimeout(say.t); say.t = setTimeout(()=>$('status').textContent='',4000); }
+$('copy').onclick = async () => {
   try {
     await navigator.clipboard.write([new ClipboardItem({
-      "text/html": new Blob([html()], { type: "text/html" }),
-      "text/plain": new Blob([html()], { type: "text/plain" })
-    })]);
-    say("Zkopírováno — vlož do Gmailu (Cmd/Ctrl+V)");
-  } catch (e) {
-    say("Kopírování zablokováno — označ podpis myší a zkopíruj ručně");
-  }
+      'text/html': new Blob([build()], {type:'text/html'}),
+      'text/plain': new Blob([build()], {type:'text/plain'})})]);
+    say('Zkopírováno — vlož do Gmailu (Cmd/Ctrl+V)');
+  } catch(e) { say('Kopírování zablokováno — vezmi HTML kód níže'); }
 };
-
-$("copyCode").onclick = async () => {
-  try { await navigator.clipboard.writeText(html()); say("HTML kód zkopírován"); }
-  catch (e) { say("Kopírování zablokováno — vezmi kód z pole níže"); }
+$('copyCode').onclick = async () => {
+  try { await navigator.clipboard.writeText(build()); say('HTML kód zkopírován'); }
+  catch(e) { say('Kopírování zablokováno — označ kód v poli níže'); }
 };
-
+$('base').oninput = render;
 render();
 </script>
 </body>
