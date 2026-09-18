@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /podpis/
 
 Sitemap: https://jazztrio.cz/sitemap.xml
