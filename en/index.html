@@ -1381,14 +1381,14 @@ main{position:relative;z-index:2}
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <input type="hidden" name="Sestava" id="hidSestava" value="Jazz Trio (3 musicians)">
           <input type="hidden" name="Hudební bloky" id="hidBlocks" value="3 × 45 minutes + breaks">
-          <input type="hidden" name="Typ akce" id="hidType" value="Corporate party">
+          <input type="hidden" name="Typ akce" id="hidType" value="Corporate event">
 
           <div class="calc-grid">
             <div class="field full">
               <label>Event type</label>
               <div class="choice" id="segType" role="radiogroup" aria-label="Event type">
                 <button type="button" class="opt" data-v="Wedding" role="radio" aria-checked="false">Wedding</button>
-                <button type="button" class="opt" data-v="Corporate event" role="radio" aria-checked="false">Corporate event</button>
+                <button type="button" class="opt sel" data-v="Corporate event" role="radio" aria-checked="true">Corporate event</button>
                 <button type="button" class="opt" data-v="Ball" role="radio" aria-checked="false">Ball</button>
                 <button type="button" class="opt" data-v="Other" role="radio" aria-checked="false">Other</button>
               </div>
@@ -2829,11 +2829,11 @@ body{overflow-x:hidden;max-width:100%}
         if(j.success){showToast();form.reset();setCount(3);
           $('blkChoice').querySelectorAll('.blk').forEach(function(x){x.classList.toggle('sel',x.dataset.n==='3');});
           $('hidBlocks').value='3 × 45 minutes + breaks';
-          $('segType').querySelectorAll('.opt').forEach(function(x){x.classList.toggle('sel',x.dataset.v==='Corporate party');});$('hidType').value='Corporate party';
+          $('segType').querySelectorAll('.opt').forEach(function(x){x.classList.toggle('sel',x.dataset.v==='Corporate event');});$('hidType').value='Corporate event';
           if(window.hcaptcha){try{hcaptcha.reset();}catch(_){}}}
-        else{status.className='form-status err';status.textContent='Něco se nepovedlo. Zkuste to prosím znovu, nebo napište na info@davidklenha.cz.';}
+        else{status.className='form-status err';status.textContent='Something went wrong. Please try again, or write to us at info@davidklenha.cz.';}
       })
-      .catch(function(){status.className='form-status err';status.textContent='Spojení selhalo. Napište nám prosím na info@davidklenha.cz.';})
+      .catch(function(){status.className='form-status err';status.textContent='Connection failed. Please write to us at info@davidklenha.cz.';})
       .finally(function(){btn.disabled=false;btn.innerHTML='Send enquiry';});
   });
 })();
