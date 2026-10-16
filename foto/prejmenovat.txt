@@ -1,9 +1,0 @@
-foto_1.webp -> 2026-09-19.webp
-foto_2.webp -> 2026-08-15.webp
-foto_3.webp -> 2026-07-18.webp
-foto_4.webp -> 2026-06-20.webp
-foto_5.webp -> 2026-05-16.webp
-foto_6.webp -> 2026-04-18.webp
-foto_7.webp -> 2026-03-21.webp
-foto_8.webp -> 2026-02-21.webp
-foto_9.webp -> 2026-01-17.webp
