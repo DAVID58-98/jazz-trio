@@ -1,0 +1,45 @@
+{
+  "_navod": "Návod je v souboru NAVOD-recenze-a-reference.md",
+  "reference": [
+    {
+      "nazev": "Hotel Augustine",
+      "popis": {
+        "cs": "Praha · pravidelná vystoupení",
+        "en": "Prague · regular performances",
+        "de": "Prag · regelmäßige Auftritte"
+      }
+    },
+    {
+      "nazev": "ČESMAD Bohemia",
+      "popis": {
+        "cs": "firemní akce",
+        "en": "corporate event",
+        "de": "Firmenveranstaltung"
+      }
+    },
+    {
+      "nazev": {
+        "cs": "Zámek Zbraslav",
+        "en": "Zbraslav Chateau",
+        "de": "Schloss Zbraslav"
+      },
+      "popis": {
+        "cs": "společenský večer",
+        "en": "social evening",
+        "de": "Gesellschaftsabend"
+      }
+    },
+    {
+      "nazev": {
+        "cs": "Městská část Praha 12",
+        "en": "Prague 12 District",
+        "de": "Stadtbezirk Prag 12"
+      },
+      "popis": {
+        "cs": "Viniční podvečery",
+        "en": "Vineyard Evenings",
+        "de": "Weinbergabende"
+      }
+    }
+  ]
+}

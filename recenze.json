@@ -1,0 +1,21 @@
+{
+  "_navod": "Návod je v souboru NAVOD-recenze-a-reference.md",
+  "recenze": [
+    {
+      "jmeno": "Marek D.",
+      "datum": "2026-02-16",
+      "akce": {
+        "cs": "firemní akce",
+        "en": "corporate event",
+        "de": "Firmenveranstaltung"
+      },
+      "text": {
+        "cs": "Skvělá parta, parádní zvuk a domluva na jedničku. Hrají srdcem a je to znát. Pokud hledáte kapelu, která opravdu umí, neváhejte.",
+        "en": "Great people, great sound and easy to deal with. They play from the heart and it shows. If you want a band that really can play, do not hesitate.",
+        "de": "Tolle Leute, toller Klang und unkomplizierte Absprache. Sie spielen mit Herz und das hört man. Wer eine Band sucht, die es wirklich kann, sollte nicht zögern."
+      },
+      "hvezdy": 5,
+      "zdroj": "https://www.budemesvoji.cz/listing/david-klenha-jazz-band/"
+    }
+  ]
+}
