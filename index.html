@@ -1188,6 +1188,14 @@ html #builder .mlabel{font-size:11px}
 .mo-also a{display:inline-flex;align-items:center;padding:7px 15px;border:1.5px solid rgba(15,82,87,.3);border-radius:100px;font-weight:600;font-size:13.5px;color:var(--emerald);text-decoration:none;transition:background .2s,color .2s,border-color .2s}
 .mo-also a:hover{background:var(--emerald);border-color:var(--emerald);color:#fff}
 .mo-also a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+html .price-tile{padding:clamp(24px,3.4vw,42px) clamp(20px,3vw,44px)}
+html .calc-grid{gap:13px}
+html .field{gap:6px}
+html .field input,html .field textarea{padding:11px 14px}
+html .field input[type=date]{min-height:44px}
+html .field textarea{min-height:62px}
+html .calc-submit{gap:9px;margin-top:16px}
+@media (min-width:561px){html .choice,html .blocks-choice{gap:8px}}
 </style>
 <style id="mo-vt">@view-transition{navigation:auto}::view-transition-group(*){animation-duration:.42s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}.topbar .brand,.site-header .brand{view-transition-name:mo-brand}.hero-slogans,.article-title{view-transition-name:mo-title}@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}</style>
 </head>
@@ -3071,6 +3079,6 @@ document.addEventListener('click',function(e){
   });}
 })();
 </script>
-<script src="/motion.js?v=12" defer></script>
+<script src="/motion.js?v=13" defer></script>
 </body>
 </html>

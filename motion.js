@@ -1,5 +1,5 @@
 /* =========================================================
-   motion.js — pohybové efekty a vylepšení webů souborů (verze 12)
+   motion.js — pohybové efekty a vylepšení webů souborů (verze 13)
    Načítá se s defer. Vše je nadstavba nad hotovým HTML:
    když skript chybí, web funguje a vypadá jako dřív.
    ========================================================= */
