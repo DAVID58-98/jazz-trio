@@ -77,12 +77,12 @@ const PORTRAITS = {
   alpha: {file:'ekvalizer-anim.gif',     label:'Animovaný průhledný', note:'GIF 256 kB, 1×, 56 snímků, plně průhledné pozadí. V tmavém režimu nezůstane vůbec nic světlého, ale na retině je měkčí.'}
 };
 const TXT = {
-  cz: {role:'Jazzový zpěvák', cta:'Ověřit termín', quartet:'kvartet', quintet:'kvintet',
+  cz: {role:'Jazzový zpěvák', cta:'Ověřit termín', quartet:'kvartet',
        duo:'https://jazzduo.cz/', trio:'https://jazztrio.cz/', qua:'https://jazzquartet.cz/',
-       qui:'https://jazzquintet.cz/', ctaUrl:'https://jazztrio.cz/#poptavka', tel:'Telefon'},
-  en: {role:'Jazz Singer', cta:'Check a date', quartet:'quartet', quintet:'quintet',
+       ctaUrl:'https://jazztrio.cz/#poptavka', tel:'Telefon'},
+  en: {role:'Jazz Singer', cta:'Check a date', quartet:'quartet',
        duo:'https://jazzduo.cz/en/', trio:'https://jazztrio.cz/en/', qua:'https://jazzquartet.cz/en/',
-       qui:'https://jazzquintet.cz/en/', ctaUrl:'https://jazztrio.cz/en/#poptavka', tel:'Phone'}
+       ctaUrl:'https://jazztrio.cz/en/#poptavka', tel:'Phone'}
 };
 // measured in Gmail iOS dark mode
 const DARK = {'#f4f0e4':'#2d2a22','#0f5257':'#82bbc0','#e0a93c':'#6a4b0c','#14302f':'#d8f3f2',
@@ -117,7 +117,7 @@ function build() {
   </tr>
   <tr>
     <td colspan="2" align="center" bgcolor="#0f5257" style="background-color:#0f5257;border-radius:0 0 ${s.r}px ${s.r}px;padding:${s.tdpy}px ${s.tdpx}px;font-size:${s.barf}px;line-height:${s.barlh};color:#f4f0e4;letter-spacing:0.01em">
-      <a href="${t.duo}" style="${link}">duo</a>${sep}<a href="${t.trio}" style="${link}">trio</a>${sep}<a href="${t.qua}" style="${link}">${t.quartet}</a>${sep}<a href="${t.qui}" style="${link}">${t.quintet}</a><a href="${t.ctaUrl}" style="display:inline-block;background-color:#e0a93c;border:1px solid #e0a93c;color:#14302f;font-size:${s.btnf}px;font-weight:700;line-height:1;letter-spacing:0.02em;padding:${s.btnpy}px ${s.btnpx}px;border-radius:100px;text-decoration:none;white-space:nowrap;margin:2px 0 2px ${s.ml}px;vertical-align:middle">${t.cta}</a>
+      <a href="${t.duo}" style="${link}">duo</a>${sep}<a href="${t.trio}" style="${link}">trio</a>${sep}<a href="${t.qua}" style="${link}">${t.quartet}</a><a href="${t.ctaUrl}" style="display:inline-block;background-color:#e0a93c;border:1px solid #e0a93c;color:#14302f;font-size:${s.btnf}px;font-weight:700;line-height:1;letter-spacing:0.02em;padding:${s.btnpy}px ${s.btnpx}px;border-radius:100px;text-decoration:none;white-space:nowrap;margin:2px 0 2px ${s.ml}px;vertical-align:middle">${t.cta}</a>
     </td>
   </tr>
 </table>`;
