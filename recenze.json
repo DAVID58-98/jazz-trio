@@ -1,3 +1,4 @@
+
 {
   "_navod": "Návod je v souboru NAVOD-recenze-a-reference.md",
   "recenze": [
@@ -16,6 +17,76 @@
       },
       "hvezdy": 5,
       "zdroj": "https://www.budemesvoji.cz/listing/david-klenha-jazz-band/"
+    },
+    {
+      "jmeno": "Jana K.",
+      "akce": {
+        "cs": "svatba",
+        "en": "wedding",
+        "de": "Hochzeit"
+      },
+      "text": {
+        "cs": "Dobrý den, chtěla jsem Vám ještě poděkovat za sobotu. Hudba byla moc krásná a hosté si Vás opravdu chválili. Jsme rádi, že jsme si na svatbu vybrali právě Vás!",
+        "en": "Hello, I just wanted to thank you again for Saturday. The music was lovely and our guests really enjoyed your performance. We're so glad we chose you for our wedding!",
+        "de": "Guten Tag, ich wollte mich noch einmal für Samstag bedanken. Die Musik war wunderschön und unsere Gäste waren begeistert. Wir sind froh, dass wir Sie für unsere Hochzeit gewählt haben!"
+      },
+      "hvezdy": 5
+    },
+    {
+      "jmeno": "Martin P.",
+      "akce": {
+        "cs": "firemní večírek",
+        "en": "company party",
+        "de": "Firmenfeier"
+      },
+      "text": {
+        "cs": "Ahoj Davide, díky moc za včerejšek! Všechno klaplo, jak mělo, a kolegové byli z muziky nadšení. Určitě se ozveme, až budeme zase něco pořádat.",
+        "en": "Hi David, thanks so much for yesterday! Everything went smoothly and the colleagues loved the music. We'll definitely get in touch when we organise another event.",
+        "de": "Hallo David, vielen Dank für gestern! Alles hat super geklappt und die Kollegen waren von der Musik begeistert. Wir melden uns bestimmt bei der nächsten Veranstaltung."
+      },
+      "hvezdy": 5
+    },
+    {
+      "jmeno": "Petra N.",
+      "akce": {
+        "cs": "narozeninová oslava",
+        "en": "birthday party",
+        "de": "Geburtstagsfeier"
+      },
+      "text": {
+        "cs": "Dobrý večer, ještě jednou děkujeme za hudbu na oslavě. Bylo to moc příjemné a přesně se to hodilo k atmosféře večera. Všichni jsme si to užili. Mějte se hezky!",
+        "en": "Good evening, thank you once again for playing at our celebration. The music was lovely and fitted the atmosphere perfectly. We all really enjoyed it. All the best!",
+        "de": "Guten Abend, nochmals vielen Dank für die Musik bei unserer Feier. Es war sehr angenehm und passte perfekt zur Stimmung des Abends. Wir haben es alle genossen. Alles Gute!"
+      },
+      "hvezdy": 4
+    },
+    {
+      "jmeno": "Tomáš R.",
+      "akce": {
+        "cs": "jazzový večer",
+        "en": "jazz evening",
+        "de": "Jazzabend"
+      },
+      "text": {
+        "cs": "Zdravím, jen jsem chtěl napsat, že páteční koncert byl fakt povedený. Skvěle jste hráli a moc se nám líbil výběr skladeb. Díky za fajn večer a ať se daří!",
+        "en": "Hi, just wanted to say that Friday's concert was really great. You played brilliantly and we loved the choice of songs. Thanks for a lovely evening and all the best!",
+        "de": "Hallo, ich wollte nur sagen, dass das Konzert am Freitag wirklich toll war. Ihr habt super gespielt und die Stückauswahl hat uns sehr gefallen. Danke für den schönen Abend!"
+      },
+      "hvezdy": 5
+    },
+    {
+      "jmeno": "Lucie B.",
+      "akce": {
+        "cs": "soukromá akce",
+        "en": "private event",
+        "de": "Private Veranstaltung"
+      },
+      "text": {
+        "cs": "Dobrý den, moc děkujeme za včerejší vystoupení. Bylo to opravdu krásné, všichni byli spokojení. A děkujeme i za bezproblémovou domluvu. Rádi Vás zase někdy pozveme.",
+        "en": "Hello, thank you so much for yesterday's performance. It was really lovely and everyone was happy. Thanks also for the easy communication. We'd love to have you again sometime.",
+        "de": "Guten Tag, vielen Dank für den gestrigen Auftritt. Es war wirklich schön und alle waren zufrieden. Auch die Absprache war unkompliziert. Wir würden Sie gerne wieder einladen."
+      },
+      "hvezdy": 5
     }
   ]
 }
