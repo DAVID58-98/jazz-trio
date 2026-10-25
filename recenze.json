@@ -1,97 +1,107 @@
-
 {
   "_navod": "Návod je v souboru NAVOD-recenze-a-reference.md",
   "recenze": [
     {
-      "jmeno": "Marek D.",
-      "datum": "2026-02-16",
-      "akce": {
-        "cs": "firemní akce",
-        "en": "corporate event",
-        "de": "Firmenveranstaltung"
-      },
-      "text": {
-        "cs": "Skvělá parta, parádní zvuk a domluva na jedničku. Hrají srdcem a je to znát. Pokud hledáte kapelu, která opravdu umí, neváhejte.",
-        "en": "Great people, great sound and easy to deal with. They play from the heart and it shows. If you want a band that really can play, do not hesitate.",
-        "de": "Tolle Leute, toller Klang und unkomplizierte Absprache. Sie spielen mit Herz und das hört man. Wer eine Band sucht, die es wirklich kann, sollte nicht zögern."
-      },
-      "hvezdy": 5,
-      "zdroj": "https://www.budemesvoji.cz/listing/david-klenha-jazz-band/"
-    },
-    {
-      "jmeno": "Jana K.",
-      "datum": "2026-05-17",
-      "akce": {
-        "cs": "svatba",
-        "en": "wedding",
-        "de": "Hochzeit"
-      },
-      "text": {
-        "cs": "Dobrý den, chtěla jsem Vám ještě poděkovat za sobotu. Hudba byla moc krásná a hosté si Vás opravdu chválili. Jsme rádi, že jsme si na svatbu vybrali právě Vás!",
-        "en": "Hello, I just wanted to thank you again for Saturday. The music was lovely and our guests really enjoyed your performance. We're so glad we chose you for our wedding!",
-        "de": "Guten Tag, ich wollte mich noch einmal für Samstag bedanken. Die Musik war wunderschön und unsere Gäste waren begeistert. Wir sind froh, dass wir Sie für unsere Hochzeit gewählt haben!"
-      },
-      "hvezdy": 5
-    },
-    {
-      "jmeno": "Martin P.",
-      "datum": "2026-03-29",
+      "jmeno": "Aleš",
+      "datum": "2026-08-06",
       "akce": {
         "cs": "firemní večírek",
-        "en": "company party",
+        "en": "corporate party",
         "de": "Firmenfeier"
       },
       "text": {
-        "cs": "Díky moc za včerejšek! Všechno klaplo, jak mělo, a kolegové byli z muziky nadšení. Určitě se ozveme, až budeme zase něco pořádat.",
-        "en": "Hi David, thanks so much for yesterday! Everything went smoothly and the colleagues loved the music. We'll definitely get in touch when we organise another event.",
-        "de": "Hallo David, vielen Dank für gestern! Alles hat super geklappt und die Kollegen waren von der Musik begeistert. Wir melden uns bestimmt bei der nächsten Veranstaltung."
+        "cs": "Objednali jsme si vás na firemní večírek jen jako jazzové trio a byla to pecka. Potřebovali jsme jen elegantní podkres k večeři, což trefili na jedničku. Dorazili v oblecích s motýlky, takže dokonale zapadli do slavnostního rázu akce. Hráli příjemně, nebylo to hlasité a dalo se v klidu povídat. Živá hudba dodala večeru úplně jinou atmosféru i šmrnc než pouštěný playlist. Moc děkujeme!",
+        "en": "We booked you as a jazz trio for our corporate party and it was a hit. We only needed elegant background music for dinner, and you nailed it. You arrived in suits and bow ties, so you fitted the festive feel of the event perfectly. The playing was pleasant, not loud, and we could talk in peace. Live music gave the evening a completely different atmosphere and flair than a playlist would. Thank you very much!",
+        "de": "Wir haben euch als Jazz-Trio für unsere Firmenfeier gebucht und es war ein Volltreffer. Wir brauchten nur eine elegante Begleitung zum Abendessen, und genau das habt ihr perfekt getroffen. Ihr kamt in Anzügen mit Fliege und habt damit perfekt zum festlichen Rahmen gepasst. Angenehm gespielt, nicht laut, man konnte sich in Ruhe unterhalten. Live-Musik hat dem Abend eine ganz andere Atmosphäre und mehr Schwung gegeben als eine Playlist. Vielen Dank!"
       },
-      "hvezdy": 5
+      "hvezdy": 5,
+      "zdroj": "https://www.budemesvoji.cz/listing/jazz-trio-david-klenha/"
     },
     {
-      "jmeno": "Petra N.",
-      "datum": "2026-06-07",
+      "jmeno": "Martina Brandner",
+      "datum": "2026-06-29",
+      "akce": {
+        "cs": "předsvatební party",
+        "en": "pre-wedding party",
+        "de": "Polterabend"
+      },
+      "text": {
+        "cs": "Když se vdává svatební koordinátorka, je jasné, že si kolem sebe vybere ty nejlepší dodavatele. Já jsem si svoji svatbu chtěla především užít, a proto jsem věděla, že s Davidem a jeho partou budu v těch nejlepších rukou. Skupina Davida doplněná o saxofon a trumpetu – to bylo jedno z nejúžasnějších hudebních skupin, jaké jsem kdy zažila. Na naší předsvatební party byli naprosto neuvěřitelní. Je mi až líto, že jsem si je jako nevěsta nemohla vychutnat ještě víc, protože jsem neustále pobíhala mezi hosty. My i naši hosté jsme byli nadšení z toho, jak skvěle David s kapelou dokážou odhadnout atmosféru a přizpůsobit jí hudbu. Někdy rozjedou energickou show, jindy naopak vytvoří příjemný hudební podkres, který dokonale dotváří celý okamžik. Podle mě je nejlepší investicí na svatbě vždy kvalitní hudba, skvělé jídlo a krásné místo. Všechno ostatní jsou už jen příjemné detaily navíc. Davida a jeho kapelu si bez váhání znovu zarezervuji – ať už pro své klienty, nebo na některou z dalších akcí. Děkujeme, Davide! ❤️",
+        "en": "When a wedding coordinator gets married, it is clear she will choose the best suppliers around her. Above all I wanted to enjoy my own wedding, so I knew I would be in the best hands with David and his band. David's group with added saxophone and trumpet was one of the most amazing bands I have ever experienced. At our pre-wedding party they were absolutely incredible. I am almost sorry that as the bride I could not enjoy them even more, because I was constantly running between guests. We and our guests were thrilled by how well David and the band read the atmosphere and adapt the music to it. Sometimes they launch an energetic show, other times they create a pleasant musical background that completes the moment perfectly. In my view the best investment at a wedding is always quality music, great food and a beautiful venue. Everything else is just nice extra detail. I will book David and his band again without hesitation – whether for my clients or for another event. Thank you, David! ❤️",
+        "de": "Wenn eine Hochzeitsplanerin heiratet, ist klar, dass sie die besten Dienstleister um sich versammelt. Ich wollte meine Hochzeit vor allem genießen und wusste deshalb, dass ich bei David und seiner Band in den besten Händen bin. Davids Gruppe, ergänzt um Saxophon und Trompete, war eine der großartigsten Bands, die ich je erlebt habe. Auf unserem Polterabend waren sie absolut unglaublich. Es tut mir fast leid, dass ich sie als Braut nicht noch mehr genießen konnte, weil ich ständig zwischen den Gästen unterwegs war. Wir und unsere Gäste waren begeistert, wie gut David und die Band die Stimmung erspüren und die Musik daran anpassen. Mal starten sie eine energiegeladene Show, mal schaffen sie eine angenehme musikalische Untermalung, die den Moment perfekt abrundet. Für mich ist die beste Investition bei einer Hochzeit immer gute Musik, tolles Essen und ein schöner Ort. Alles andere sind nur angenehme Details. David und seine Band buche ich ohne Zögern wieder – ob für meine Kunden oder für eine weitere Veranstaltung. Danke, David! ❤️"
+      },
+      "hvezdy": 5,
+      "zdroj": "https://www.budemesvoji.cz/listing/jazz-trio-david-klenha/"
+    },
+    {
+      "jmeno": "Karel T.",
+      "datum": "2026-05-19",
       "akce": {
         "cs": "narozeninová oslava",
         "en": "birthday party",
         "de": "Geburtstagsfeier"
       },
       "text": {
-        "cs": "Dobrý večer, děkujeme za hudbu na oslavě. Bylo to moc příjemné a přesně se to hodilo k atmosféře večera. Všichni jsme si to užili. Mějte se hezky!",
-        "en": "Good evening, thank you once again for playing at our celebration. The music was lovely and fitted the atmosphere perfectly. We all really enjoyed it. All the best!",
-        "de": "Guten Abend, nochmals vielen Dank für die Musik bei unserer Feier. Es war sehr angenehm und passte perfekt zur Stimmung des Abends. Wir haben es alle genossen. Alles Gute!"
+        "cs": "Fakt paráda! Kluky jsme bookli na narozeniny a nemělo to chybu. Regulérní živá jízda od začátku do konce. Poctivý muzikanti, na kterých je vidět, že je to baví! Lidi tancovali do noci, domluva s nima navíc úplně na pohodu, v ničem nebyl problém. Ještě jednou díky, borci, byli jste skvělí!",
+        "en": "Really great! We booked the guys for a birthday and it was flawless. A proper live ride from start to finish. Honest musicians who clearly enjoy what they do! People danced into the night, and arranging everything with them was completely easy, no problems at all. Thanks again, guys, you were great!",
+        "de": "Echt klasse! Wir haben die Jungs für einen Geburtstag gebucht und es war makellos. Live von Anfang bis Ende. Ehrliche Musiker, denen man ansieht, dass es ihnen Spaß macht! Die Leute haben bis in die Nacht getanzt, und die Absprache mit ihnen war völlig entspannt, nirgends ein Problem. Nochmals danke, Jungs, ihr wart großartig!"
       },
-      "hvezdy": 4
+      "hvezdy": 5,
+      "zdroj": "https://www.budemesvoji.cz/listing/jazz-trio-david-klenha/"
     },
     {
-      "jmeno": "Tomáš R.",
-      "datum": "2026-04-18",
+      "jmeno": "Veronika K.",
+      "datum": "2026-03-08",
       "akce": {
-        "cs": "jazzový večer",
-        "en": "jazz evening",
-        "de": "Jazzabend"
+        "cs": "zahradní svatba",
+        "en": "garden wedding",
+        "de": "Gartenhochzeit"
       },
       "text": {
-        "cs": "Zdravím, páteční koncert byl fakt povedený. Skvěle jste hráli a moc se nám líbil výběr skladeb. Díky za fajn večer a ať se daří!",
-        "en": "Hi, just wanted to say that Friday's concert was really great. You played brilliantly and we loved the choice of songs. Thanks for a lovely evening and all the best!",
-        "de": "Hallo, ich wollte nur sagen, dass das Konzert am Freitag wirklich toll war. Ihr habt super gespielt und die Stückauswahl hat uns sehr gefallen. Danke für den schönen Abend!"
+        "cs": "Moc děkujeme za skvělý hudební doprovod na naší zahradní svatbě! Nejdřív jsme měli trochu obavy z hlasitosti, ale kluci to odhadli naprosto přesně. Akustický set k odpolednímu drinku byl geniální a večer to pak parádně rozbalili. Je vidět, že jsou to muzikanti tělem i duší a ne jen „pouštěči“. Domluva byla naprosto bezproblémová a vše klaplo podle plánu. Určitě doporučujeme všem, co hledají!",
+        "en": "Thank you so much for the wonderful music at our garden wedding! At first we were a little worried about the volume, but the guys judged it perfectly. The acoustic set for the afternoon drinks was brilliant, and in the evening they really let loose. You can tell they are musicians body and soul, not just people pressing play. Arranging everything was completely smooth and it all went to plan. We definitely recommend them to anyone looking!",
+        "de": "Vielen Dank für die tolle musikalische Begleitung auf unserer Gartenhochzeit! Anfangs hatten wir etwas Sorge wegen der Lautstärke, aber die Jungs haben es genau richtig eingeschätzt. Das Akustik-Set zum Nachmittagsdrink war genial, und am Abend haben sie dann richtig aufgedreht. Man merkt, dass sie Musiker mit Leib und Seele sind und nicht nur Musik abspielen. Die Absprache war völlig problemlos und alles lief nach Plan. Wir empfehlen sie allen, die suchen!"
       },
-      "hvezdy": 5
+      "hvezdy": 5,
+      "zdroj": "https://www.budemesvoji.cz/listing/jazz-trio-david-klenha/"
     },
     {
-      "jmeno": "Lucie B.",
-      "datum": "2025-11-15",
+      "jmeno": "Marek D.",
+      "datum": "2026-02-16",
+      "text": {
+        "cs": "Skvělá parta, parádní zvuk a domluva na jedničku. Hrají srdcem a je to znát. Pokud hledáte kapelu, která fakt umí a neudělá vám z akce „diskotéku z flashky“, tak neváhejte. Díky moc, kluci!",
+        "en": "Great people, great sound and easy to deal with. They play from the heart and it shows. If you want a band that really can play and won't turn your event into a 'USB-stick disco', don't hesitate. Thanks a lot, guys!",
+        "de": "Tolle Truppe, toller Sound und unkomplizierte Absprache. Sie spielen mit Herz und das hört man. Wer eine Band sucht, die es wirklich kann und aus der Feier keine „USB-Stick-Disco“ macht, sollte nicht zögern. Vielen Dank, Jungs!"
+      },
+      "hvezdy": 5,
+      "zdroj": "https://www.budemesvoji.cz/listing/jazz-trio-david-klenha/"
+    },
+    {
+      "jmeno": "Klára V.",
+      "datum": "2024-07-10",
+      "text": {
+        "cs": "Byli jste parádní! Děkujeme za nádhernou atmosféru a skvělý výběr písniček. Těšíme se, až si vás zase někde poslechneme. Jste fakt profíci, jen tak dál! Klára.",
+        "en": "You were fantastic! Thank you for the wonderful atmosphere and great choice of songs. We look forward to hearing you again somewhere. You are real pros, keep it up! Klára.",
+        "de": "Ihr wart großartig! Danke für die wunderbare Atmosphäre und die tolle Songauswahl. Wir freuen uns darauf, euch wieder irgendwo zu hören. Ihr seid echte Profis, weiter so! Klára."
+      },
+      "hvezdy": 5,
+      "zdroj": "https://www.budemesvoji.cz/listing/jazz-trio-david-klenha/"
+    },
+    {
+      "jmeno": "Petr M.",
+      "datum": "2024-06-17",
       "akce": {
-        "cs": "soukromá akce",
-        "en": "private event",
-        "de": "Private Veranstaltung"
+        "cs": "svatba",
+        "en": "wedding",
+        "de": "Hochzeit"
       },
       "text": {
-        "cs": "Děkujeme za včerejší vystoupení. Bylo to opravdu krásné, všichni byli spokojení. A děkujeme i za bezproblémovou domluvu. Rádi Vás zase někdy pozveme.",
-        "en": "Hello, thank you so much for yesterday's performance. It was really lovely and everyone was happy. Thanks also for the easy communication. We'd love to have you again sometime.",
-        "de": "Guten Tag, vielen Dank für den gestrigen Auftritt. Es war wirklich schön und alle waren zufrieden. Auch die Absprache war unkompliziert. Wir würden Sie gerne wieder einladen."
+        "cs": "My máme s kapelou skvělou zkušenost. Od začátku byli velmi profesionální a ochotní. Skvělá domluva. Pomohli nám vybrat ideální skladby pro obřad i večerní zábavu. Všichni hosté, přátelé i rodina si je velmi chválili. Opravdu jsme si to užili. Díky a rádi vás doporučíme dalším :–)",
+        "en": "We have a great experience with the band. From the start they were very professional and helpful. Great communication. They helped us choose the ideal songs for the ceremony and the evening party. All the guests, friends and family praised them highly. We really enjoyed it. Thanks, and we will gladly recommend you to others :–)",
+        "de": "Wir haben mit der Band eine großartige Erfahrung gemacht. Von Anfang an sehr professionell und hilfsbereit. Super Absprache. Sie haben uns geholfen, die idealen Stücke für die Trauung und die Abendfeier auszuwählen. Alle Gäste, Freunde und Familie haben sie sehr gelobt. Wir haben es wirklich genossen. Danke, wir empfehlen euch gern weiter :–)"
       },
-      "hvezdy": 5
+      "hvezdy": 5,
+      "zdroj": "https://www.budemesvoji.cz/listing/jazz-trio-david-klenha/"
     }
   ]
 }

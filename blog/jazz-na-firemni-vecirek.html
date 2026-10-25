@@ -30,6 +30,24 @@
 <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
 <meta name="theme-color" content="#0f5257">
+<!-- Consent Mode v2: souhlas převzatý z cookie lišty hlavní stránky (jt-cookie-consent); bez volby = odmítnuto -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  (function(){
+    var c=null;
+    try{var d=JSON.parse(localStorage.getItem('jt-cookie-consent')||'null');
+      if(d&&d.version==='1.0'&&(Date.now()-d.timestamp)/86400000<=365)c=d.consent;}catch(e){}
+    var a=!!(c&&c.ads),an=!!(c&&c.analytics);
+    gtag('consent','default',{
+      'ad_storage':a?'granted':'denied','ad_user_data':a?'granted':'denied',
+      'ad_personalization':a?'granted':'denied','analytics_storage':an?'granted':'denied'
+    });
+  })();
+</script>
+<!-- Google Tag Manager (měření poptávek; souhlas řídí Consent Mode výše) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M4KJPMW7');</script>
+<!-- End Google Tag Manager -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -377,6 +395,7 @@ html{overflow-x:hidden}
 </style>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4KJPMW7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header class="topbar" id="topbar">
   <a href="/" class="brand">jazz<b>trio</b>.cz</a>
   <nav class="topnav">
