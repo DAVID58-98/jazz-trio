@@ -245,7 +245,47 @@ later('reviews',function(){
   cards.forEach(function(c){var s=$('.stars',c);if(s){var h='';for(var i=0;i<5;i++)h+='<span aria-hidden="true">★</span>';s.innerHTML=h}
     var p=$('p',c);if(p&&!RM){var txt=p.textContent;p.textContent='';txt.split(/(\s+)/).forEach(function(w){var sp=document.createElement('span');sp.textContent=w;p.appendChild(sp)})}});
   var order=cards.slice();
-  function measure(){var m=0;cards.forEach(function(c){c.style.height='';m=Math.max(m,c.offsetHeight)});cards.forEach(function(c){c.style.height=m+'px'});st.style.height=(m+26)+'px'}
+  /* Dlouhá recenze: dlaždice si drží původní výšku (text max. 4 řádky na desktopu, 6 na mobilu);
+     delší text se zkrátí a celý se otevře ve vyskakovacím okně. */
+  var LG=(document.documentElement.lang||'cs').slice(0,2),
+      TXT={cs:['Číst celou recenzi','Zavřít'],en:['Read full review','Close'],de:['Ganze Bewertung lesen','Schließen']}[LG]||['Číst celou recenzi','Zavřít'];
+  if(!$('#revClampCss')){var cs=document.createElement('style');cs.id='revClampCss';cs.textContent=
+    '.rstack .review p.rv-clamp{display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}'+
+    '.rv-more{align-self:flex-start;background:none;border:0;padding:0;margin-top:-12px;font:600 13px/1.3 var(--font-body);color:#f0c163;text-decoration:underline;text-underline-offset:3px;cursor:pointer}'+
+    '.rv-more:focus-visible{outline:2px solid #f0c163;outline-offset:3px;border-radius:4px}'+
+    '#rvModal{border:0;padding:0;background:transparent;max-width:min(560px,calc(100vw - 32px));width:100%;max-height:none;overflow:visible;margin:auto}'+
+    '#rvModal::backdrop{background:rgba(20,48,47,.6);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}'+
+    '#rvModal .rv-box{background:var(--emerald);color:var(--cream);border-radius:24px;padding:30px 28px 24px;max-height:calc(100vh - 48px);max-height:calc(100dvh - 48px);overflow:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}'+
+    '#rvModal .stars{color:#f0c163;font-size:17px;letter-spacing:3px}'+
+    '#rvModal p{font-size:15px;line-height:1.65;margin:0}'+
+    '#rvModal .who{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}'+
+    '#rvModal .who b{color:#fff;font-size:14px}#rvModal .who span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mint-soft)}'+
+    '#rvModal .rv-close{align-self:flex-end;margin-top:6px;background:var(--cream);color:var(--petrol);border:0;border-radius:100px;padding:10px 22px;font:600 14px var(--font-body);cursor:pointer}';
+    document.head.appendChild(cs)}
+  var modal=null;
+  function openFull(c){
+    if(!modal){modal=document.createElement('dialog');modal.id='rvModal';modal.setAttribute('aria-modal','true');document.body.appendChild(modal);
+      modal.addEventListener('click',function(e){if(e.target===modal)modal.close()});}
+    var n=c._stars||0,who=$('.who',c);
+    modal.innerHTML='<div class="rv-box">'+(n?'<div class="stars" aria-label="'+n+'/5">'+'★★★★★'.slice(0,n)+'</div>':'')+'<p></p>'+(who?'<div class="who">'+who.innerHTML+'</div>':'')+'<button type="button" class="rv-close">'+TXT[1]+'</button></div>';
+    $('p',modal).textContent=c._full;$('.rv-close',modal).addEventListener('click',function(){modal.close()});
+    if(modal.showModal)modal.showModal();else modal.setAttribute('open','');$('.rv-box',modal).scrollTop=0;try{$('.rv-close',modal).focus({preventScroll:true})}catch(_){}}
+  cards.forEach(function(c){var p=$('p',c);if(!p)return;c._full=p.textContent;var sl=$('.stars',c),m=sl&&/(\d)/.exec(sl.getAttribute('aria-label')||'');c._stars=m?+m[1]:0;
+    var b=document.createElement('button');b.type='button';b.className='rv-more';b.textContent=TXT[0];b.hidden=true;
+    b.addEventListener('pointerdown',function(e){e.stopPropagation()});
+    b.addEventListener('click',function(e){e.stopPropagation();openFull(c)});
+    p.parentNode.insertBefore(b,p.nextSibling);c._more=b});
+  function clamp(){var L=matchMedia('(max-width:680px)').matches?6:4;
+    cards.forEach(function(c){var p=$('p',c),b=c._more;if(!p||!b)return;
+      p.classList.remove('rv-clamp');p.style.webkitLineClamp='';b.hidden=true;
+      c.style.height='';
+      var lh=parseFloat(getComputedStyle(p).lineHeight)||22,who=$('.who',c),wb=$('.who b',c),
+          whoExtra=(who&&wb)?Math.max(0,who.offsetHeight-wb.offsetHeight*(L>4?2:1)):0,  /* na mobilu smí být podpis na 2 řádky */
+          target=c.offsetHeight-p.offsetHeight-whoExtra+lh*L+1;  /* výška dlaždice s L řádky textu a jednořádkovým podpisem */
+      if(c.offsetHeight<=target)return;
+      p.classList.add('rv-clamp');b.hidden=false;
+      for(var k=L-1;k>=1;k--){p.style.webkitLineClamp=String(k);if(c.offsetHeight<=target)break}})}
+  function measure(){clamp();var m=0;cards.forEach(function(c){c.style.height='';m=Math.max(m,c.offsetHeight)});cards.forEach(function(c){c.style.height=m+'px'});st.style.height=(m+26)+'px'}
   function layout(){order.forEach(function(c,i){c.style.zIndex=10-i;c.style.transform=i?'translateY('+(i*12)+'px) scale('+(1-i*.05)+')':'none';c.style.opacity=i>2?0:1;c.setAttribute('aria-hidden',i?'true':'false')})}
   function show(c){var ss=$$('.stars span',c),ws=$$('p span',c);
     ss.forEach(function(s,i){s.classList.remove('on');setTimeout(function(){s.classList.add('on');if(!RM)A(s,frames(24,function(t){return {transform:'scale('+(1+.6*(1-spring(t,6,14)))+') rotate('+((1-spring(t,6,14))*-30)+'deg)'}}),{duration:500})},RM?0:150+i*110)});
