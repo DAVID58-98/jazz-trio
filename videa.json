@@ -1,0 +1,101 @@
+{
+  "_navod": "Návod je v souboru NAVOD-videa.md",
+  "videa": [
+    {
+      "url": "https://youtube.com/shorts/n-HIZVH_bW8",
+      "nazev": "Sunny",
+      "misto": {
+        "cs": "Michelinská restaurace ESSENS",
+        "en": "Michelin restaurant ESSENS",
+        "de": "Michelin-Restaurant ESSENS"
+      },
+      "nahled": "video/11.webp"
+    },
+    {
+      "url": "https://youtube.com/shorts/R0ICuhVxG_M",
+      "nazev": "Route 66",
+      "misto": {
+        "cs": "Galavečer – Občanská plovárna Praha",
+        "en": "Gala Evening – Občanská plovárna, Prague",
+        "de": "Galaabend – Občanská plovárna, Prag"
+      },
+      "nahled": "video/10.webp"
+    },
+    {
+      "url": "https://youtube.com/shorts/Z7Oo_03YVFE",
+      "nazev": "L-O-V-E",
+      "misto": {
+        "cs": "Hotel Augustine Praha",
+        "en": "Hotel Augustine Prague",
+        "de": "Hotel Augustine Prag"
+      },
+      "nahled": "video/1.webp"
+    },
+    {
+      "url": "https://youtube.com/shorts/AqWGedkNigY",
+      "nazev": "Jezdím bez nehod",
+      "misto": {
+        "cs": "Zámek Zbraslav",
+        "en": "Zbraslav Chateau",
+        "de": "Schloss Zbraslav"
+      },
+      "nahled": "video/2.webp"
+    },
+    {
+      "url": "https://youtube.com/shorts/7k-exbOdKPE",
+      "nazev": "Somethin’ Stupid",
+      "misto": {
+        "cs": "Festival Karlovy Vary",
+        "en": "Karlovy Vary Festival",
+        "de": "Festival Karlovy Vary"
+      },
+      "nahled": "video/3.webp"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=l7ODlXAx1tI",
+      "nazev": "The Lady Is a Tramp",
+      "misto": {
+        "cs": "Hotel Augustine Praha",
+        "en": "Hotel Augustine Prague",
+        "de": "Hotel Augustine Prag"
+      },
+      "nahled": "video/4.webp"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=0OWzK3Rk-cw",
+      "nazev": "Cheek to Cheek",
+      "misto": {
+        "cs": "Festival Karlovy Vary",
+        "en": "Karlovy Vary Festival",
+        "de": "Festival Karlovy Vary"
+      },
+      "nahled": "video/5.webp"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rfCD0AcGA-A",
+      "nazev": "Sway",
+      "misto": "Jazz Club Reduta",
+      "nahled": "video/7.webp"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=hAwyRm_FjOc",
+      "nazev": "Don’t Get Around Much Anymore",
+      "misto": {
+        "cs": "Občanská plovárna Praha",
+        "en": "Občanská plovárna, Prague",
+        "de": "Občanská plovárna, Prag"
+      },
+      "nahled": "video/8.webp"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=iF4ShjZouG0",
+      "nazev": "Život je jen náhoda",
+      "misto": {
+        "cs": "Viniční večer Modřany",
+        "en": "Vineyard Evening Modřany",
+        "de": "Weinabend Modřany"
+      },
+      "nahled": "video/9.webp"
+    }
+  ]
+}
