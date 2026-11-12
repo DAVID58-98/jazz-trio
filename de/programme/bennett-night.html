@@ -698,22 +698,29 @@ body.xm-on .snowbtn{display:inline-flex}
   .vid{flex:0 0 68vw!important;scroll-snap-align:center!important;scroll-snap-stop:always}
 }
 .occ span{background:var(--petrol);color:var(--cream);border-color:transparent;box-shadow:0 10px 22px -16px rgba(15,82,87,.7)}
-/* v5: všechny nadpisy na střed i na PC */
+/* v5/v6: nadpisy sekcí na střed i na PC (kromě úvodu a bloku „Pro jakou akci“, ty zůstávají vlevo) */
 .blk .eyebrow{display:flex;justify-content:center}
 .blk h2,.blk .lead2{text-align:center}
 .blk .lead2{margin-left:auto;margin-right:auto}
 .faq2{margin-left:auto;margin-right:auto}
-.hero2 .hg>div:first-child{text-align:center}
-.hero2 .lead{margin-left:auto;margin-right:auto}
-.hcta{justify-content:center}
-.xbadge{display:table;margin-left:auto;margin-right:auto}
-.og{grid-template-columns:1fr;text-align:center;gap:clamp(40px,5vw,64px)}
-.og .occ{justify-content:center}
-.inv{max-width:250px}
+@media (min-width:901px){
+  .occb .eyebrow{justify-content:flex-start}
+  .occb h2,.occb .lead2{text-align:left}
+  .occb .lead2{margin-left:0}
+}
+/* mobil: úvodní fotka bez useknutých hlav */
+@media (max-width:900px){.hphoto{aspect-ratio:1/1}.hphoto img{object-position:50% 22%}.hero2 .crumbs{justify-content:center}}
+/* slidery jen do stran, žádný svislý posun uvnitř */
+.vids,.sn-rail{overflow-y:hidden;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+/* další programy: na mobilu dlaždice vždy na středu, na PC celá řada na středu */
+@media (max-width:700px){
+  .rail2{scroll-padding:0;padding-left:calc(50vw - min(145px,37vw))!important;padding-right:calc(50vw - min(145px,37vw))!important}
+  .rail2 .sn-card{flex-basis:min(290px,74vw);scroll-snap-align:center;scroll-snap-stop:always}
+}
+.rail2.fit{justify-content:center}
 .card .ic{display:block}
 .card.hl .tag{margin-bottom:14px}
 .ic2 b{font-size:clamp(20px,2.1vw,26px);overflow-wrap:anywhere;hyphens:manual}
-.hero2 .crumbs{justify-content:center}
 @media (max-width:900px){
   .blk{padding:180px 0}
   .hero2{padding:calc(var(--pvh) + 110px) 0 130px}
@@ -808,6 +815,9 @@ document.addEventListener('click',function(e){var a=e.target.closest('.vid[data-
 function fitOcc(){document.querySelectorAll('.occ').forEach(function(o){var sp=[].slice.call(o.children),W=o.clientWidth,g=parseFloat(getComputedStyle(o).columnGap)||8,t=0,full=false;
  sp.forEach(function(x){x.hidden=false;});sp.forEach(function(x,i){t+=x.offsetWidth+(i?g:0);if(full||t>W+.5){x.hidden=true;full=true;}});});}
 fitOcc();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitOcc);var ow=innerWidth;addEventListener('resize',function(){if(innerWidth!==ow){ow=innerWidth;fitOcc();}});
+/* další programy: když se řada vejde, je na středu */
+function fitRail(){document.querySelectorAll('.rail2').forEach(function(r){r.classList.remove('fit');if(r.scrollWidth<=r.clientWidth+2)r.classList.add('fit');});}
+fitRail();addEventListener('resize',fitRail);
 
 })();
 </script>
