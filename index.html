@@ -1312,6 +1312,28 @@ html .calc-submit{gap:9px;margin-top:16px}
 .rstack:not([style*="height"]) .review{position:relative}
 .rstack:not([style*="height"]) .review~.review{display:none}
 
+/* --- úpravy v4 --- */
+/* Tematické večery: nižší blok, na mobilu nadpis na 2 řádky a dlaždice vždy na středu */
+#programy .sn-head{margin-bottom:10px}
+#programy .sn-card{height:310px}
+#programy .sn-rail{padding-bottom:70px;margin-bottom:-44px}
+.m-br{display:none}
+@media (max-width:700px){
+  .m-br{display:inline}
+  #programy .sn-head .section-lead{font-size:15px}
+  #programy .sn-card{flex-basis:min(272px,74vw)}
+  #programy .sn-rail{scroll-padding:0;padding-left:calc(50vw - min(136px,37vw));padding-right:calc(50vw - min(136px,37vw))}
+  #programy .sn-card{scroll-snap-align:center;scroll-snap-stop:always}
+  #programy .sn-arrows{margin-top:-26px}
+}
+/* repertoár: nižší přehrávač */
+.jb-stage{min-height:270px}
+.jb-spin{width:min(170px,46cqi)}
+.jb-list{height:268px}
+@container (min-width:720px){.jb-stage{min-height:340px}.jb-spin{width:min(240px,26cqi)}.jb-list{height:272px}}
+/* interaktivní sestava: text na jednom řádku, duo a kvartet vedle sebe pod ním */
+.mo-also>span{flex:0 0 100%}
+
 .jb-label[data-g="xmas"]{background:#b3262e;color:#fff}
 .jb-label[data-g="xmas"] i{background:#fff}
 .pc-field .opt-l{color:var(--mint-soft);font-weight:400}
@@ -1695,7 +1717,7 @@ html.jz-lock,html.jz-lock body{overflow:hidden}
   <div class="wrap">
     <div class="center sn-head">
       <span class="eyebrow">Signature Nights</span>
-      <h2 class="section-title">Tematické večery na klíč</h2>
+      <h2 class="section-title">Tematické večery<br class="m-br"> na klíč</h2>
       <p class="section-lead">Hotové programy pro vaši akci, se sladěným oblečením a ambientními světly v barvách večera.</p>
     </div>
     <div class="sn-rail" id="snRail">
@@ -1883,9 +1905,9 @@ html.jz-lock,html.jz-lock body{overflow:hidden}
           <input type="hidden" name="from_name" value="jazztrio.cz">
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <input type="hidden" name="Sestava" id="hidSestava" value="Jazz Trio (3 muzikanti)">
-          <input type="hidden" name="Hudební bloky" id="hidBlocks" value="2 hodiny s 1 pauzou">
+          <input type="hidden" name="Delka produkce" id="hidBlocks" value="120 minut s 1 pauzou">
           <input type="hidden" name="Typ akce" id="hidType" value="Firemní večírek">
-          <input type="hidden" name="Tematický večer" id="hidProgram" value="" disabled>
+          <input type="hidden" name="Tematicky vecer" id="hidProgram" value="" disabled>
 
           <div class="calc-grid">
             <div class="field full">
@@ -1903,7 +1925,7 @@ html.jz-lock,html.jz-lock body{overflow:hidden}
             </div>
             <div class="field f-place">
               <label for="misto">Místo konání</label>
-              <input type="text" id="misto" name="Místo" placeholder="např. Praha">
+              <input type="text" id="misto" name="Misto konani" placeholder="např. Praha">
             </div>
             <div class="field full f-len">
               <label>Délka produkce</label>
@@ -3024,7 +3046,7 @@ body{overflow-x:hidden;max-width:100%}
   })();
 
   /* ---- block tiles ---- */
-  var BLK={'1':'1 hodina bez pauzy','2':'2 hodiny s 1 pauzou','3':'3 hodiny se 2 pauzami'};
+  var BLK={'1':'60 minut bez pauzy','2':'120 minut s 1 pauzou','3':'180 minut se 2 pauzami'};
   (function(){
     var box=$('blkChoice');
     box.addEventListener('click',function(e){
@@ -3241,7 +3263,7 @@ document.addEventListener('click',function(e){
   });}
 })();
 </script>
-<script src="/motion.js?v=14" defer></script>
+<script src="/motion.js?v=15" defer></script>
 <script>
 /* ===== Signature Nights – tematické večery ===== */
 (function(){
@@ -3269,6 +3291,18 @@ document.addEventListener('click',function(e){
   pc.addEventListener('click',function(e){var b=e.target.closest('.pcb');if(b)pick(b.getAttribute('aria-checked')==='true'?'':b.dataset.k);});
   if(form)form.addEventListener('reset',function(){setTimeout(function(){pick('');},0);});
   try{var q=new URLSearchParams(location.search).get('program');if(q&&pc.querySelector('[data-k="'+q+'"]'))pick(q);}catch(e){}
+  /* odkaz z detailu programu (…?program=…#poptavka): formulář vždy na střed obrazovky */
+  if(location.hash==='#poptavka'){
+    var tile=document.querySelector('#poptavka .price-tile');
+    if(tile){
+      var moved=false;['wheel','touchstart','keydown'].forEach(function(t){addEventListener(t,function(){moved=true;},{once:true,passive:true});});
+      var center=function(){if(moved)return;var y=0,el=tile;while(el){y+=el.offsetTop;el=el.offsetParent;}
+        var bar=document.querySelector('.topbar'),hd=bar?bar.offsetHeight:0,av=innerHeight-hd,h=tile.offsetHeight;
+        window.scrollTo({top:Math.max(0,y-hd-(h<av?(av-h)/2:12)),behavior:'instant'});};
+      if('scrollRestoration' in history)history.scrollRestoration='manual';
+      requestAnimationFrame(center);addEventListener('load',function(){center();setTimeout(center,350);});
+    }
+  }
 })();
 </script>
 </body>

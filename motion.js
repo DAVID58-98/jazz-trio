@@ -476,8 +476,9 @@ later('builderFx',function(){
   var first=$('img',box),base=first?first.src.replace(/[^\/]*$/,''):'';
   if(base)onView(tile||box,function(){['vocal','piano','bass','drums','saxophone','trumpet','trombone'].forEach(function(n){var im=new Image();im.decoding='async';im.src=base+n+'.webp'})},0);
   /* pevná výška: řada hudebníků si drží místo pro plnou sestavu, spodní hrana dlaždice nikam necestuje */
-  function fix(reset){if(reset)box.style.minHeight='';var c=$('.mcard',box);if(!c)return;var mob=matchMedia('(max-width:860px)').matches,
-      h=c.offsetHeight,g=parseFloat(getComputedStyle(box).rowGap)||6,need=Math.ceil(mob?h*2+g:h);
+  function fix(reset){if(reset)box.style.minHeight='';var c=$('.mcard',box);if(!c)return;
+    if(matchMedia('(max-width:860px)').matches){box.style.minHeight='';return}  /* mobil: výška podle skutečného počtu řad */
+    var need=Math.ceil(c.offsetHeight);
     if(need>(parseFloat(box.style.minHeight)||0))box.style.minHeight=need+'px'}
   var rt=0;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){fix(true)},150)},{passive:true});
   box.addEventListener('load',function(){fix()},true);addEventListener('load',function(){fix()});fix();
@@ -496,6 +497,7 @@ later('builderFx',function(){
       g.style.cssText='position:absolute;margin:0;animation:none;pointer-events:none;z-index:3;left:'+(ghost.r.left-tr.left)+'px;top:'+(ghost.r.top-tr.top)+'px;width:'+ghost.r.width+'px';
       tile.appendChild(g);var a=A(g,[{opacity:1,transform:'none'},{opacity:0,transform:'translateY(8px) scale(.6)'}],{duration:320,easing:'cubic-bezier(.4,0,.6,1)',fill:'forwards'});
       if(a)a.onfinish=function(){g.remove()};else g.remove();ghost=null}
+    if(tile&&h0){fix();var h1=tile.getBoundingClientRect().height;if(Math.abs(h1-h0)>1)A(tile,[{height:h0+'px'},{height:h1+'px'}],{duration:420,easing:'cubic-bezier(.2,.8,.2,1)'});h0=0}
   }).observe(box,{childList:true});
 });
 
