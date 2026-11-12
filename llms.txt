@@ -28,12 +28,23 @@ Ověřená fakta o kapele (vše je doložené na webu):
 ## Sekce hlavní stránky
 
 - [Kdo vám zahraje](https://jazztrio.cz/#lineup): profily hudebníků včetně jejich vzdělání a dosavadní praxe
-- [Ukázka repertoáru](https://jazztrio.cz/#repertoire): 83 konkrétních titulů s uvedením interpreta, od kterého skladba pochází
+- [Ukázka repertoáru](https://jazztrio.cz/#repertoire): 122 konkrétních titulů s uvedením interpreta (jazz, pop, balady, česky, Vánoce)
 - [Videoukázky a živé nahrávky](https://jazztrio.cz/#poslech): jak trio skutečně zní
+- [Tematické večery na klíč (Signature Nights)](https://jazztrio.cz/#programy): hotové tematické programy se setlistem, sladěným oblečením a ambientními světly
 - [Ceny a poptávka](https://jazztrio.cz/#poptavka): formulář s výběrem typu akce, data, místa a délky produkce
 - [Pro koho jsme hráli](https://jazztrio.cz/#refs): seznam firemních klientů, hotelů a kulturních institucí
 - [Co nám píší klienti](https://jazztrio.cz/#reviews): ohlasy klientů tria, ověřitelné na budemesvoji.cz
 - [Časté dotazy](https://jazztrio.cz/#faq): cena, celá svatba s triem, firemní večírek, ozvučení, repertoár, technické požadavky, dojezd a kdy zvolit duo či kvartet
+
+## Tematické večery — Signature Nights (česky)
+
+Hotové programy na firemní akce a večírky, v sestavě duo, trio nebo kvartet, 60 nebo 120 minut, se sladěným oblečením (motýlek a kšandy ve 4 barvách) a ambientním LED osvětlením v ceně programu. Tematický večer je o něco dražší než běžný večer.
+
+- [Sinatra Night](https://jazztrio.cz/programy/sinatra-night.html): pocta Franku Sinatrovi — Fly Me to the Moon, My Way, New York, New York; galavečery, výročí, casino night
+- [Bennett Night](https://jazztrio.cz/programy/bennett-night.html): pocta Tonymu Bennettovi, program pravidelně uváděný v Jazz Clubu Reduta
+- [První republika](https://jazztrio.cz/programy/prvni-republika.html): Ježek, Voskovec a Werich, swingové evergreeny v češtině a americký swing 30. let; retro večírky a plesy
+- [Bossa & Lounge](https://jazztrio.cz/programy/bossa-lounge.html): bossa nova, latin a jemný swing k večeři, welcome drinku a na terasu
+- [Vánoční swing](https://jazztrio.cz/programy/vanocni-swing.html): vánoční písně a české koledy ve swingu pro firemní vánoční večírky (nabízeno do 31. 12.)
 
 ## Blog — poradna pro pořadatele (česky)
 

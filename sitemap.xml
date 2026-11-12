@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jazztrio.cz/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/"/>
@@ -690,5 +690,35 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/birthday-party-band-prague.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/live-musik-jubilaeum.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/kapela-na-oslavu.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/programy/sinatra-night.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/programy/bennett-night.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/programy/prvni-republika.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/programy/bossa-lounge.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/programy/vanocni-swing.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
