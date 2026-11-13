@@ -721,4 +721,94 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://jazztrio.cz/en/programs/christmas-swing.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/programs/sinatra-night.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/programs/bennett-night.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/programs/first-republic.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/programs/bossa-lounge.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/programme/weihnachts-swing.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/programme/sinatra-night.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/programme/bennett-night.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/programme/erste-republik.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/programme/bossa-lounge.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/blog/tematicke-vecery-na-firemni-akci.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/tematicke-vecery-na-firemni-akci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/themed-evenings-corporate-events.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/themenabende-firmenevent.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/tematicke-vecery-na-firemni-akci.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/en/blog/themed-evenings-corporate-events.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/tematicke-vecery-na-firemni-akci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/themed-evenings-corporate-events.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/themenabende-firmenevent.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/tematicke-vecery-na-firemni-akci.html"/>
+  </url>
+  <url>
+    <loc>https://jazztrio.cz/de/blog/themenabende-firmenevent.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://jazztrio.cz/blog/tematicke-vecery-na-firemni-akci.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jazztrio.cz/en/blog/themed-evenings-corporate-events.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jazztrio.cz/de/blog/themenabende-firmenevent.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jazztrio.cz/blog/tematicke-vecery-na-firemni-akci.html"/>
+  </url>
 </urlset>
