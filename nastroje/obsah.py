@@ -3,6 +3,8 @@
 Vygeneruje sekce „Co nám píší klienti“, „Pro koho jsme hráli“ a „Videoukázky“
 z recenze.json, reference.json a videa.json do index.html, en/index.html a de/index.html
 (mezi značky <!-- RECENZE:START/END -->, <!-- REFERENCE:START/END --> a <!-- VIDEA:START/END -->).
+Prvních 3 videí vloží i do stránek tematických večerů (programy/, en/programs/, de/programme/,
+mezi značky <!-- VIDEA-PROGRAM:START/END -->), pokud takové stránky na webu jsou.
 Spouští ho GitHub Actions po každé změně JSON souborů.
 """
 import json, re, sys, html, datetime, pathlib, urllib.request, urllib.error
@@ -19,6 +21,8 @@ LABEL = {
 PAGES = {'cs': 'index.html', 'en': 'en/index.html', 'de': 'de/index.html'}
 STARS_LABEL = {'cs': 'Hodnocení {n} z 5 hvězdiček', 'en': '{n}/5', 'de': '{n}/5'}
 PLAY_LABEL = {'cs': 'Přehrát video', 'en': 'Play video', 'de': 'Video abspielen'}
+PROG_DIRS = {'cs': 'programy', 'en': 'en/programs', 'de': 'de/programme'}
+PROG_POCET = 3
 MONTH_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 CHYBY = []
 
@@ -198,6 +202,60 @@ def videa_html(seznam, jazyk):
     return '\n            '.join(vystup)
 
 
+def program_videa_html(seznam, jazyk):
+    """Prvních několik videí pro stránky tematických večerů (jednodušší karty, přehrání v okně na stránce)."""
+    vystup = []
+    for i, v in enumerate(seznam):
+        vid = yt_id(v.get('url', ''))
+        if not vid:
+            continue
+        kde = f'videa.json, položka {i + 1}'
+        nazev, nj = prelozit(v.get('nazev'), jazyk, kde) if v.get('nazev') else ('', jazyk)
+        misto, mj = prelozit(v.get('misto'), jazyk, kde) if v.get('misto') else ('', jazyk)
+        na_vysku = v.get('na_vysku')
+        if not isinstance(na_vysku, bool):
+            na_vysku = '/shorts/' in v.get('url', '')
+        nahled = v.get('nahled')
+        if nahled and nahled.startswith('video/'):
+            src = '/' + nahled
+        elif nahled:
+            src = nahled
+        else:
+            src = yt_nahled(vid, na_vysku)
+        aria = PLAY_LABEL[jazyk] + ': ' + nazev + (' – ' + misto if misto else '')
+        vert = ' data-v="1"' if na_vysku else ''
+        n_lang = f' lang="{nj}"' if nj != jazyk else ''
+        m_lang = f' lang="{mj}"' if mj != jazyk else ''
+        mhtml = f'<small{m_lang}>{esc(misto)}</small>' if misto else ''
+        vystup.append(
+            f'<a class="vid rv" href="{html.escape(v["url"])}" target="_blank" rel="noopener" data-yt="{vid}"{vert} aria-label="{html.escape(aria)}">'
+            f'<img src="{html.escape(src)}" alt="" loading="lazy" decoding="async" width="400" height="400">'
+            f'<span class="pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>'
+            f'<span class="cap"><span{n_lang}>{esc(nazev)}</span>{mhtml}</span></a>')
+        if len(vystup) == PROG_POCET:
+            break
+    return '\n'.join(vystup)
+
+
+def programy(videa):
+    """Stránky tematických večerů: vloží prvních PROG_POCET videí. Vrací počet upravených stránek."""
+    n = 0
+    for jazyk, slozka in PROG_DIRS.items():
+        d = ROOT / slozka
+        if not d.is_dir():
+            continue
+        obsah = program_videa_html(videa, jazyk)
+        for p in sorted(d.glob('*.html')):
+            s = p.read_text(encoding='utf-8')
+            if '<!-- VIDEA-PROGRAM:START' not in s:
+                continue
+            s2 = vloz(s, 'VIDEA-PROGRAM', obsah, '', str(p.relative_to(ROOT)))
+            if not CHYBY and s2 != s:
+                p.write_text(s2, encoding='utf-8')
+            n += 1
+    return n
+
+
 def vloz(s, znacka, obsah, odsazeni, soubor):
     pat = re.compile(rf'(<!-- {znacka}:START[^>]*-->)(.*?)(<!-- {znacka}:END -->)', re.S)
     if len(pat.findall(s)) != 1:
@@ -233,9 +291,11 @@ def main():
         t2 = re.sub(r'^(- Reference [^:]*: ).*$', lambda m: m.group(1) + jmena, t, count=1, flags=re.M)
         if t2 != t:
             llms.write_text(t2, encoding='utf-8')
+    n_prog = programy(videa) if not CHYBY else 0
     if CHYBY:
         sys.exit('Nic jsem nezměnil, v souborech jsou chyby:\n- ' + '\n- '.join(dict.fromkeys(CHYBY)))
-    print(f'Hotovo: {len(recenze)} recenzí, {len(reference)} referencí, {len(videa)} videí ({SITE}).')
+    print(f'Hotovo: {len(recenze)} recenzí, {len(reference)} referencí, {len(videa)} videí ({SITE})'
+          + (f', videa ve {n_prog} stránkách tematických večerů.' if n_prog else '.'))
 
 
 if __name__ == '__main__':
