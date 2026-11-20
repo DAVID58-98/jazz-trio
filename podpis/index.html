@@ -78,10 +78,10 @@ const PORTRAITS = {
 };
 const TXT = {
   cz: {role:'Jazzový zpěvák', cta:'Ověřit termín', quartet:'kvartet',
-       duo:'https://jazzduo.cz/', trio:'https://jazztrio.cz/', qua:'https://jazzquartet.cz/',
+       duo:'https://jazzduo.cz/', trio:'https://jazztrio.cz/', qua:'https://jazzquartet.cz/', combo:'https://jazzcombo.cz/',
        ctaUrl:'https://jazztrio.cz/#poptavka', tel:'Telefon'},
   en: {role:'Jazz Singer', cta:'Check a date', quartet:'quartet',
-       duo:'https://jazzduo.cz/en/', trio:'https://jazztrio.cz/en/', qua:'https://jazzquartet.cz/en/',
+       duo:'https://jazzduo.cz/en/', trio:'https://jazztrio.cz/en/', qua:'https://jazzquartet.cz/en/', combo:'https://jazzcombo.cz/en/',
        ctaUrl:'https://jazztrio.cz/en/#poptavka', tel:'Phone'}
 };
 // measured in Gmail iOS dark mode
@@ -117,7 +117,7 @@ function build() {
   </tr>
   <tr>
     <td colspan="2" align="center" bgcolor="#0f5257" style="background-color:#0f5257;border-radius:0 0 ${s.r}px ${s.r}px;padding:${s.tdpy}px ${s.tdpx}px;font-size:${s.barf}px;line-height:${s.barlh};color:#f4f0e4;letter-spacing:0.01em">
-      <a href="${t.duo}" style="${link}">duo</a>${sep}<a href="${t.trio}" style="${link}">trio</a>${sep}<a href="${t.qua}" style="${link}">${t.quartet}</a><a href="${t.ctaUrl}" style="display:inline-block;background-color:#e0a93c;border:1px solid #e0a93c;color:#14302f;font-size:${s.btnf}px;font-weight:700;line-height:1;letter-spacing:0.02em;padding:${s.btnpy}px ${s.btnpx}px;border-radius:100px;text-decoration:none;white-space:nowrap;margin:2px 0 2px ${s.ml}px;vertical-align:middle">${t.cta}</a>
+      <a href="${t.duo}" style="${link}">duo</a>${sep}<a href="${t.trio}" style="${link}">trio</a>${sep}<a href="${t.qua}" style="${link}">${t.quartet}</a>${sep}<a href="${t.combo}" style="${link}">combo</a><a href="${t.ctaUrl}" style="display:inline-block;background-color:#e0a93c;border:1px solid #e0a93c;color:#14302f;font-size:${s.btnf}px;font-weight:700;line-height:1;letter-spacing:0.02em;padding:${s.btnpy}px ${s.btnpx}px;border-radius:100px;text-decoration:none;white-space:nowrap;margin:2px 0 2px ${s.ml}px;vertical-align:middle">${t.cta}</a>
     </td>
   </tr>
 </table>`;
